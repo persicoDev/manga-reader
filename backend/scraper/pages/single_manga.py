@@ -29,5 +29,7 @@ def get_single_manga(link):
         file.close()
         new_volume_number -= 1
         get_single_chapter(link)
+        if new_volume_number == 0:
+            break
     # except: 
     #     print('-errore-')
