@@ -3,6 +3,7 @@ from .checks import check_img
 from bs4 import BeautifulSoup
 import requests
 
+
 def get_single_chapter(link):
     try:
         tag = None
@@ -19,11 +20,10 @@ def get_single_chapter(link):
         if i >= 10:
             link = link[:-2]
             link += str(i + 1)
-        if i > 100:
+        if i >= 100:
             link = link[:-3]
             link += str(i + 1)
         soup = BeautifulSoup(requests.get(link).content, 'html.parser')
-        manga_container = soup.find_all('img', class_= 'img-fluid')
+        manga_container = soup.find_all('img', class_='img-fluid')
         print(str(manga_container[1]['src']))
         save = manga_container[1]['src']
-        file_save(save)

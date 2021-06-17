@@ -4,18 +4,24 @@ import requests
 from pages import single_manga, json_save
 from bs4 import BeautifulSoup
 
+
+
 if __name__ == "__main__":
-        i = 1
-        while True:
-            try:
-                soup = BeautifulSoup(requests.get(f'https://www.mangaworld.io/archive?page={ i }').content, 'html.parser')
-                manga_list = soup.find_all('a', class_= 'manga-title')
-                for manga in range(len(manga_list)):
-                    save = str(manga_list[manga]['title'])
-                    json_save.file_save(save)
-                    link = str(manga_list[manga]['href'])
-                    single_manga.get_single_manga(link)
-                i += 1
-            except:
-                break
-                print('scraping finished')
+    manga_save = []
+    i = 1
+    while True:
+        try:
+            manga_list = BeautifulSoup(requests.get(f'https://www.mangaworld.io/archive?page={ i }').content, 'html.parser')
+            for manga in manga_list('div', class_='entry'):
+                json_single_manga = {}
+                json_single_manga['title'] = manga.find('a')['title']
+                json_single_manga['preview'] = manga.find('img')['src']
+                json_single_manga['link'] = manga.find('a')['href']
+                manga_save.append(json_single_manga)
+                json_save.file_save(manga_save)
+                link = json_single_manga['link']
+                single_manga.get_single_manga(link)
+            i += 1
+        except:
+            print('scraping finished')
+            break
