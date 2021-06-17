@@ -34,6 +34,11 @@ if __name__ == "__main__":
                     single_manga.get_single_manga(link)
                 i += 1
             except:
+<<<<<<< develop
                 break
                 print('scraping finished')
 >>>>>>> conflict fix.
+=======
+                print('scraping finished')
+                break
+>>>>>>> added all manga img with checks.
