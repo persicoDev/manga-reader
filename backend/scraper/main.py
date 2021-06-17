@@ -5,13 +5,13 @@ from pages import single_manga, json_save
 from bs4 import BeautifulSoup
 
 
-
 if __name__ == "__main__":
     manga_save = []
     i = 1
     while True:
         try:
-            manga_list = BeautifulSoup(requests.get(f'https://www.mangaworld.io/archive?page={ i }').content, 'html.parser')
+            manga_list = BeautifulSoup(requests.get(
+                f'https://www.mangaworld.io/archive?page={ i }').content, 'html.parser')
             for manga in manga_list('div', class_='entry'):
                 json_single_manga = {}
                 json_single_manga['title'] = manga.find('a')['title']
