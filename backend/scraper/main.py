@@ -12,18 +12,6 @@ if __name__ == "__main__":
         file.close()
         page_index = soup.find('a', class_='page-link')
         while True:
-<<<<<<< develop
-            # try:
-            manga_list = soup.find_all('a', class_= 'manga-title')
-            for manga in range(len(manga_list)):
-                save = str(manga_list[manga]['title'])
-                json_save.file_save(save)
-                link = str(manga_list[manga]['href'])
-                single_manga.get_single_manga(link)
-            i += 1
-            # except:
-            #     print('scraping finished')
-=======
             try:
                 soup = BeautifulSoup(requests.get(f'https://www.mangaworld.io/archive?page={ i }').content, 'html.parser')
                 manga_list = soup.find_all('a', class_= 'manga-title')
@@ -34,11 +22,5 @@ if __name__ == "__main__":
                     single_manga.get_single_manga(link)
                 i += 1
             except:
-<<<<<<< develop
                 break
                 print('scraping finished')
->>>>>>> conflict fix.
-=======
-                print('scraping finished')
-                break
->>>>>>> added all manga img with checks.
