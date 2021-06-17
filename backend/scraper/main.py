@@ -6,9 +6,13 @@ from bs4 import BeautifulSoup
 
 if __name__ == "__main__":
         i = 1
+        soup = BeautifulSoup(requests.get(f'https://www.mangaworld.io/archive?page={ i }').content, 'html.parser')
+        file = open('link.txt', 'a')
+        file.write(str(soup.prettify()) + "\n")
+        file.close()
+        page_index = soup.find('a', class_='page-link')
         while True:
             # try:
-            soup = BeautifulSoup(requests.get(f'https://www.mangaworld.io/archive?page={ i }').content, 'html.parser')
             manga_list = soup.find_all('a', class_= 'manga-title')
             for manga in range(len(manga_list)):
                 save = str(manga_list[manga]['title'])
