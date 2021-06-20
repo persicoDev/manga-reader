@@ -1,1 +1,8 @@
-<p>home works!</p>
+<div>
+    <ul *ngFor="let manga of mangaList">
+        <li>
+            <h3>manga name: {{ manga.title }} </h3>
+            <img style="height: 50px; width: 50px;" src="{{ manga.preview }}" >
+        </li>
+    </ul>
+</div>

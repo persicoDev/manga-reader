@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import mangas from '../../../../../backend/db.json';
 
 @Component({
   selector: 'app-home',
@@ -11,5 +12,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  public mangaList:{ title:string,preview:string,link:string }[]=mangas;
 }
