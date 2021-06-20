@@ -19,8 +19,7 @@ if __name__ == "__main__":
                 json_single_manga['link'] = manga.find('a')['href']
                 manga_save.append(json_single_manga)
                 json_save.file_save(manga_save)
-                link = json_single_manga['link']
-                single_manga.get_single_manga(link)
+                single_manga.get_single_manga(link = json_single_manga['link'])
             i += 1
         except:
             print('scraping finished')
