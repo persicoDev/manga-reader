@@ -12,5 +12,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  public mangaList:{ title:string,preview:string,link:string }[]=mangas;
+  public mangaList:{ title:string, preview:string } [] = mangas;
 }
