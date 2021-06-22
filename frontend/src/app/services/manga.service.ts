@@ -12,6 +12,7 @@ const httpOption = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class MangaService {
   private apiUrl = 'http://localhost:5000/mangas';
   
@@ -20,4 +21,10 @@ export class MangaService {
   getMangas(): Observable<Manga[]> {
     return this.http.get<Manga[]>(this.apiUrl)
   }
+
+  updateMangaBookmark(manga: Manga): Observable<Manga[]> {
+     const url = `${this.apiUrl}/${manga.bookmarked}`;
+     return this.http.put<Manga>(url, manga, httpOption);
+  }
+  
 }
