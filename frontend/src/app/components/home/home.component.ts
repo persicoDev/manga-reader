@@ -14,9 +14,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void { }
 
   faBookmark = faBookmark;
-  public mangaList:{ title:string, preview:string } [] = mangas;
-  // public bookmarkedMangaList:{ manga:mangaList } []
-  
+  public mangaList:{ title: string, preview: string, bookmarked: string } [] = mangas;
+
   miao() {
     console.log('miao')
   }
