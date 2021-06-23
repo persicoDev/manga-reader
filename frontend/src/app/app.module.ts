@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { BookmarkedComponent } from './components/bookmarked/bookmarked.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { BookmarkedComponent } from './components/bookmarked/bookmarked.componen
     FlexLayoutModule,
     MatListModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
