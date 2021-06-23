@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './bookmarked.component.html',
   styleUrls: ['./bookmarked.component.scss']
 })
-export class BookmarkedComponent implements OnInit {
+export class BookmarkedComponent implements OnInit  {
 
   constructor() { }
 
