@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import mangas from '../../../../../backend/db.json';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
+import { Manga } from 'src/manga';
 
 @Component({
   selector: 'app-home',
@@ -14,9 +15,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void { }
 
   faBookmark = faBookmark;
-  public mangaList:{ title: string, preview: string, bookmarked: string } [] = mangas;
+  public mangaList:Manga [] = mangas;
 
-  miao() {
-    console.log('miao')
+  updateBookmark(manga: Manga) {
+    if (manga.bookmarked == 'true')
+      manga.bookmarked = 'false';
+    else
+      manga.bookmarked = 'true';
   }
 }
