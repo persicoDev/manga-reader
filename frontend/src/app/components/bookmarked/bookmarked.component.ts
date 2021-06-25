@@ -9,7 +9,6 @@ export class BookmarkedComponent implements OnInit  {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
