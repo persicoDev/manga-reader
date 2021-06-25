@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 
 if __name__ == "__main__":
-    manga_save = []
+    manga_save = {}
     i = 1
     while True:
         try:
@@ -17,7 +17,9 @@ if __name__ == "__main__":
                 json_single_manga['title'] = manga.find('a')['title']
                 json_single_manga['preview'] = manga.find('img')['src']
                 json_single_manga['bookmarked'] = 'false'
-                manga_save.append(json_single_manga)
+                manga_save = {
+                    "mangas": json_single_manga
+                }
                 json_save.file_save(manga_save)
                 json_single_manga['link'] = manga.find('a')['href']
                 single_manga.get_single_manga(link = json_single_manga['link'])
