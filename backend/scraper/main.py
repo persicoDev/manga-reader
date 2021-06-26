@@ -17,7 +17,7 @@ if __name__ == "__main__":
             json_single_manga = {}
             json_single_manga['title'] = manga.find('a')['title']
             json_single_manga['preview'] = manga.find('img')['src']
-            json_single_manga['bookmarked'] = 'false'
+            json_single_manga['bookmarked'] = False
             manga_list_save.append(json_single_manga)
             manga_save = {
                 "mangas": manga_list_save

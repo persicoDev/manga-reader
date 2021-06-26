@@ -16,13 +16,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { BookmarkedComponent } from './components/bookmarked/bookmarked.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MangaComponent } from './components/manga/manga.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavMenuComponent,
-    BookmarkedComponent
+    BookmarkedComponent,
+    MangaComponent
   ],
   imports: [
     BrowserModule,
