@@ -1,1 +1,5 @@
-<p>bookmarked works!</p>
+<div *ngFor="let manga of mangas">
+<app-manga
+*ngIf="manga.bookmarked;"
+></app-manga>
+</div>

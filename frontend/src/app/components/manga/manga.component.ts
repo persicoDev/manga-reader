@@ -12,11 +12,9 @@ export class MangaComponent implements OnInit {
 
   constructor(private MangaService:MangaService) { }
 
-  ngOnInit(): void {
-    this.MangaService.getMangas().subscribe((mangas) => this.mangas = mangas);
-  }
+  ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangas = mangas); }
 
-  updateMangaTask(manga: Manga){
+  bookmarkManga(manga: Manga){
     manga.bookmarked = !manga.bookmarked;
     this.MangaService.updateMangaBookmark(manga).subscribe();
   }

@@ -1,3 +1,4 @@
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { Manga } from 'src/manga';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
@@ -9,11 +10,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class MangaItemComponent implements OnInit {
   @Input()
   manga!: Manga;
+  faBookmark = faBookmark;
   @Output() updateMangaBookmark: EventEmitter<Manga> = new EventEmitter;
-  
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
+  onBookmarkManga(manga: Manga) {
+    this.updateMangaBookmark.emit(manga);
+  }
 }

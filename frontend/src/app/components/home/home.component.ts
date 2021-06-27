@@ -14,13 +14,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  faBookmark = faBookmark;
-  public mangaList:Manga [] = mangas;
-
   updateBookmark(manga: Manga) {
-    if (manga.bookmarked == 'true')
-      manga.bookmarked = 'false';
-    else
-      manga.bookmarked = 'true';
+    
   }
 }

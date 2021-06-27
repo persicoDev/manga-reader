@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Manga } from 'src/manga';
+import { MangaService } from 'src/app/services/manga.service';
 
 @Component({
   selector: 'app-bookmarked',
@@ -6,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bookmarked.component.scss']
 })
 export class BookmarkedComponent implements OnInit  {
+  mangas: Manga[] = [];
 
-  constructor() { }
+  constructor(private MangaService:MangaService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangas = mangas); }
 
+  bookmarkManga(manga: Manga){
+    manga.bookmarked = !manga.bookmarked;
+    this.MangaService.updateMangaBookmark(manga).subscribe();
+  }
 }

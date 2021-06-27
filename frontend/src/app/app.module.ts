@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
@@ -17,6 +17,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { BookmarkedComponent } from './components/bookmarked/bookmarked.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MangaComponent } from './components/manga/manga.component';
+import { MangaItemComponent } from './components/manga-item/manga-item.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MangaComponent } from './components/manga/manga.component';
     HomeComponent,
     NavMenuComponent,
     BookmarkedComponent,
-    MangaComponent
+    MangaComponent,
+    MangaItemComponent
   ],
   imports: [
     BrowserModule,
