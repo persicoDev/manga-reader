@@ -1,6 +1,7 @@
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { Manga } from 'src/manga';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MangaService } from 'src/app/services/manga.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-manga-item',
@@ -8,16 +9,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./manga-item.component.scss']
 })
 export class MangaItemComponent implements OnInit {
-  @Input()
-  manga!: Manga;
+  mangas: Manga[] = [];
   faBookmark = faBookmark;
-  @Output() updateMangaBookmark: EventEmitter<Manga> = new EventEmitter;
 
-  constructor() { }
+  constructor(private MangaService:MangaService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangas = mangas); }
 
-  onBookmarkManga(manga: Manga) {
-    this.updateMangaBookmark.emit(manga);
+  bookmarkManga(manga: Manga){
+    manga.bookmarked = !manga.bookmarked;
+    this.MangaService.updateMangaBookmark(manga).subscribe();
   }
 }

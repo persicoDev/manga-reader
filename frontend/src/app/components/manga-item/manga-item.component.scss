@@ -1,0 +1,32 @@
+$large: 1400px;
+
+.content {
+  padding: 16px;
+}
+
+.content > mat-card {
+  width: 200px;
+}
+
+.mat-elevation-z4 {
+  height: 500px;
+  max-height: 500px;
+}
+
+.mat-card-image {
+  @media screen and (max-width: $large) {
+    height: 390px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  @media screen and (min-width: $large) {
+    height: 390px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+  }
+}

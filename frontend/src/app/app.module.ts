@@ -16,8 +16,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { BookmarkedComponent } from './components/bookmarked/bookmarked.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MangaComponent } from './components/manga/manga.component';
 import { MangaItemComponent } from './components/manga-item/manga-item.component';
+import { HttpClientModule } from '@angular/common/http' 
 
 @NgModule({
   declarations: [
@@ -25,7 +25,6 @@ import { MangaItemComponent } from './components/manga-item/manga-item.component
     HomeComponent,
     NavMenuComponent,
     BookmarkedComponent,
-    MangaComponent,
     MangaItemComponent
   ],
   imports: [
@@ -41,7 +40,8 @@ import { MangaItemComponent } from './components/manga-item/manga-item.component
     MatListModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

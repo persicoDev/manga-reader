@@ -15,17 +15,14 @@ const httpOption = {
 
 export class MangaService {
 
-  private apiUrl = 'http://localhost:5000/mangas';
+  private apiUrl = 'http://localhost:3000/manga';
   
   constructor(private http:HttpClient) { }
 
-  getMangas(): Observable<Manga[]> {
-    return this.http.get<Manga[]>(this.apiUrl)
-  }
+  getMangas(): Observable<Manga[]> { return this.http.get<Manga[]>(this.apiUrl); }
 
   updateMangaBookmark(manga: Manga): Observable<Manga> {
-     const url = `${this.apiUrl}/${manga.bookmarked}`;
-     return this.http.put<Manga>(url, manga, httpOption);
+    const url = `${this.apiUrl}/${manga.id}`;
+    return this.http.put<Manga>(url, manga, httpOption);
   }
-  
 }
