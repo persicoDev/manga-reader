@@ -4,11 +4,11 @@ import { MangaService } from 'src/app/services/manga.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-bookmarked',
-  templateUrl: './bookmarked.component.html',
-  styleUrls: ['./bookmarked.component.scss']
+  selector: 'app-manga-item',
+  templateUrl: './manga-item.component.html',
+  styleUrls: ['./manga-item.component.scss']
 })
-export class BookmarkedComponent implements OnInit {
+export class MangaItemComponent implements OnInit {
   mangas: Manga[] = [];
   faBookmark = faBookmark;
 

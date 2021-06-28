@@ -1,16 +1,1 @@
-<div class="content">
-  <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let manga of mangaList">
-      <mat-card class="mat-elevation-z4" >
-        <mat-card-header>
-          <mat-card-title>{{ manga.title }}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="{{ manga.preview }}">
-        <mat-card-actions>
-          <button mat-button>Leggi</button>
-          <button mat-button>Salva</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-</div>
+<app-manga-item></app-manga-item>
