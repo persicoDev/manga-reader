@@ -17,9 +17,10 @@ def get_manga(archive_link):
         manga_data['preview'] = manga.find('img')['src']
         manga_data['bookmarked'] = False
         print('manga:' + manga.find('a')['href'])
-        manga_data['link'] = get_single_manga(manga_link=manga.find('a')['href'])
+        manga_data['link'] = get_single_manga(
+            manga_link=manga.find('a')['href'])
         data.append(manga_data)
-        manga_obj = { 'mangas': data }
+        manga_obj = {'mangas': data}
 
 
 def get_single_manga(manga_link):
@@ -39,7 +40,7 @@ def get_single_manga(manga_link):
 
 def get_single_chapter(manga_url):
     save = []
-    
+
     try:
         soup = BeautifulSoup(requests.get(manga_url).content, 'html.parser')
         manga_container = soup.find_all('img', {"class": "img-fluid"})
@@ -71,5 +72,5 @@ for i in range(1, 142):
     print(str(i))
     get_manga(link)
 
-with open('db.json', 'w', encoding='utf-8') as f:
+with open('backend/db.json', 'w', encoding='utf-8') as f:
     json.dump(manga_obj, f, ensure_ascii=False, indent=2)
