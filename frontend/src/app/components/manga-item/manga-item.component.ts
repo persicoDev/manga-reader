@@ -1,7 +1,7 @@
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { Manga } from 'src/manga';
 import { MangaService } from 'src/app/services/manga.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-manga-item',
@@ -12,7 +12,7 @@ export class MangaItemComponent implements OnInit {
   mangas: Manga[] = [];
   faBookmark = faBookmark;
 
-  constructor(private MangaService:MangaService) { }
+  constructor(private MangaService:MangaService) {  }
 
   ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangas = mangas); }
 
