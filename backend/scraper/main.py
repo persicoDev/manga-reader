@@ -16,6 +16,8 @@ def get_manga(archive_link):
         manga_data['name'] = manga.find('a')['title']
         manga_data['preview'] = manga.find('img')['src']
         manga_data['bookmarked'] = False
+        manga_data['routeName'] = re.sub("[^0-9a-zA-Z]+", "", manga_data['name'])
+        manga_data['routeName'] = str(manga_data).replace(" ", "-")
         print('manga:' + manga.find('a')['href'])
         manga_data['link'] = get_single_manga(
             manga_link=manga.find('a')['href'])
