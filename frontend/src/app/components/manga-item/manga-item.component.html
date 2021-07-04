@@ -8,7 +8,7 @@
         </mat-card-header>
         <img mat-card-image src="{{ manga.preview }}">
         <mat-card-actions>
-          <button mat-button routerLink="/manga/{{manga.title}}">Leggi</button>
+          <button mat-button routerLink="/manga/{{ manga.id }}">Leggi</button>
           <button mat-button (click)="bookmarkManga(manga)">
             <i *ngIf="manga.bookmarked == false; else ifBookmarked" class="fa fa-bookmark-o fa-lg"></i>
             <ng-template #ifBookmarked>
