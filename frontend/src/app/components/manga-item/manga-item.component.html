@@ -10,7 +10,7 @@
         <mat-card-actions>
           <button mat-button routerLink="/manga/{{ manga.routeName }}">Leggi</button>
           <button mat-button (click)="bookmarkManga(manga)">
-            <i *ngIf="manga.bookmarked == false; else ifBookmarked" class="fa fa-bookmark-o fa-lg"></i>
+            <i *ngIf="!manga.bookmarked; else ifBookmarked" class="fa fa-bookmark-o fa-lg"></i>
             <ng-template #ifBookmarked>
               <i class="fa fa-bookmark fa-lg"></i>
             </ng-template>

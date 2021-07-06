@@ -1,7 +1,7 @@
 import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { Manga } from 'src/manga';
 import { MangaService } from 'src/app/services/manga.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-manga-item',
