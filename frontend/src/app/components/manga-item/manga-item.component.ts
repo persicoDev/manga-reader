@@ -12,7 +12,7 @@ export class MangaItemComponent implements OnInit {
   mangas: Manga[] = [];
   faBookmark = faBookmark;
 
-  constructor(private MangaService:MangaService) { }
+  constructor(private MangaService:MangaService) {  }
 
   ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangas = mangas); }
 

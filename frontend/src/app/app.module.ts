@@ -20,6 +20,7 @@ import { MangaItemComponent } from './components/manga-item/manga-item.component
 import { HttpClientModule } from '@angular/common/http';
 import { ReadMangaComponent } from './components/read-manga/read-manga.component' 
 
+
 @NgModule({
   declarations: [
     AppComponent,

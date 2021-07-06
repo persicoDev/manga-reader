@@ -15,7 +15,7 @@ const httpOption = {
 
 export class MangaService {
 
-  private apiUrl = 'http://localhost:3000/manga';
+  private apiUrl = 'http://localhost:3000/mangas';
   
   constructor(private http:HttpClient) { }
 
