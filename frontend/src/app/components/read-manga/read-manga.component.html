@@ -1,1 +1,5 @@
-<div>{{ id }}</div>
+<div *ngFor="let manga of mangas">
+    <div *ngIf="manga.id === id">
+        {{ manga.title }}
+    </div>
+</div>
