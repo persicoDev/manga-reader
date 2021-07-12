@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class MangaItemComponent implements OnInit {
   mangas: Manga[] = [];
   faBookmark = faBookmark;
-
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   constructor(private MangaService:MangaService) {  }
 
   ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangas = mangas); }

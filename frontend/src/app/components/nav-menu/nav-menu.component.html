@@ -1,22 +1,15 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item routerLink="/home">Home</a>
-      <a mat-list-item routerLink="/bookmarked">Manga salvati</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button mat-icon-button
-        type="button"
-        aria-label="Toggle sidenav"
-        class="btn"
-        (click)="drawer.toggle()">
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>Manga Reader</span>
-    </mat-toolbar>
-    <router-outlet></router-outlet>  
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="header">
+  <div class="header-left">
+      <img src="">
+  </div>
+  <div class="header-middle">
+      <span class="home" routerLink="/home">Home</span>
+      <span routerLink="/bookmarked">Bookmarked</span>
+      <span>Genres</span>
+      <span>Trends</span>
+  </div>
+  <div class="header-right">
+      <i class="material-icons Search" (click)="toggleSearch()" >search</i>
+      <i class="material-icons right account">account_circle</i>
+  </div>
+</div>
