@@ -2,6 +2,7 @@ import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { Manga } from 'src/manga';
 import { MangaService } from 'src/app/services/manga.service';
 import { Component, OnInit } from '@angular/core';
+import { MatCarousel, MatCarouselComponent } from 'ng-mat-carousel';
 
 @Component({
   selector: 'app-manga-item',
