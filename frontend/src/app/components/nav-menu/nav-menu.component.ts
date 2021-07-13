@@ -60,15 +60,18 @@ import { Component } from '@angular/core';
   ],
 })
 export class NavMenuComponent {
+  
   constructor() {}
+
   menu: string = 'out';
   search: string = 'out';
 
-toggleMenu(): void {
-  this.menu = this.menu === 'in' ? 'out' : 'in';
-}
-toggleSearch(): void {
-  this.search = this.search === 'in' ? 'out' : 'in';
-}
+  toggleMenu(): void {
+    this.menu = this.menu === 'in' ? 'out' : 'in';
+  }
+
+  toggleSearch(): void {
+    this.search = this.search === 'in' ? 'out' : 'in';
+  }
 
 }

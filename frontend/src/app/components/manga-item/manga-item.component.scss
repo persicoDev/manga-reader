@@ -1,17 +1,5 @@
 $large: 1400px;
 
-/*.content {
-  padding: 16px;
-}*/
-
-.container {
-  overflow: hidden;
-}
-
-.content > mat-card {
-  width: 200px;
-}
-
 .mat-elevation-z4 {
   height: 500px;
   max-height: 500px;
@@ -36,18 +24,14 @@ $large: 1400px;
   }
 }
 
-// mdb-carousel-item{
-//  width: auto;
-//  text-align: center;
-//   img {
-//     width: auto;
-//     text-align: center;
-//     display: block;
-//     margin-left: auto;
-//     margin-right: auto;
-//   }
-// }
-
-// mdb-carousel {
-//   width: auto !important;
-// }
+.content {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 35%;
+}
