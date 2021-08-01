@@ -1,56 +1,4 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- <div class="content">
-  <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let manga of mangas">
-      <mat-card class="mat-elevation-z4">
-        <mat-card-header>
-          <mat-card-title>{{ manga.title }}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src="{{ manga.preview }}">
-        <mat-card-actions>
-          <button mat-button routerLink="/manga/{{ manga.id }}">Leggi</button>
-          <button mat-button (click)="bookmarkManga(manga)">
-            <i *ngIf="!manga.bookmarked; else ifBookmarked" class="fa fa-bookmark-o fa-lg"></i>
-            <ng-template #ifBookmarked>
-              <i class="fa fa-bookmark fa-lg"></i>
-            </ng-template>
-          </button> 
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div>
-</div> -->
-
-
-
-<!-- <div class="content">
-  <mdb-carousel [isControls]="true" class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'"
-                [animation]="'slide'">
-    <mdb-carousel-item *ngFor="let manga of mangas;">
-      <div class="col-md-4 pb-2">
-        <mdb-card class="my-1 h-100">
-          <mdb-card-img [src]="manga.preview" alt="Card image cap"></mdb-card-img>
-          <mdb-card-body>
-            <mdb-card-title>
-              <h4>{{manga.title}}</h4>
-            </mdb-card-title>
-          </mdb-card-body>
-          <mdb-card-footer>
-            <button mat-button routerLink="/manga/{{ manga.id }}">Leggi</button>
-            <button mat-button (click)="bookmarkManga(manga)">
-              <i *ngIf="!manga.bookmarked; else ifBookmarked" class="fa fa-bookmark-o fa-lg"></i>
-              <ng-template #ifBookmarked>
-                <i class="fa fa-bookmark fa-lg"></i>
-              </ng-template>
-            </button> 
-          </mdb-card-footer>
-        </mdb-card>
-      </div>
-    </mdb-carousel-item>
-  </mdb-carousel>
-</div> -->
-
-
 
 <mat-carousel 
   timings="250ms ease-in" 
@@ -73,3 +21,25 @@
   > </mat-carousel-slide>
 
 </mat-carousel>
+
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let manga of mangas">
+      <mat-card class="mat-elevation-z4">
+        <mat-card-header>
+          <mat-card-title>{{ manga.title }}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{ manga.preview }}">
+        <mat-card-actions>
+          <button mat-button routerLink="/manga/{{ manga.id }}">Leggi</button>
+          <button mat-button (click)="bookmarkManga(manga)">
+            <i *ngIf="!manga.bookmarked; else ifBookmarked" class="fa fa-bookmark-o fa-lg"></i>
+            <ng-template #ifBookmarked>
+              <i class="fa fa-bookmark fa-lg"></i>
+            </ng-template>
+          </button> 
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div> 
