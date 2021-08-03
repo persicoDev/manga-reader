@@ -7,6 +7,7 @@ $large: 1400px;
 }
 
 .mat-card-image {
+  
   @media screen and (max-width: $large) {
     height: 390px;
     display: block;
