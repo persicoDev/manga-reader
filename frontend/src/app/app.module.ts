@@ -21,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReadMangaComponent } from './components/read-manga/read-manga.component' 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { CarouselComponent } from './components/carousel/carousel.component';
+
 
 @NgModule ({
   declarations: [
@@ -29,7 +31,8 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     NavMenuComponent,
     BookmarkedComponent,
     MangaItemComponent,
-    ReadMangaComponent
+    ReadMangaComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

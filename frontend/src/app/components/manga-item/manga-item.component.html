@@ -1,26 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<mat-carousel 
-  timings="250ms ease-in" 
-  [autoplay]="true" 
-  color="accent" 
-  maxWidth="auto" 
-  [loop]="true"
-  [hideArrows]="false"
-  [hideIndicators]="false"
-  [useKeyboard]="true"
-  [useMouseWheel]="false"
-  orientation="ltr" >
-
-  <mat-carousel-slide
-    #matCarouselSlide
-    *ngFor="let manga of mangas"
-    [image] = "manga.preview"
-    overlayColor="#00000040"
-    [hideOverlay]="false"
-  > </mat-carousel-slide>
-
-</mat-carousel>
+<div class="carousel-container">
+  <app-carousel [slides]="slides"></app-carousel>
+</div>
 
 <div class="content">
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
