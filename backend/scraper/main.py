@@ -73,5 +73,5 @@ for i in range(1, 142):
     print(str(i))
     get_manga(link)
 
-with open('backend/db.json', 'w', encoding='utf-8') as f:
+with open('../db.json', 'w', encoding='utf-8') as f:
     json.dump(manga_obj, f, ensure_ascii=False, indent=2)
