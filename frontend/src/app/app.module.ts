@@ -19,16 +19,20 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MangaItemComponent } from './components/manga-item/manga-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReadMangaComponent } from './components/read-manga/read-manga.component' 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 
-@NgModule({
+@NgModule ({
   declarations: [
     AppComponent,
     HomeComponent,
     NavMenuComponent,
     BookmarkedComponent,
     MangaItemComponent,
-    ReadMangaComponent
+    ReadMangaComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { ReadMangaComponent } from './components/read-manga/read-manga.component
     MatProgressSpinnerModule,
     MatCardModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCarouselModule.forRoot(),
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
