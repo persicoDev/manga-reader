@@ -42,14 +42,14 @@ def get_single_manga(manga_link):
 def get_single_chapter(manga_url):
     save = []
 
-    try:
-        soup = BeautifulSoup(requests.get(manga_url).content, 'html.parser')
-        manga_container = soup.find_all('img', {"class": "img-fluid"})
-        chapter_index = soup.find("option", {"value": "0"}).text
-        chapter_index = str(chapter_index[2:len(str(chapter_index))])
-        manga_container = manga_container[1]['src']
-    except:
-        print('-error')
+    # try:
+    soup = BeautifulSoup(requests.get(manga_url).content, 'html.parser')
+    manga_container = soup.find_all('img', {"class": "img-fluid"})
+    chapter_index = soup.find("option", {"value": "0"}).text
+    chapter_index = str(chapter_index[2:len(str(chapter_index))])
+    manga_container = manga_container[1]['src']
+    # except:
+        # print('-error')
     for i in range(int(chapter_index)):
         manga_container = manga_container[:-4]
         if i < 10:
@@ -68,10 +68,10 @@ def get_single_chapter(manga_url):
     return save
 
 
-for i in range(1, 142):
+for i in range(1):
     link = f'https://www.mangaworld.io/archive?page={ i }'
     print(str(i))
     get_manga(link)
 
-with open('../db.json', 'w', encoding='utf-8') as f:
+with open('../../db.json', 'w', encoding='utf-8') as f:
     json.dump(manga_obj, f, ensure_ascii=False, indent=2)
