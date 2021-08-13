@@ -14,16 +14,11 @@ const httpOption = {
 
 export class MangaService {
 
-  private apiUrl = 'http://localhost:3000/mangas';
+  private apiUrl = 'https://my-json-server.typicode.com/persicoDev/manga-reader/mangas';
   
   constructor(private http:HttpClient) { }
 
   getMangas(): Observable<Manga[]> { return this.http.get<Manga[]>(this.apiUrl); }
-
-  // getManga(id: Number): Observable<Manga> {
-  //   const singleManga = MANGAS.find(m => m.id === id);
-  //   return of(singleManga);
-  // }
   
   updateMangaBookmark(manga: Manga): Observable<Manga> {
     const url = `${this.apiUrl}/${manga.id}`;
