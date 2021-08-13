@@ -13,19 +13,9 @@ npm install
 ```
 after that you will be able to do an:
 ```
-npm run start
+npm run start-open
 ```
-<br>
-
-using
-```
-npm install -g json server
-``` 
-you will install json-server, after that you will be able to write
-```
-json-server --watch db.json
-```
-to start up the json server.
+to open up the app
 
 <br><br>
 
