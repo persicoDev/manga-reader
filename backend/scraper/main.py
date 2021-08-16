@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 
 def get_manga(archive_link, cont, data, manga_obj):
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
-    
 
     for manga in soup('div', class_='entry'):
         manga_data = {}
@@ -28,10 +27,9 @@ def get_manga(archive_link, cont, data, manga_obj):
 
 def get_single_manga(manga_link):
     manga_list = []
-
-    page_content = BeautifulSoup(
-        requests.get(manga_link).content, 'html.parser')
+    page_content = BeautifulSoup(requests.get(manga_link).content, 'html.parser')
     manga_part = page_content.find('div', class_='chapters-wrapper')
+
     for manga in manga_part('div', class_='chapter'):
         manga_url = manga.find('a')['href']
         if str(manga_url).endswith('?style=list') or str(manga_url).endswith('?style=list'):
@@ -39,6 +37,7 @@ def get_single_manga(manga_link):
         manga_url = f'{ manga_url }/1'
         print(f'link chapter: { str(manga_url) }')
         manga_list.append(get_single_chapter(manga_url))
+
     return manga_list
 
 
@@ -65,10 +64,10 @@ def get_single_chapter(manga_url):
         if i >= 100:
             manga_container = manga_container[:-3]
             manga_container += str(i + 1)
-
         manga_container = f'{ manga_container }.jpg'
         print('link pages: ' + str(manga_container))
         save.append(str(manga_container))
+
     return save
 
 
@@ -76,14 +75,13 @@ if __name__ == "__main__":
     cont = 0
     data = []
     manga_obj = {}
+
     for i in range(1):
         link = f'https://www.mangaworld.io/archive?page={ i }'
         print(str(i))
         get_manga(link, cont, data, manga_obj)
 
-
     manga_obj = {'mangas': data}
-
 
     with open('/home/persico/Projects/Apps/Angular-apps/manga-reader/backend/scraper/db.json', 'w', encoding='utf-8') as f:
         json.dump(manga_obj, f, ensure_ascii=False, indent=2)
