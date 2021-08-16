@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Manga } from 'src/manga';
-import { MANGAS } from 'src/mock-mangas';
+
 
 const httpOption = {
   headers: new HttpHeaders({
@@ -14,7 +14,7 @@ const httpOption = {
 
 export class MangaService {
 
-  private apiUrl = 'https://my-json-server.typicode.com/persicoDev/manga-reader/mangas';
+  private apiUrl = 'http://localhost:3000/mangas';
   
   constructor(private http:HttpClient) { }
 
