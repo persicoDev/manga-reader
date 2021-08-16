@@ -2,32 +2,33 @@ import re
 import json
 import requests
 import traceback
+from itertools import chain
 from bs4 import BeautifulSoup
 
 
-data = []
-manga_obj = {}
-
-def get_manga(archive_link, cont):
+def get_manga(archive_link, cont, data, manga_obj):
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
-    manga_data = {}
-    cont += 1
-    manga_data['id'] = cont
+    
 
     for manga in soup('div', class_='entry'):
+        manga_data = {}
+        cont += 1
+        manga_data['id'] = cont
         manga_data['name'] = manga.find('a')['title']
         manga_data['preview'] = manga.find('img')['src']
         manga_data['bookmarked'] = False
         manga_data['routeName'] = re.sub("[^0-9a-zA-Z]+", "", manga_data['name'])
         manga_data['routeName'] = str(manga_data['routeName']).replace(" ", "-")
         print('manga:' + manga.find('a')['href'])
-        manga_data['link'] = get_single_manga(
-            manga_link=manga.find('a')['href'])
+        manga_data['link'] = get_single_manga(manga_link=manga.find('a')['href'])
+        manga_data['link'].sort()
+        manga_data['link'] = list(chain.from_iterable(manga_data['link']))
         data.append(manga_data)
 
 
 def get_single_manga(manga_link):
     manga_list = []
+
     page_content = BeautifulSoup(
         requests.get(manga_link).content, 'html.parser')
     manga_part = page_content.find('div', class_='chapters-wrapper')
@@ -73,11 +74,12 @@ def get_single_chapter(manga_url):
 
 if __name__ == "__main__":
     cont = 0
-
+    data = []
+    manga_obj = {}
     for i in range(1):
         link = f'https://www.mangaworld.io/archive?page={ i }'
         print(str(i))
-        get_manga(link, cont)
+        get_manga(link, cont, data, manga_obj)
 
 
     manga_obj = {'mangas': data}
