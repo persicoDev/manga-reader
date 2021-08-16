@@ -1,27 +1,29 @@
 import re
 import json
 import requests
+import traceback
 from bs4 import BeautifulSoup
 
+
+data = []
 manga_obj = {}
 
-
-def get_manga(archive_link):
+def get_manga(archive_link, cont):
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
-    data = []
+    manga_data = {}
+    cont += 1
+    manga_data['id'] = cont
 
     for manga in soup('div', class_='entry'):
-        manga_data = {}
         manga_data['name'] = manga.find('a')['title']
         manga_data['preview'] = manga.find('img')['src']
         manga_data['bookmarked'] = False
         manga_data['routeName'] = re.sub("[^0-9a-zA-Z]+", "", manga_data['name'])
-        manga_data['routeName'] = str(manga_data).replace(" ", "-")
+        manga_data['routeName'] = str(manga_data['routeName']).replace(" ", "-")
         print('manga:' + manga.find('a')['href'])
         manga_data['link'] = get_single_manga(
             manga_link=manga.find('a')['href'])
         data.append(manga_data)
-        manga_obj = {'mangas': data}
 
 
 def get_single_manga(manga_link):
@@ -42,14 +44,15 @@ def get_single_manga(manga_link):
 def get_single_chapter(manga_url):
     save = []
 
-    # try:
-    soup = BeautifulSoup(requests.get(manga_url).content, 'html.parser')
-    manga_container = soup.find_all('img', {"class": "img-fluid"})
-    chapter_index = soup.find("option", {"value": "0"}).text
-    chapter_index = str(chapter_index[2:len(str(chapter_index))])
-    manga_container = manga_container[1]['src']
-    # except:
-        # print('-error')
+    try:
+        soup = BeautifulSoup(requests.get(manga_url).content, 'html.parser')
+        manga_container = soup.find_all('img', {"class": "img-fluid"})
+        chapter_index = soup.find("option", {"value": "0"}).text
+        chapter_index = str(chapter_index[2:len(str(chapter_index))])
+        manga_container = manga_container[1]['src']
+    except Exception:
+        traceback.print_exc()
+
     for i in range(int(chapter_index)):
         manga_container = manga_container[:-4]
         if i < 10:
@@ -68,10 +71,17 @@ def get_single_chapter(manga_url):
     return save
 
 
-for i in range(1):
-    link = f'https://www.mangaworld.io/archive?page={ i }'
-    print(str(i))
-    get_manga(link)
+if __name__ == "__main__":
+    cont = 0
 
-with open('../../db.json', 'w', encoding='utf-8') as f:
-    json.dump(manga_obj, f, ensure_ascii=False, indent=2)
+    for i in range(1):
+        link = f'https://www.mangaworld.io/archive?page={ i }'
+        print(str(i))
+        get_manga(link, cont)
+
+
+    manga_obj = {'mangas': data}
+
+
+    with open('/home/persico/Projects/Apps/Angular-apps/manga-reader/backend/scraper/db.json', 'w', encoding='utf-8') as f:
+        json.dump(manga_obj, f, ensure_ascii=False, indent=2)
