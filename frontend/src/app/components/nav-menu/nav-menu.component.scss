@@ -12,30 +12,30 @@
 }
 
 /*Start header-left*/
-// .header-left {
-//   width: 13%;
-//   display: flex;
-//   justify-content: flex-start;
-// }
-// .menu {
-//   margin-top: 5.5%;
-//   cursor: pointer;
-// }
-// .bar1,
-// .bar2,
-// .bar3 {
-//   width: 18px;
-//   height: 2px;
-//   background-color: #333;
-//   margin: 3px auto;
-// }
-// .header-left img {
-//   padding: 4.5% 0.5% 3% 2%;
-//   width: 100px;
-//   margin-left: 50%;
-//   cursor: pointer;
-// }
-// /*Finish header-left*/
+.header-left {
+  width: 13%;
+  display: flex;
+  justify-content: flex-start;
+}
+.menu {
+  margin-top: 5.5%;
+  cursor: pointer;
+}
+.bar1,
+.bar2,
+.bar3 {
+  width: 18px;
+  height: 2px;
+  background-color: #333;
+  margin: 3px auto;
+}
+.header-left img {
+  padding: 4.5% 0.5% 3% 2%;
+  width: 100px;
+  margin-left: 50%;
+  cursor: pointer;
+}
+/*Finish header-left*/
 
 .material-icons {
   font-size: x-large;
@@ -43,12 +43,11 @@
   cursor: pointer;
 }
 
-// /*Start header-middle*/
-// .header-middle {
-//   width: 60%;
-//   display: flex;
-
-// }
+/*Start header-middle*/
+.header-middle {
+  width: 60%;
+  display: flex;
+}
 .header-middle span {
   margin-left: 5%;
   font-size: large;
@@ -71,26 +70,26 @@ span:hover:after {
 }
 /*Finish header-middle*/
 
-// /*Start header-right*/
-// .header-right {
-//   width: 10%;
-//   display: flex;
-//   margin-left: 300px;
-// }
-// .header-right .material-icons.Search {
-//   margin-top: 8%;
-// }
-// .header-right .material-icons {
-//   margin-right: 7%;
-// }
+/*Start header-right*/
+.header-right {
+  width: 10%;
+  display: flex;
+  margin-left: 300px;
+}
+.header-right .material-icons.Search {
+  margin-top: 8%;
+}
+.header-right .material-icons {
+  margin-right: 7%;
+}
 
-// .material-icons.account {
-//   margin-top: 4.5%;
-//   font-size: xx-large;
-// }
+.material-icons.account {
+  margin-top: 4.5%;
+  font-size: xx-large;
+}
 
-// span {
-//   margin-left: auto;
-//   margin-right: auto;
-// }
+span {
+  margin-left: auto;
+  margin-right: auto;
+}
 // /*Finish header-right*/
