@@ -13,10 +13,10 @@ def get_manga(archive_link, cont, data, manga_obj):
         manga_data = {}
         cont += 1
         manga_data['id'] = cont
-        manga_data['name'] = manga.find('a')['title']
+        manga_data['title'] = manga.find('a')['title']
         manga_data['preview'] = manga.find('img')['src']
         manga_data['bookmarked'] = False
-        manga_data['routeName'] = re.sub("[^0-9a-zA-Z]+", "", manga_data['name'])
+        manga_data['routeName'] = re.sub("[^0-9a-zA-Z]+", "", manga_data['title'])
         manga_data['routeName'] = str(manga_data['routeName']).replace(" ", "-")
         print('manga:' + manga.find('a')['href'])
         manga_data['link'] = get_single_manga(manga_link=manga.find('a')['href'])
@@ -83,5 +83,5 @@ if __name__ == "__main__":
 
     manga_obj = {'mangas': data}
 
-    with open('/home/persico/Projects/Apps/Angular-apps/manga-reader/backend/scraper/db.json', 'w', encoding='utf-8') as f:
+    with open('/home/persico/Projects/Apps/Angular-apps/manga-reader/db.json', 'w', encoding='utf-8') as f:
         json.dump(manga_obj, f, ensure_ascii=False, indent=2)

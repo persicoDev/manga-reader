@@ -1,7 +1,7 @@
-<div *ngFor="let manga of mangas; let i = index">
-    <div class="manga-content" *ngFor=" let subManga of manga.link">
-        <div *ngFor="let subsubManga of subManga">
-            <img *ngIf="manga.id == id" src="{{ subsubManga }}">
+<div *ngFor="let manga of this.mangas">
+    <div *ngIf="manga.id == this.id">
+        <div class="manga-content" *ngFor="let subManga of manga.link">
+            <img src="{{ subManga }}">
         </div>
     </div>
 </div>

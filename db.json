@@ -2,8 +2,8 @@
   "mangas": [
     {
       "id": 1,
-      "name": "-Rain-",
-      "preview": "https://cdn.mangaworld.io/mangas/5f78dd290a01bf41420ffe92.jpg?1629148491820",
+      "title": "-Rain-",
+      "preview": "https://cdn.mangaworld.io/mangas/5f78dd290a01bf41420ffe92.jpg?1629184600307",
       "bookmarked": false,
       "routeName": "Rain",
       "link": [
@@ -30,8 +30,8 @@
     },
     {
       "id": 2,
-      "name": ".traeH",
-      "preview": "https://cdn.mangaworld.io/mangas/5f727cde7160751a30589243.jpg?1629148492976",
+      "title": ".traeH",
+      "preview": "https://cdn.mangaworld.io/mangas/5f727cde7160751a30589243.jpg?1629185763148",
       "bookmarked": false,
       "routeName": "traeH",
       "link": [
@@ -74,8 +74,8 @@
     },
     {
       "id": 3,
-      "name": "1-nen C-gumi Yoshida Kakari",
-      "preview": "https://cdn.mangaworld.io/mangas/5fc7aeadab5e153e7db16e5a.jpg?1629148493878",
+      "title": "1-nen C-gumi Yoshida Kakari",
+      "preview": "https://cdn.mangaworld.io/mangas/5fc7aeadab5e153e7db16e5a.jpg?1629179919562",
       "bookmarked": false,
       "routeName": "1nenCgumiYoshidaKakari",
       "link": [
@@ -118,8 +118,8 @@
     },
     {
       "id": 4,
-      "name": "1/2 Cigarette",
-      "preview": "https://cdn.mangaworld.io/mangas/5f75048a5a6cee7b7f49083e.jpg?1629149038032",
+      "title": "1/2 Cigarette",
+      "preview": "https://cdn.mangaworld.io/mangas/5f75048a5a6cee7b7f49083e.jpg?1629187511210",
       "bookmarked": false,
       "routeName": "12Cigarette",
       "link": [
@@ -291,8 +291,8 @@
     },
     {
       "id": 5,
-      "name": "1/2 Prince",
-      "preview": "https://cdn.mangaworld.io/mangas/5fab573d42e2937121a25406.jpg?1629148559832",
+      "title": "1/2 Prince",
+      "preview": "https://cdn.mangaworld.io/mangas/5fab573d42e2937121a25406.jpg?1629187182398",
       "bookmarked": false,
       "routeName": "12Prince",
       "link": [
@@ -3143,8 +3143,8 @@
     },
     {
       "id": 6,
-      "name": "1/3 Romantica",
-      "preview": "https://cdn.mangaworld.io/mangas/5f7e728d72fcc419a865e1e9.jpg?1629148563543",
+      "title": "1/3 Romantica",
+      "preview": "https://cdn.mangaworld.io/mangas/5f7e728d72fcc419a865e1e9.jpg?1629181569242",
       "bookmarked": false,
       "routeName": "13Romantica",
       "link": [
@@ -3348,8 +3348,8 @@
     },
     {
       "id": 7,
-      "name": "1/3 Sanbun no Ichi",
-      "preview": "https://cdn.mangaworld.io/mangas/5fa8c1e642e2937121a22410.jpg?1629148948001",
+      "title": "1/3 Sanbun no Ichi",
+      "preview": "https://cdn.mangaworld.io/mangas/5fa8c1e642e2937121a22410.jpg?1629187548079",
       "bookmarked": false,
       "routeName": "13SanbunnoIchi",
       "link": [
@@ -4521,8 +4521,8 @@
     },
     {
       "id": 8,
-      "name": "10 Years in the Friend Zone",
-      "preview": "https://cdn.mangaworld.io/mangas/5faa0b5f66d2cb714b2b2df9.png?1629148651536",
+      "title": "10 Years in the Friend Zone",
+      "preview": "https://cdn.mangaworld.io/mangas/5faa0b5f66d2cb714b2b2df9.png?1629186513371",
       "bookmarked": false,
       "routeName": "10YearsintheFriendZone",
       "link": [
@@ -4631,8 +4631,8 @@
     },
     {
       "id": 9,
-      "name": "100 Nichigo ni Kuufuku de Taore Maid ni Naru Onna no Ko",
-      "preview": "https://cdn.mangaworld.io/mangas/5fa5f442552b377191b01299.jpg?1629148654762",
+      "title": "100 Nichigo ni Kuufuku de Taore Maid ni Naru Onna no Ko",
+      "preview": "https://cdn.mangaworld.io/mangas/5fa5f442552b377191b01299.jpg?1629180829977",
       "bookmarked": false,
       "routeName": "100NichigoniKuufukudeTaoreMaidniNaruOnnanoKo",
       "link": [
@@ -4643,8 +4643,8 @@
     },
     {
       "id": 10,
-      "name": "100% Fragola",
-      "preview": "https://cdn.mangaworld.io/mangas/5f7ba492fd59c26384219b80.jpg?1629148991888",
+      "title": "100% Fragola",
+      "preview": "https://cdn.mangaworld.io/mangas/5f7ba492fd59c26384219b80.jpg?1629187262573",
       "bookmarked": false,
       "routeName": "100Fragola",
       "link": [
@@ -8409,8 +8409,8 @@
     },
     {
       "id": 11,
-      "name": "100-nichigo ni Shinu Wani",
-      "preview": "https://cdn.mangaworld.io/mangas/5f9cc3731db7241f07086bea.jpg?1629148822779",
+      "title": "100-nichigo ni Shinu Wani",
+      "preview": "https://cdn.mangaworld.io/mangas/5f9cc3731db7241f07086bea.jpg?1629187406835",
       "bookmarked": false,
       "routeName": "100nichigoniShinuWani",
       "link": [
@@ -8522,8 +8522,8 @@
     },
     {
       "id": 12,
-      "name": "10th - You and I Fell in Love With the Same Person.",
-      "preview": "https://cdn.mangaworld.io/mangas/5fab17b842e2937121a252de.jpg?1629148865342",
+      "title": "10th - You and I Fell in Love With the Same Person.",
+      "preview": "https://cdn.mangaworld.io/mangas/5fab17b842e2937121a252de.jpg?1629184379008",
       "bookmarked": false,
       "routeName": "10thYouandIFellinLoveWiththeSamePerson",
       "link": [
@@ -9160,8 +9160,8 @@
     },
     {
       "id": 13,
-      "name": "11 Eyes - Tsumi to Batsu to Aganai no Shoujo",
-      "preview": "https://cdn.mangaworld.io/mangas/5f97927ab5ef1960d7b17505.jpg?1629148963619",
+      "title": "11 Eyes - Tsumi to Batsu to Aganai no Shoujo",
+      "preview": "https://cdn.mangaworld.io/mangas/5f97927ab5ef1960d7b17505.jpg?1629186631653",
       "bookmarked": false,
       "routeName": "11EyesTsumitoBatsutoAganainoShoujo",
       "link": [
@@ -9688,8 +9688,8 @@
     },
     {
       "id": 14,
-      "name": "12-ji no Kane ga Naru",
-      "preview": "https://cdn.mangaworld.io/mangas/5f769348d7044003d9f99a5e.jpg?1629148964304",
+      "title": "12-ji no Kane ga Naru",
+      "preview": "https://cdn.mangaworld.io/mangas/5f769348d7044003d9f99a5e.jpg?1629185001081",
       "bookmarked": false,
       "routeName": "12jinoKanegaNaru",
       "link": [
@@ -9722,8 +9722,8 @@
     },
     {
       "id": 15,
-      "name": "14-sai no Koi",
-      "preview": "https://cdn.mangaworld.io/mangas/5fa0dc64f6abbe1e93b0662e.jpg?1629149054849",
+      "title": "14-sai no Koi",
+      "preview": "https://cdn.mangaworld.io/mangas/5fa0dc64f6abbe1e93b0662e.jpg?1629187476854",
       "bookmarked": false,
       "routeName": "14sainoKoi",
       "link": [
@@ -11455,8 +11455,8 @@
     },
     {
       "id": 16,
-      "name": "15Y+",
-      "preview": "https://cdn.mangaworld.io/mangas/5f7e3f7843b47b10ec5eaf26.jpg?1629148905959",
+      "title": "15Y+",
+      "preview": "https://cdn.mangaworld.io/mangas/5f7e3f7843b47b10ec5eaf26.jpg?1629186282138",
       "bookmarked": false,
       "routeName": "15Y",
       "link": [
