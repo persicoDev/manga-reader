@@ -19,7 +19,6 @@ export class ReadMangaComponent implements OnInit {
  
   ngOnInit(): void { this.getManga(); }
 
-  getManga() {
-    this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-  }
+  getManga() { this.id = Number(this.activatedRoute.snapshot.paramMap.get('id')); }
+
 }

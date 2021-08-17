@@ -14,15 +14,18 @@ import { Component } from '@angular/core';
           transform: 'rotate(45deg)',
         })
       ),
+
       state(
         'out',
         style({
           transform: 'rotate(0deg)',
         })
       ),
+
       transition('in => out', animate('0.2s')),
       transition('out => in', animate('0.2s')),
     ]),
+
     trigger('animation2', [
       state(
         'in',
@@ -31,15 +34,18 @@ import { Component } from '@angular/core';
           transform: 'translateX(-50px)'
         })
       ),
+
       state(
         'out',
         style({
           transform: 'rotate(0deg)',
         })
       ),
+
       transition('in => out', animate('0.2s')),
       transition('out => in', animate('0.2s')),
     ]),
+
     trigger('animation3', [
       state(
         'in',
@@ -48,12 +54,14 @@ import { Component } from '@angular/core';
           transform: 'rotate(-45deg)',
         })
       ),
+
       state(
         'out',
         style({
           transform: 'rotate(0deg)',
         })
       ),
+      
       transition('in => out', animate('0.2s')),
       transition('out => in', animate('0.2s')),
     ])  
