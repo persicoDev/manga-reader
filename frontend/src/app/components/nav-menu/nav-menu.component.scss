@@ -17,10 +17,12 @@
   display: flex;
   justify-content: flex-start;
 }
+
 .menu {
   margin-top: 5.5%;
   cursor: pointer;
 }
+
 .bar1,
 .bar2,
 .bar3 {
@@ -29,6 +31,7 @@
   background-color: #333;
   margin: 3px auto;
 }
+
 .header-left img {
   padding: 4.5% 0.5% 3% 2%;
   width: 100px;
@@ -48,26 +51,30 @@
   width: 60%;
   display: flex;
 }
+
 .header-middle span {
   margin-left: 5%;
   font-size: large;
   cursor: pointer;
   display:inline-block; 
 }
+
 span:after {
   display:block;
   content: '';
   border-bottom: solid 3px #0352fb;  
   transform: scaleX(0);  
   transition: transform 250ms ease-in-out;
-  
 }
+
 span:hover:after { 
   transform: scaleX(1);
- }
+}
+
 .header-middle  {
   margin: auto;
 }
+
 /*Finish header-middle*/
 
 /*Start header-right*/
@@ -76,12 +83,10 @@ span:hover:after {
   display: flex;
   margin-left: 300px;
 }
-.header-right .material-icons.Search {
-  margin-top: 8%;
-}
-.header-right .material-icons {
-  margin-right: 7%;
-}
+
+.header-right .material-icons.Search { margin-top: 8%; }
+
+.header-right .material-icons { margin-right: 7%; }
 
 .material-icons.account {
   margin-top: 4.5%;

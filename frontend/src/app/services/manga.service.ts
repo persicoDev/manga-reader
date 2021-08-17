@@ -24,4 +24,5 @@ export class MangaService {
     const url = `${this.apiUrl}/${manga.id}`;
     return this.http.put<Manga>(url, manga, httpOption);
   }
+  
 }

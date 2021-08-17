@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bookmarked.component.scss']
 })
 export class BookmarkedComponent implements OnInit {
+  
   mangas: Manga[] = [];
   faBookmark = faBookmark;
 
@@ -20,4 +21,5 @@ export class BookmarkedComponent implements OnInit {
     manga.bookmarked = !manga.bookmarked;
     this.MangaService.updateMangaBookmark(manga).subscribe();
   }
+
 }

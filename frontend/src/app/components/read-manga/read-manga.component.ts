@@ -21,6 +21,4 @@ export class ReadMangaComponent implements OnInit {
 
   getManga() { this.id = Number(this.activatedRoute.snapshot.paramMap.get('id')); }
 
-  
-
 }

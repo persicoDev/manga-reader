@@ -6,7 +6,7 @@ import { ReadMangaComponent } from './components/read-manga/read-manga.component
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'bookmarked', component: BookmarkedComponent },
   { path: 'manga/:id', component: ReadMangaComponent }
 ];
@@ -15,4 +15,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
