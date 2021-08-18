@@ -14,7 +14,7 @@ const httpOption = {
 
 export class MangaService {
 
-  private apiUrl = 'http://localhost:3000/mangas';
+  private apiUrl = 'https://my-json-server.typicode.com/persicoDev/manga-reader/mangas';
   
   constructor(private http:HttpClient) { }
 
