@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "server": "json-server --watch ../db.json",
+    "start-open": "ng serve -o",
+    "server": "json-server --watch dist/frontend/db.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
