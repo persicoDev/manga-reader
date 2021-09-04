@@ -32,9 +32,10 @@ def get_single_manga(manga_link):
 
     for manga in manga_part('div', class_='chapter'):
         manga_url = manga.find('a')['href']
-        if str(manga_url).endswith('?style=list') or str(manga_url).endswith('?style=list'):
+        if str(manga_url).endswith('?style=list'):
             manga_url = manga_url[:-11]
         manga_url = f'{ manga_url }/1'
+        manga_url = f'{ manga_url }?style=list'
         print(f'link chapter: { str(manga_url) }')
         manga_list.append(get_single_chapter(manga_url))
 
@@ -46,29 +47,11 @@ def get_single_chapter(manga_url):
 
     try:
         soup = BeautifulSoup(requests.get(manga_url).content, 'html.parser')
-        manga_container = soup.find_all('img', {"class": "img-fluid"})
-        chapter_index = soup.find("option", {"value": "0"}).text
-        chapter_index = str(chapter_index[2:len(str(chapter_index))])
-        manga_container = manga_container[1]['src']
+        manga_container = soup.find_all('img', {"class": "page-image img-fluid"})
+        for single_manga_link in manga_container:
+            save.append(str(single_manga_link['src']))
     except Exception:
         traceback.print_exc()
-    
-    img_extension = str(manga_container).split('.')
-    img_extension = f'.{ img_extension[3] }'
-    for i in range(int(chapter_index)):
-        manga_container = manga_container[:-(len(img_extension))]
-        if i < 10:
-            manga_container = manga_container[:-1]
-            manga_container += str(i + 1)
-        if i >= 10:
-            manga_container = manga_container[:-2]
-            manga_container += str(i + 1)
-        if i >= 100:
-            manga_container = manga_container[:-3]
-            manga_container += str(i + 1)
-        manga_container = f'{ manga_container + img_extension }'
-        print('link pages: ' + str(manga_container))
-        save.append(str(manga_container))
 
     return save
 
