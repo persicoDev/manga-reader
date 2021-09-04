@@ -52,9 +52,11 @@ def get_single_chapter(manga_url):
         manga_container = manga_container[1]['src']
     except Exception:
         traceback.print_exc()
-
+    
+    img_extension = str(manga_container).split('.')
+    img_extension = f'.{ img_extension[3] }'
     for i in range(int(chapter_index)):
-        manga_container = manga_container[:-4]
+        manga_container = manga_container[:-(len(img_extension))]
         if i < 10:
             manga_container = manga_container[:-1]
             manga_container += str(i + 1)
@@ -64,7 +66,7 @@ def get_single_chapter(manga_url):
         if i >= 100:
             manga_container = manga_container[:-3]
             manga_container += str(i + 1)
-        manga_container = f'{ manga_container }.jpg'
+        manga_container = f'{ manga_container + img_extension }'
         print('link pages: ' + str(manga_container))
         save.append(str(manga_container))
 
@@ -83,5 +85,5 @@ if __name__ == "__main__":
 
     manga_obj = {'mangas': data}
 
-    with open('/home/persico/Projects/Apps/Angular-apps/manga-reader/db.json', 'w', encoding='utf-8') as f:
+    with open('/home/persico/Projects/Apps/Angular-apps/manga-reader/frontend/dist/frontend/db.json', 'w', encoding='utf-8') as f:
         json.dump(manga_obj, f, ensure_ascii=False, indent=2)
