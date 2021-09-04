@@ -14,7 +14,7 @@ const httpOption = {
 
 export class MangaService {
 
-  private apiUrl = 'https://persicodev.github.io/manga-reader/db.json/mangas';
+  private apiUrl = 'http://localhost:3000/mangas';
   
   constructor(private http:HttpClient) { }
 

@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1% 0 2.6%;
   height: 8%;
   position: fixed;
   box-shadow: 0 2px 38px 1px rgba(0, 0, 0, 0.14);
@@ -53,7 +52,6 @@
 }
 
 .header-middle span {
-  margin-left: 5%;
   font-size: large;
   cursor: pointer;
   display:inline-block; 
@@ -81,7 +79,6 @@ span:hover:after {
 .header-right {
   width: 10%;
   display: flex;
-  margin-left: 300px;
 }
 
 .header-right .material-icons.Search { margin-top: 8%; }
