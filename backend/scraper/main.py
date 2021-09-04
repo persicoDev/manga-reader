@@ -85,5 +85,5 @@ if __name__ == "__main__":
 
     manga_obj = {'mangas': data}
 
-    with open('/home/persico/Projects/Apps/Angular-apps/manga-reader/frontend/dist/frontend/db.json', 'w', encoding='utf-8') as f:
+    with open('frontend/dist/frontend/db.json', 'w', encoding='utf-8') as f:
         json.dump(manga_obj, f, ensure_ascii=False, indent=2)
