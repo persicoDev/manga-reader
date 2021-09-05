@@ -10,8 +10,8 @@ import { Component } from '@angular/core';
       state(
         'in',
         style({
-          margin: '10px 0px 0px 0px',
-          transform: 'rotate(45deg)',
+          margin: "8px 0px 0px 0px",
+          transform: "rotate(45deg)",
         })
       ),
 
@@ -50,8 +50,8 @@ import { Component } from '@angular/core';
       state(
         'in',
         style({
-          margin: '-10px 0px 0px 0px',
-          transform: 'rotate(-45deg)',
+          margin: "-12px 0px 0px 0px",
+          transform: "rotate(-45deg)",
         })
       ),
 
