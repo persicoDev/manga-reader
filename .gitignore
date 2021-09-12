@@ -1,5 +1,5 @@
 /backend/manga-reader
 frontend/dist
-backend/node_modules/
-
 manga-reader/node_modules/
+
+backend/node_modules/
