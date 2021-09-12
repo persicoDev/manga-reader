@@ -10,8 +10,8 @@ import { Component } from '@angular/core';
       state(
         'in',
         style({
-          margin: '10px 0px 0px 0px',
-          transform: 'rotate(45deg)',
+          margin: "8px 0px 0px 0px",
+          transform: "rotate(45deg)",
         })
       ),
 
@@ -50,8 +50,8 @@ import { Component } from '@angular/core';
       state(
         'in',
         style({
-          margin: '-10px 0px 0px 0px',
-          transform: 'rotate(-45deg)',
+          margin: "-12px 0px 0px 0px",
+          transform: "rotate(-45deg)",
         })
       ),
 
@@ -64,7 +64,25 @@ import { Component } from '@angular/core';
       
       transition('in => out', animate('0.2s')),
       transition('out => in', animate('0.2s')),
-    ])  
+    ]),
+    trigger('animation4', [
+      state(
+        'in',
+        style({
+          opacity: '1',
+        })
+      ),
+
+      state(
+        'out',
+        style({
+          opacity: '0',
+        })
+      ),
+      
+      transition('in => out', animate('0.2s')),
+      transition('out => in', animate('0.2s')),
+    ])
   ],
 })
 export class NavMenuComponent {
@@ -73,6 +91,7 @@ export class NavMenuComponent {
 
   menu: string = 'out';
   search: string = 'out';
+  profile: string = 'out';
 
   toggleMenu(): void {
     this.menu = this.menu === 'in' ? 'out' : 'in';
@@ -80,6 +99,10 @@ export class NavMenuComponent {
 
   toggleSearch(): void {
     this.search = this.search === 'in' ? 'out' : 'in';
+  }
+
+  toggleProfile(): void {
+    this.profile = this.profile === 'in' ? 'out' : 'in';
   }
 
 }
