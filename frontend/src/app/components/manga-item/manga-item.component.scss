@@ -7,21 +7,11 @@ $large: 1400px;
 }
 
 .mat-card-image {
-  // @media screen and (max-width: $large) {
     height: 390px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-  // }
-
-  // @media screen and (min-width: $large) {
-  //   height: 390px;
-  //   display: block;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  //   width: auto;
-  // }
 }
 
 .content {

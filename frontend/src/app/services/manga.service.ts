@@ -13,8 +13,8 @@ const httpOption = {
 @Injectable({ providedIn: 'root' })
 
 export class MangaService {
-
-  private apiUrl = 'https://persicodev.github.io/manga-reader/db.json';
+  
+  private apiUrl = 'http://localhost:3000/mangas';
   
   constructor(private http:HttpClient) { }
 
