@@ -15,6 +15,7 @@ def get_manga(archive_link, cont, data, manga_obj):
         manga_data['id'] = cont
         manga_data['title'] = manga.find('a')['title']
         manga_data['preview'] = manga.find('img')['src']
+        # manga_data['carousel'] = get_manga_carousel()
         manga_data['bookmarked'] = False
         manga_data['routeName'] = re.sub("[^0-9a-zA-Z]+", "", manga_data['title'])
         manga_data['routeName'] = str(manga_data['routeName']).replace(" ", "-")
@@ -24,6 +25,9 @@ def get_manga(archive_link, cont, data, manga_obj):
         manga_data['link'] = list(chain.from_iterable(manga_data['link']))
         data.append(manga_data)
 
+
+def get_manga_carousel():
+    print('miao')
 
 def get_single_manga(manga_link):
     manga_list = []

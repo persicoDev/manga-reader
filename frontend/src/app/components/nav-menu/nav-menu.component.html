@@ -1,15 +1,31 @@
-<div class="header" style="position: relative; z-index: 1;">
-  <div class="header-left">
-      <img src="">
-  </div> 
-  <div class="header-middle">
-      <span class="home" routerLink="/home">Home</span>
-      <span routerLink="/bookmarked">Bookmarked</span>
-      <span>Genres</span>
-      <span>Trends</span>
-  </div>
-  <div class="header-right">
-      <i class="material-icons Search" (click)="toggleSearch()" >search</i>
-      <i class="material-icons right account">account_circle</i>
-  </div>
+<div class="header">
+    <div class="header-left">
+        <!--<div class="menu"  (click)="toggleMenu()">
+            <div class="bar1" [@animation1]="menu"></div>
+            <div class="bar2" [@animation2]="menu"></div>
+            <div class="bar3" [@animation3]="menu"></div>
+        </div>-->
+    </div>
+    <div class="header-middle">
+        <input type="text" placeholder="Search">
+        <button ><i class="material-icons search">search</i></button>
+        <div class="mic">
+            <i class="material-icons mic">mic</i>
+        </div>
+    </div>
+    <div class="header-right">
+        <i class="material-icons Search">search</i>
+        <div class="item">
+        <i class="material-icons left action">video_call</i>
+    </div>
+    <div class="item">
+        <i class="material-icons action">apps</i>
+    </div>
+    <div class="item last">
+        <i class="material-icons right action">notifications</i>
+    </div>
+    <div class="image">
+        <img src="https://i.ibb.co/c3Wz48r/kisspng-google-account-google-search-customer-service-goog-login-button-5acdd8deb0ea94-8977932715234.png" alt="image">
+    </div>
+</div>
 </div>
