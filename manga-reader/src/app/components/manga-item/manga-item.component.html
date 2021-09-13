@@ -1,0 +1,23 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div style="background-color: #0b1622;width:100%; height: 100%;" class="videos overflow-hidden pl-10 overflow-y-scroll">
+  <div class="trends mt-24  text-white items-center flex ">
+    <i style="font-size: 30px;" class="material-icons">whatshot</i>
+    <span style="font-size: 20px;color: white;">Trends</span>
+  </div>
+  <div style="overflow: hidden; overflow-x: scroll;" class="video pt-3 flex flex-row flex-nowrap">
+    <div style="width:200px; height:290px;" class=" mr-3" *ngFor="let manga of mangas">
+        <div style="width:100%;height:240px;" class="overflow-hidden">
+            <img style="width: 100%; height: 100%;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;border-top-left-radius: 10px;border-top-right-radius: 10px;"  src="{{ manga.preview }}">
+        </div>
+        <div class="video-thumbnails">
+            <div style="width: 200px;">
+                <h3 style="color: white;">
+                    {{ manga.title }}
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
