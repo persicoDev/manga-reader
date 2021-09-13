@@ -1,4 +1,3 @@
-import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { Manga } from 'src/manga';
 import { MangaService } from 'src/app/services/manga.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +10,6 @@ import { Component, OnInit } from '@angular/core';
 export class BookmarkedComponent implements OnInit {
   
   mangas: Manga[] = [];
-  faBookmark = faBookmark;
 
   constructor(private MangaService:MangaService) { }
 
@@ -21,5 +19,4 @@ export class BookmarkedComponent implements OnInit {
     manga.bookmarked = !manga.bookmarked;
     this.MangaService.updateMangaBookmark(manga).subscribe();
   }
-
 }

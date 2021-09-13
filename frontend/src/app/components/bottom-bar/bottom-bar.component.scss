@@ -1,0 +1,10 @@
+.active {
+  outline: none;
+  border-top: solid 3px #0051ff;
+  color: #0051ff;
+}
+@media (min-width: 639px) {
+  #item {
+    display: none;
+  }
+}

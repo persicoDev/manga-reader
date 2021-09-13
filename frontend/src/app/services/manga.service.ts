@@ -13,7 +13,7 @@ const httpOption = {
 @Injectable({ providedIn: 'root' })
 
 export class MangaService {
-  
+
   private apiUrl = 'http://localhost:3000/mangas';
   
   constructor(private http:HttpClient) { }
