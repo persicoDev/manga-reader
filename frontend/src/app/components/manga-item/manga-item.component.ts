@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Manga } from 'src/manga';
 
 
+
 @Component({
   selector: 'app-manga-item',
   templateUrl: './manga-item.component.html',

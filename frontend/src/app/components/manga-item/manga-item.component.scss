@@ -1,48 +1,53 @@
 @import '../../../styles.scss';
 
-
-/*Start videos*/
 .video::-webkit-scrollbar {
     display: none;
 }
-
 #manga-container {
   background-color: $body_color;
+  width:100%; 
+  height: 100%;
+}
+.mangas {
+  width:200px; 
+  height:285px;
+}
+.manga {
+  width:100%;
+  height:235px;
+}
+.descriptions {
+  width: 180px;
+  color: white;
+}
+.chips {
+  background-color: $secondary_color;
+  padding: 0 6px;
+  height: 16px;
+  margin-left: 6px;
+  line-height: 13px;
+  border-radius: 25px;
+}
+.chips span {
+  color: $body_color;
+  cursor: pointer;
+  font-size: 12px;
+}
+@media (max-width:639px) {
+  .mangas {
+    width: 145px;
+  }
+  .manga {
+    height: 205px !important;
+  }
+  .descriptions {
+    width: 145px;
+  }
+  #manga-container {
+    height: 95%;
+  }
+  .trends-two {
+    margin-top: 0px;
+  }
 }
 
-.author img {
-  object-fit: cover;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  margin-right: 10px;
-}
-.video-details {
-  display: flex;
-  margin-top: 10px;
-  width: 100%;
-}
-.title {
-  display: flex;
-  flex-direction: column;
-  width: calc(var(--b) - var(--a));
-}
-.title h3 {
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  line-height: 18px;
-  font-size: 20px;
-  margin-bottom: 6px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.title a,
-span {
-  text-decoration: none;
-  color: rgb(96, 96, 96);
-  font-size: 17px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
