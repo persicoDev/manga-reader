@@ -1,7 +1,10 @@
+@import '../../../styles.scss';
+
+
 .active {
   outline: none;
-  border-top: solid 3px #0051ff;
-  color: #0051ff;
+  border-top: solid 3px $secondary_color;
+  color: $secondary_color;
 }
 @media (min-width: 639px) {
   #item {

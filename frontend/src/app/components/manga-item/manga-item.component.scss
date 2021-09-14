@@ -1,6 +1,13 @@
+@import '../../../styles.scss';
+
+
 /*Start videos*/
 .video::-webkit-scrollbar {
     display: none;
+}
+
+#manga-container {
+  background-color: $body_color;
 }
 
 .author img {

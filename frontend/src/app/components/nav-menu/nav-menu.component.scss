@@ -1,3 +1,10 @@
+@import '../../../styles.scss';
+
+
+#nav-wrapper {
+    background-color: $nav_color;
+}
+
 @media (max-width: 639px) {
     #mobile {
         display: none;
