@@ -25,7 +25,7 @@ import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,18 +1,37 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div id="manga-container" class="videos overflow-y-scroll">
-    <div class="trends mt-24  text-white items-center flex ">
+    //carousel
+    <div class="container">
+        <input type="radio" name="slider" id="item-1" checked>
+        <input type="radio" name="slider" id="item-2">
+        <input type="radio" name="slider" id="item-3">
+        <div class="cards mt-24">
+            <label class="card" for="item-1" id="song-1">
+                <img src="https://i.ibb.co/By80KgF/monster-kaiju-8.jpg" alt="song">
+            </label>
+            <label class="card" for="item-2" id="song-2">
+                <img src="https://i.ibb.co/qgc2dG9/spyxfamily.jpg" alt="song">
+            </label>
+            <label class="card" for="item-3" id="song-3">
+                <img src="https://i.ibb.co/4fzfPtL/tokyo-revengers.jpg" alt="song">
+            </label>
+        </div>
+
+    </div>
+    <div class="trends mt-3  text-white items-center flex ">
         <i style="font-size: 30px;" class="material-icons pl-6">whatshot</i>
         <span style="font-size: 20px;color: white;">Trends</span>
     </div>
-    <div style="overflow: hidden; overflow-x: scroll;" class="video pt-3 flex flex-row flex-nowrap p-6 pr-0">
-        <div  class="mangas mr-3" *ngFor="let manga of mangas">
-            <div   class="manga overflow-hidden">
+
+    <div style=" overflow: hidden; overflow-x: scroll;" class="manga-container pt-3 flex flex-row flex-nowrap p-6 pr-0">
+        <div class="mangas mr-3" *ngFor="let manga of mangas">
+            <div class="manga overflow-hidden">
                 <img style="width: 100%; height: 100%;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;border-top-left-radius: 10px;border-top-right-radius: 10px;"
                     src="{{ manga.preview }}" routerLink="/manga/{{ manga.id }}">
             </div>
             <div class="video-thumbnails">
-                <div class="descriptions"i>
+                <div class="descriptions" i>
                     <h3
                         style="margin-top: 7px;white-space:nowrap;text-overflow: ellipsis;overflow: hidden;font-size: 18px;">
                         {{ manga.title }}
@@ -21,7 +40,8 @@
                     <div class="chips inline-block cursor-pointer">
                         <span> 8.50 </span>
                     </div>
-                    <span style="color: rgb(199, 196, 196);font-size: small; white-space: nowrap;">300 Caps - Completed</span>
+                    <span style="color: rgb(199, 196, 196);font-size: small; white-space: nowrap;">300 Caps -
+                        Completed</span>
                 </div>
             </div>
         </div>
@@ -30,14 +50,14 @@
         <i style="font-size: 30px;" class="material-icons pl-6">grade</i>
         <span style="font-size: 20px;color: white;">Top manga</span>
     </div>
-    <div style="overflow: hidden; overflow-x: scroll;" class="video pt-3 flex flex-row flex-nowrap p-6 pr-0">
-        <div  class="mangas mr-3" *ngFor="let manga of mangas">
-            <div   class="manga overflow-hidden">
+    <div style="overflow: hidden; overflow-x: scroll;" class="manga-container2 pt-3 flex flex-row flex-nowrap p-6 pr-0">
+        <div class="mangas mr-3" *ngFor="let manga of mangas">
+            <div class="manga overflow-hidden">
                 <img style="width: 100%; height: 100%;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;border-top-left-radius: 10px;border-top-right-radius: 10px;"
                     src="{{ manga.preview }}" routerLink="/manga/{{ manga.id }}">
             </div>
             <div class="manga-thumbnails2">
-                <div class="descriptions"i>
+                <div class="descriptions" i>
                     <h3
                         style="margin-top: 7px;white-space:nowrap;text-overflow: ellipsis;overflow: hidden;font-size: 18px;">
                         {{ manga.title }}
@@ -46,7 +66,8 @@
                     <div class="chips inline-block cursor-pointer">
                         <span> 8.50 </span>
                     </div>
-                    <span style="color: rgb(199, 196, 196);font-size: small; white-space: nowrap;">300 Caps - Completed</span>
+                    <span style="color: rgb(199, 196, 196);font-size: small; white-space: nowrap;">300 Caps -
+                        Completed</span>
                 </div>
             </div>
         </div>
