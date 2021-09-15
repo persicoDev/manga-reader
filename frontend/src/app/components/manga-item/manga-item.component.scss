@@ -111,13 +111,13 @@ img {
   padding: 0 6px;
   height: 16px;
   margin-left: 6px;
-  line-height: 13px;
+  line-height: 16.5px;
   border-radius: 25px;
 }
 .chips span {
   color: $body_color;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 10px;
 }
 @media (max-width: 768px) {
   .gallery-cell {
