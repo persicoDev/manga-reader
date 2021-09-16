@@ -38,8 +38,8 @@ input[type="radio"] {
 }
 
 .container {
-  width: 650px;
-  height: 400px;
+  width: 45%;
+  height: 50%;
   transform-style: preserve-3d;
 }
 
@@ -119,13 +119,26 @@ img {
   cursor: pointer;
   font-size: 10px;
 }
+@media (max-width:1024px ) {
+  .container {
+    width: 50%;
+    height: 40%;
+  }
+}
 @media (max-width: 768px) {
   .gallery-cell {
     width: 55%;
     height: 200px;
   }
+  .container {
+    width: 50%;
+    height: 35%;
+  }
 }
 @media (max-width: 639px) {
+  .container {
+    display: none;
+  }
   .mangas {
     width: 145px;
   }
@@ -145,6 +158,6 @@ img {
     display: none;
   }
   .trends {
-    margin-top: 90px;
+    margin-top: 60px !important;
   }
 }
