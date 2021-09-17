@@ -10,6 +10,7 @@ import { MangaItemComponent } from './components/manga-item/manga-item.component
 import { HttpClientModule } from '@angular/common/http';
 import { ReadMangaComponent } from './components/read-manga/read-manga.component'
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
+import { InfoMangaComponent } from './components/info-manga/info-manga.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component
     MangaItemComponent,
     ReadMangaComponent,
     BottomBarComponent,
+    InfoMangaComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,12 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { BookmarkedComponent } from './components/bookmarked/bookmarked.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReadMangaComponent } from './components/read-manga/read-manga.component';
+import { InfoMangaComponent } from './components/info-manga/info-manga.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'bookmarked', component: BookmarkedComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'manga/:id', component: ReadMangaComponent }
+  { path: 'read/:id', component: ReadMangaComponent },
+  { path: 'manga/:id', component: InfoMangaComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
 @NgModule({
