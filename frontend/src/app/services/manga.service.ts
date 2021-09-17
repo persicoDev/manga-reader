@@ -14,7 +14,7 @@ const httpOption = {
 
 export class MangaService {
 
-  private apiUrl = 'https://persicodev.github.io/manga-reader/db.json';
+  private apiUrl = 'http://localhost:3000/mangas';
   
   constructor(private http:HttpClient) { }
 
@@ -25,4 +25,8 @@ export class MangaService {
     return this.http.put<Manga>(url, manga, httpOption);
   }
   
+  getSingleManga(id: number): Observable<Manga> {
+    const idByUrl = `${this.apiUrl}/${id}`
+    return this.http.get<Manga>(idByUrl);
+  }
 }

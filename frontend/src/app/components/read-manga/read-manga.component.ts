@@ -11,14 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReadMangaComponent implements OnInit {
 
-  manga!: string;
-  mangas: Manga[] = [];
+  manga!: Manga;
   id!: number;
 
-  constructor(public activatedRoute:ActivatedRoute, private MangaService: MangaService) { this.MangaService.getMangas().subscribe((mangas) => this.mangas = mangas); }
- 
-  ngOnInit(): void { this.getManga(); }
+  constructor(public activatedRoute: ActivatedRoute, private MangaService: MangaService) { }
 
-  getManga() { this.id = Number(this.activatedRoute.snapshot.paramMap.get('id')); }
+  async ngOnInit(): Promise<void> {
+    this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.manga = (await this.MangaService.getSingleManga(this.id).toPromise());
+  }
 
 }

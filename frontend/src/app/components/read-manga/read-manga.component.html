@@ -1,7 +1,3 @@
-<div *ngFor="let manga of this.mangas">
-    <div *ngIf="manga.id == this.id">
-        <div class="flex pb-10 justify-content-center" *ngFor="let subManga of manga.link">
-            <img src="{{ subManga }}">
-        </div>
-    </div>
+<div class="flex pb-10 justify-content-center" *ngFor="let mangalink of this.manga.link">
+    <img src="{{ mangalink }}">
 </div>
