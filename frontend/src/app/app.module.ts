@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReadMangaComponent } from './components/read-manga/read-manga.component'
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
 import { InfoMangaComponent } from './components/info-manga/info-manga.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { InfoMangaComponent } from './components/info-manga/info-manga.component
     ReadMangaComponent,
     BottomBarComponent,
     InfoMangaComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
