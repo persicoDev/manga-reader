@@ -1,5 +1,5 @@
 import { MangaService } from 'src/app/services/manga.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit} from '@angular/core';
 import { Manga } from 'src/manga';
 
 
@@ -27,5 +27,7 @@ export class MangaItemComponent implements OnInit {
     manga.bookmarked = !manga.bookmarked;
     this.MangaService.updateMangaBookmark(manga).subscribe();
   }
-  
+  counter(i: number) {
+    return new Array(i);
+}
 }
