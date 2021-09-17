@@ -86,9 +86,12 @@ img {
 #manga-container::-webkit-scrollbar {
   display: none;
 }
+
 .manga-container::-webkit-scrollbar {
-  width: 0;
+  display: none;
 }
+
+
 #manga-container {
   background-color: $body_color;
   width: 100%;
@@ -131,7 +134,7 @@ img {
     height: 200px;
   }
   .container {
-    width: 55%;
+    width: 50%;
     height: 250px;
   }
 }
