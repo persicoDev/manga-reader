@@ -1,54 +1,68 @@
 @import "../../../styles.scss";
+
+
 .footer {
-    background-color: $nav_color;
+  background-color: $nav_color;
+}
+
+.footer .social a {
+  font-size: 24px;
+  color: inherit;
+  border: 1px solid rgb(255, 255, 255);
+  width: 40px;
+  height: 40px;
+  line-height: 38px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  margin: 0 8px;
+}
+
+.social i {
+  margin-top: 5.5px;
+}
+
+.footer .social a:hover {
+  border: 1px solid $secondary_color;
+  color: $secondary_color;
+}
+
+.footer ul {
+  margin-top: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.footer ul a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer ul li {
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.footer ul li a:hover {
+  color: $secondary_color;
+}
+
+.footer .copyright {
+  margin-top: 15px;
+  text-align: center;
+  color: #aaa;
+}
+
+@media (max-width: 639px) {
+
+  .footer {
+    margin-top: 0px !important;
+    padding-top: 20px !important;
   }
-  .footer .social a {
-    font-size: 24px ;
-    color: inherit;
-    border: 1px solid rgb(255, 255, 255);
-    width: 40px;
-    height: 40px;
-    line-height: 38px;
-    display: inline-block;
-    text-align: center;
-    border-radius: 50%;
-    margin: 0 8px;
-  }
-  .social i {
-    margin-top: 5.5px;
-  }
-  .footer .social a:hover {
-    border: 1px solid $secondary_color;
-    color: $secondary_color;
-  }
-  .footer ul {
-    margin-top: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 0;
-    text-align: center;
-  }
-  .footer ul a{
-    color: white;
-    text-decoration: none;
-  }
-  .footer ul li {
-    display: inline-block;
-    padding: 0 15px;
-  }
-  .footer ul li a:hover{
-   color: $secondary_color;
-  }
-  .footer .copyright {
-    margin-top: 15px;
-    text-align: center;
-    color: #aaa;
-  }
-  @media (max-width: 639px) {
-    .footer {
-        margin-top: 0px !important;
-        padding-top: 20px !important;
-      }
-  }
+
+}
+

@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { BookmarkedComponent } from './components/bookmarked/bookmarked.component';
-import { MangaItemComponent } from './components/manga-item/manga-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReadMangaComponent } from './components/read-manga/read-manga.component'
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
@@ -19,7 +18,6 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     NavMenuComponent,
     BookmarkedComponent,
-    MangaItemComponent,
     ReadMangaComponent,
     BottomBarComponent,
     InfoMangaComponent,

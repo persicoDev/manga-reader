@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Manga } from 'src/manga';
 
 
@@ -26,7 +26,8 @@ export class MangaService {
   }
   
   getSingleManga(id: number): Observable<Manga> {
-    const idByUrl = `${this.apiUrl}/${id}`
-    return this.http.get<Manga>(idByUrl);
+    const urlById = `${this.apiUrl}/${id}`
+    return this.http.get<Manga>(urlById);
   }
+
 }
