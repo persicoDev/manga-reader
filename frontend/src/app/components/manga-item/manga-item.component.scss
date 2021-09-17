@@ -89,9 +89,6 @@ img {
 .manga-container::-webkit-scrollbar {
   width: 0;
 }
-.manga-container2::-webkit-scrollbar {
-  width: 0;
-}
 #manga-container {
   background-color: $body_color;
   width: 100%;
@@ -162,6 +159,9 @@ img {
   }
   .trends {
     margin-top: 60px !important;
+  }
+  .manga-container {
+    padding-bottom: 0;
   }
 }
 
