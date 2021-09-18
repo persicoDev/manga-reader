@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './read-manga.component.html',
   styleUrls: ['./read-manga.component.scss']
 })
+
 export class ReadMangaComponent implements OnInit {
 
   manga!: Manga;
