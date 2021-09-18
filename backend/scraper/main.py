@@ -6,26 +6,30 @@ from itertools import chain
 from bs4 import BeautifulSoup
 
 
-def get_manga(archive_link, cont, data, manga_obj):
+def get_manga( archive_link, cont, manga_data_list, manga_link_list ):
+
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
 
     for manga in soup('div', class_='entry'):
         chapter_cont = 0
-        manga_data = {}
+        manga_information = manga_links = {}
         cont += 1
-        manga_data['id'] = cont
-        manga_data['title'] = manga.find('a')['title']
-        manga_data['preview'] = manga.find('img')['src']
-        manga_data['routeName'] = re.sub("[^0-9a-zA-Z]+", "", manga_data['title'])
-        manga_data['routeName'] = str(manga_data['routeName']).replace(" ", "-")
+        manga_information['id'] = manga_links['id'] = cont
+        manga_information['title'] = manga.find('a')['title']
+        manga_information['preview'] = manga.find('img')['src']
+        manga_information['routeName'] = re.sub("[^0-9a-zA-Z]+", "", manga_information['title'])
+        manga_information['routeName'] = str(manga_information['routeName']).replace(" ", "-")
         print('manga:' + manga.find('a')['href'])
-        manga_data = get_manga_info(manga_data, manga.find('a')['href'])
-        manga_data['link'] = get_single_manga(manga_data, chapter_cont, manga_link=manga.find('a')['href'])
-        manga_data['link'].sort()
-        manga_data['link'] = list(chain.from_iterable(manga_data['link']))
-        data.append(manga_data)
+        manga_information = get_manga_info(manga_information, manga.find('a')['href'])
+        manga_links['link'] = get_single_manga(manga_information, chapter_cont, manga_link = manga.find('a')['href'])
+        manga_links['link'].sort()
+        manga_links['link'] = list(chain.from_iterable(manga_information['link']))
+        manga_link_list.append(manga_links)
+        manga_data_list.append(manga_information)
 
-def get_manga_info(manga_data, link):
+
+def get_manga_info(manga_information, link):
+
     manga = BeautifulSoup(requests.get(link).content, 'html.parser')
     trama = manga.find('div', {'id': 'noidungm'}).get_text()
     manga_info = manga.find('div', {'class': 'meta-data'})
@@ -35,6 +39,7 @@ def get_manga_info(manga_data, link):
     genres = [category.get_text() for category in category_all]
     all_links = manga_info.findAll('a')
     author = artist = status = year = 'Sconosciuto'
+
     for link in all_links:
         if re.search('author', str(link)):
             author = link.get_text()
@@ -44,8 +49,9 @@ def get_manga_info(manga_data, link):
             status = link.get_text()
         if re.search('year', str(link)):
             year = link.get_text()
+
     return {
-        **manga_data,
+        **manga_information,
         'trama': trama,
         'alt_title': alt_title,
         'genres': genres,
@@ -55,7 +61,8 @@ def get_manga_info(manga_data, link):
         'year': year,
     }
 
-def get_single_manga( manga_data,chapter_cont, manga_link ):
+def get_single_manga( manga_information, chapter_cont, manga_link ):
+
     manga_list = []
     page_content = BeautifulSoup(requests.get(manga_link).content, 'html.parser')
     manga_part = page_content.find('div', class_='chapters-wrapper')
@@ -69,12 +76,12 @@ def get_single_manga( manga_data,chapter_cont, manga_link ):
         manga_url = f'{ manga_url }?style=list'
         print(f'link chapter: { str(manga_url) }')
         manga_list.append(get_single_chapter(manga_url))
-    manga_data['chapter_cont'] = chapter_cont
+    manga_information['chapter_cont'] = chapter_cont
 
     return manga_list
 
 
-def get_single_chapter(manga_url):
+def get_single_chapter( manga_url ):
     save = []
 
     try:
@@ -89,16 +96,22 @@ def get_single_chapter(manga_url):
 
 
 if __name__ == "__main__":
+
     cont = 0
-    data = []
+    manga_data_list = manga_link_list = []
     manga_obj = {}
 
     for i in range(1):
         link = f'https://www.mangaworld.io/archive?page={ i }'
         print(str(i))
-        get_manga(link, cont, data, manga_obj)
+        get_manga( link, cont, manga_data_list, manga_link_list )
 
-    manga_obj = {'mangas': data}
+    manga_obj = { 'mangas': manga_data_list }
+
+    with open('Persichetti/db.json', 'w', encoding='utf-8') as f:
+        json.dump(manga_obj, f, ensure_ascii=False, indent=2)
+
+    manga_obj = { 'mangas': manga_link_list }
 
     with open('Persichetti/db.json', 'w', encoding='utf-8') as f:
         json.dump(manga_obj, f, ensure_ascii=False, indent=2)
