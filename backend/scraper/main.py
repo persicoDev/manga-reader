@@ -108,10 +108,10 @@ if __name__ == "__main__":
 
     manga_obj = { 'mangas': manga_data_list }
 
-    with open('Persichetti/db.json', 'w', encoding='utf-8') as f:
+    with open('backend/infodb.json', 'w', encoding='utf-8') as f:
         json.dump(manga_obj, f, ensure_ascii=False, indent=2)
 
     manga_obj = { 'mangas': manga_link_list }
 
-    with open('Persichetti/db.json', 'w', encoding='utf-8') as f:
+    with open('backend/linkdb.json', 'w', encoding='utf-8') as f:
         json.dump(manga_obj, f, ensure_ascii=False, indent=2)
