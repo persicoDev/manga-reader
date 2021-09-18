@@ -23,7 +23,7 @@ def get_manga( archive_link, cont, manga_data_list, manga_link_list ):
         manga_information = get_manga_info(manga_information, manga.find('a')['href'])
         manga_links['link'] = get_single_manga(manga_information, chapter_cont, manga_link = manga.find('a')['href'])
         manga_links['link'].sort()
-        manga_links['link'] = list(chain.from_iterable(manga_information['link']))
+        manga_links['link'] = list(chain.from_iterable(manga_links['link']))
         manga_link_list.append(manga_links)
         manga_data_list.append(manga_information)
 
