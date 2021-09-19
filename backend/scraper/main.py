@@ -104,7 +104,7 @@ if __name__ == "__main__":
     manga_link_list = []
     manga_obj = {}
 
-    for i in range(145):
+    for i in range(1):
         link = f'https://www.mangaworld.io/archive?page={ i }'
         print(str(i))
         get_manga( link, manga_data_list, manga_link_list )
