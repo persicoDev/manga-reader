@@ -21,13 +21,11 @@ export class MangaService {
   getMangas(): Observable<Manga[]> { return this.http.get<Manga[]>(this.apiUrl); }
   
   updateMangaBookmark(manga: Manga): Observable<Manga> {
-    const url = `${this.apiUrl}/${manga.id}`;
-    return this.http.put<Manga>(url, manga, httpOption);
+    return this.http.put<Manga>(`${this.apiUrl}/${manga.id}`, manga, httpOption);
   }
   
   getSingleManga(id: number): Observable<Manga> {
-    const urlById = `${this.apiUrl}/${id}`
-    return this.http.get<Manga>(urlById);
+    return this.http.get<Manga>(`${this.apiUrl}/${id}`);
   }
 
 }

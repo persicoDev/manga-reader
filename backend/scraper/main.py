@@ -6,14 +6,17 @@ from itertools import chain
 from bs4 import BeautifulSoup
 
 
-def get_manga( archive_link, cont, manga_data_list, manga_link_list ):
 
+def get_manga( archive_link, manga_data_list, manga_link_list ):
+    global cont
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
 
     for manga in soup('div', class_='entry'):
         chapter_cont = 0
-        manga_information = manga_links = {}
+        manga_information = {}
+        manga_links = {}
         cont += 1
+        print(f'giusto per il contatore: { cont }')
         manga_information['id'] = manga_links['id'] = cont
         manga_information['title'] = manga.find('a')['title']
         manga_information['preview'] = manga.find('img')['src']
@@ -96,20 +99,22 @@ def get_single_chapter( manga_url ):
 
 
 if __name__ == "__main__":
-
     cont = 0
-    manga_data_list = manga_link_list = []
+    manga_data_list = []
+    manga_link_list = []
     manga_obj = {}
 
-    for i in range(1):
+    for i in range(145):
         link = f'https://www.mangaworld.io/archive?page={ i }'
         print(str(i))
-        get_manga( link, cont, manga_data_list, manga_link_list )
+        get_manga( link, manga_data_list, manga_link_list )
 
     manga_obj = { 'mangas': manga_data_list }
 
     with open('backend/infodb.json', 'w', encoding='utf-8') as f:
         json.dump(manga_obj, f, ensure_ascii=False, indent=2)
+    
+    manga_obj = {}
 
     manga_obj = { 'mangas': manga_link_list }
 
