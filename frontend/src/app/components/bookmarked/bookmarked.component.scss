@@ -166,24 +166,20 @@ p {
 i {
   color: skyblue;
 }*/
-.wrapper {
-  height: 120px;
-  border: 1px solid #ddd;
-  display: -webkit-box;
-  display: -ms-flexbox;
+.videos {
+  width: 100%;
+  height: 100%;
+  background-color: #f9f9f9;
+  padding-left: 130px;
+  padding-right: 30px;
+  z-index: -1;
+}
+.videos-container {
+  overflow: hidden;
+  justify-content:space-evenly;
   display: flex;
-  overflow-x: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-
-.wrapper::-webkit-scrollbar {
-  width: 0;
-}
-
-.wrapper .item {
-  width: 110px;
-  height: 110px;
-  line-height: 110px;
-  text-align: center;
-  background-color: #ddd;
-}
+ 
 /*# sourceMappingURL=bookmarked.component.css.map */
