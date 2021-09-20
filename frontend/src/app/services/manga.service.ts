@@ -24,5 +24,6 @@ export class MangaService {
   
   getSingleManga(id: number): Observable<MangaLinks> {
     return this.http.get<MangaLinks>(`${this.linkApiUrl}/${id}`);
+    console.log('miao');
   }
 }
