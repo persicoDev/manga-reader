@@ -13,8 +13,8 @@ const httpOption = {
 @Injectable({ providedIn: 'root' })
 
 export class MangaService {
-  private infoApiUrl = 'http://localhost:3000/manga-infos';
-  private linkApiUrl = 'http://localhost:3000/manga-links';
+  private infoApiUrl = 'https://persicodev.github.io/manga-reader/infodb.json';
+  private linkApiUrl = 'https://persicodev.github.io/manga-reader/linkdb.json';
 
   constructor(private http: HttpClient) { }
 
