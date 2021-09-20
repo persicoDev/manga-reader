@@ -1,8 +1,9 @@
 @import '../../../styles.scss';
 
 
-#nav-wrapper {
+.nav-wrapper {
     background-color: $nav_color;
+    width: 100%;
 }
 
 @media (max-width: 639px) {
