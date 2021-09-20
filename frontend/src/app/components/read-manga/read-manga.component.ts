@@ -1,8 +1,7 @@
-import { ActivatedRoute } from '@angular/router';
 import { MangaLinks } from 'src/manga';
-import { MangaService } from 'src/app/services/manga.service';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
+import { MangaService } from 'src/app/services/manga.service';
 
 @Component({
   selector: 'app-read-manga',
