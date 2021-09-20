@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Manga } from 'src/manga';
+import { MangaInfos, MangaLinks } from 'src/manga';
 
 
 const httpOption = {
@@ -14,18 +14,15 @@ const httpOption = {
 
 export class MangaService {
 
-  private apiUrl = 'http://localhost:3000/mangas';
+  private infoApiUrl = 'http://localhost:3000/manga-infos'
+  private linkApiUrl = 'http://localhost:3000/manga-links';
   
   constructor(private http:HttpClient) { }
 
-  getMangas(): Observable<Manga[]> { return this.http.get<Manga[]>(this.apiUrl); }
+  getMangas(): Observable<MangaInfos[]> { return this.http.get<MangaInfos[]>(this.infoApiUrl); }
   
-  updateMangaBookmark(manga: Manga): Observable<Manga> {
-    return this.http.put<Manga>(`${this.apiUrl}/${manga.id}`, manga, httpOption);
-  }
-  
-  getSingleManga(id: number): Observable<Manga> {
-    return this.http.get<Manga>(`${this.apiUrl}/${id}`);
+  getSingleManga(id: number): Observable<MangaLinks> {
+    return this.http.get<MangaLinks>(`${this.linkApiUrl}/${id}`);
   }
 
 }

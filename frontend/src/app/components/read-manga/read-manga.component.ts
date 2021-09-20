@@ -1,5 +1,5 @@
 import { ActivatedRoute } from '@angular/router';
-import { Manga } from 'src/manga';
+import { MangaLinks } from 'src/manga';
 import { MangaService } from 'src/app/services/manga.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,14 +12,14 @@ import { Component, OnInit } from '@angular/core';
 
 export class ReadMangaComponent implements OnInit {
 
-  manga!: Manga;
+  mangaLinks!: MangaLinks;
   id!: number;
 
   constructor(public activatedRoute: ActivatedRoute, private MangaService: MangaService) { }
 
   async ngOnInit(): Promise<void> {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.manga = (await this.MangaService.getSingleManga(this.id).toPromise());
+    this.mangaLinks = (await this.MangaService.getSingleManga(this.id).toPromise());
   }
 
 }
