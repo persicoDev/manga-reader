@@ -1,6 +1,6 @@
 import { MangaService } from 'src/app/services/manga.service';
 import { Component, OnInit } from '@angular/core';
-import { Manga } from 'src/manga';
+import { MangaInfos } from 'src/manga';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { Manga } from 'src/manga';
 
 export class HomeComponent implements OnInit {
 
-  mangas: Manga[] = [];
+  mangaInfos: MangaInfos[] = [];
 
   public slides = [
     { src: "https://cdn.mangaworld.io/mangas/5f75048a5a6cee7b7f49083e.jpg?1624711215499" },
@@ -21,12 +21,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private MangaService: MangaService) { }
 
-  ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangas = mangas); }
-
-  bookmarkManga(manga: Manga) {
-    manga.bookmarked = !manga.bookmarked;
-    this.MangaService.updateMangaBookmark(manga).subscribe();
-  }
+  ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangaInfos = mangas); }
 
   counter(i: number) {
     return new Array(i);
