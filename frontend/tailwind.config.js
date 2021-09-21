@@ -4,13 +4,9 @@ process.env.TAILWIND_MODE = guessProductionMode() ? 'build' : 'watch';
 
 module.exports = {
     prefix: '',
-    mode: 'aot',
+    mode: 'jit',
     purge: {
-      content: [
-        './src/**/*.{html,ts,css,scss,sass,less,styl}',
-        './src/app/components/**/*{html,ts,css,scss,sass,less,styl}',
-        './src/app/**/*{html,ts,css,scss,sass,less,styl}',
-      ]
+      content: [ ]
     },
     darkMode: 'class', // or 'media' or 'class'
     theme: {
