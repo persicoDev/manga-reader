@@ -41,6 +41,12 @@ input[type="radio"] {
   width: 45%;
   height: 380px;
   transform-style: preserve-3d;
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-items: center !important;
+  
 }
 
 .cards {
