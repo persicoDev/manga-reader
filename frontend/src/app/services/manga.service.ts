@@ -15,15 +15,14 @@ const httpOption = {
 export class MangaService {
   
 
-  private infoApiUrl = 'http://localhost:3000/manga-infos'
-  private linkApiUrl = 'http://localhost:3000/manga-links';
+  private apiUrl = 'http://localhost:4000/api/'
   
   constructor(private http:HttpClient) { }
 
-  getMangas(): Observable<MangaInfos[]> { return this.http.get<MangaInfos[]>(this.infoApiUrl); }
+  getMangas(): Observable<MangaInfos[]> { return this.http.get<MangaInfos[]>(this.apiUrl); }
   
   getSingleManga(id: number): Observable<MangaLinks> {
-    return this.http.get<MangaLinks>(`${this.linkApiUrl}/${id}`);
+    return this.http.get<MangaLinks>(`${this.apiUrl}/${id}`);
     console.log('miao');
   }
 }

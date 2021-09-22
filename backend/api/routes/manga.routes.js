@@ -7,7 +7,7 @@ const MangaLinks = require('../models/MangaInfos');
 
 let app = express();
 
-mangaRoute.route('/').get((req, res) =>{
+mangaRoute.route('/').get((req, res, next) =>{
     MangaInfos.find((error, data) => {
         if (error)
             return next(error);
@@ -15,7 +15,7 @@ mangaRoute.route('/').get((req, res) =>{
     })
 })
 
-mangaRoute.route('/manga/:id').get((req, res) =>{
+mangaRoute.route('/manga/:id').get((req, res, next) =>{
     MangaInfos.findById(req.params.id, (error, data) => {
         if (error)
             return next(error);
@@ -23,7 +23,7 @@ mangaRoute.route('/manga/:id').get((req, res) =>{
     })
 })
 
-mangaRoute.route('/read/:id').get((req, res) =>{
+mangaRoute.route('/read/:id').get((req, res, next) =>{
     MangaLinks.findById(req.params.id, (error, data) => {
         if (error)
             return next(error);
