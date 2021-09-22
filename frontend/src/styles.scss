@@ -3,14 +3,18 @@
 @import 'tailwindcss/utilities';
 
 
-html, body { 
+// * {
+//     all: unset;
+// }
+
+html, .body { 
     height: 100%;
     width: auto !important;
     min-width: auto !important;
+    all: unset;
 }
 
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 $body_color: #0b1622;
 $nav_color: #151F2E;
 $secondary_color: #0051ff;
