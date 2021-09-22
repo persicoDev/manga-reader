@@ -4,10 +4,10 @@ let express = require("express"),
    cors = require("cors");
    require("dotenv").config();
 
-   
+
 mongoose.Promise = global.Promise;
 
-const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@manga-database.sbycl.mongodb.net/Manga-Database?retryWrites=true&w=majority`;
+const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@manga-database.sbycl.mongodb.net/manga-infos?retryWrites=true&w=majority`;
 
 mongoose.connect(url, {
       useNewUrlParser: true,
