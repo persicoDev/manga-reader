@@ -1,12 +1,12 @@
 let express = require("express"),
    path = require("path"),
    mongoose = require("mongoose"),
-   cors = require("cors"),
-   result = require("dotenv").config({ path: "../../.env" });
+   cors = require("cors");
+   require("dotenv").config();
 
+   
 mongoose.Promise = global.Promise;
 
-console.log(result.parsed);
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@manga-database.sbycl.mongodb.net/Manga-Database?retryWrites=true&w=majority`;
 
 mongoose.connect(url, {
