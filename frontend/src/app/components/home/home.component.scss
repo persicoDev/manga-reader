@@ -187,7 +187,7 @@ img {
 }
 @media (max-width: 639px) {
   .container {
-    display: none;
+    display: none !important;
   }
   #manga-container {
     height: 95%;
@@ -199,7 +199,7 @@ img {
     display: none;
   }
   .trends-three {
-    margin-top: 60px !important;
+    margin-top: 75px !important;
   }
   .new-container {
     width: 400px !important;
@@ -217,6 +217,7 @@ img {
 @media (max-width: 469px) {
   .manga-container2 {
     padding-left: 5% !important;
+    padding-top: 2%;
   }
   .box {
     margin: 0px !important;
