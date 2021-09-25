@@ -2,7 +2,6 @@ import { MangaService } from 'src/app/services/manga.service';
 import { Component, OnInit } from '@angular/core';
 import { MangaInfos } from 'src/manga';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -21,10 +20,11 @@ export class HomeComponent implements OnInit {
 
   constructor(private MangaService: MangaService) { }
 
-  ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangaInfos = mangas); }
+  async ngOnInit(): Promise<void> { 
+    this.mangaInfos = (await this.MangaService.getMangas().toPromise());
+    console.log(this.mangaInfos[0]);
+   }
 
-  counter(i: number) {
-    return new Array(i);
-  }
+  counter(i: number) { return new Array(i); }
   
 }
