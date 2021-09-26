@@ -46,7 +46,6 @@ input[type="radio"] {
   flex-direction: column !important;
   align-items: center !important;
   justify-items: center !important;
-  
 }
 
 .cards {
@@ -148,11 +147,15 @@ img {
       height: 20px;
     }
   }
+  .container {
+    width: 50%;
+    height: 340px;
+  }
 }
 @media (max-width: 1024px) {
   .container {
     width: 50%;
-    height: 300px;
+    height: 320px;
   }
 }
 @media (max-width: 848px) {
@@ -199,7 +202,7 @@ img {
     display: none;
   }
   .trends-three {
-    margin-top: 75px !important;
+    margin-top: 90px !important;
   }
   .new-container {
     width: 400px !important;
@@ -239,10 +242,9 @@ img {
       width: 35px !important;
       height: 25px;
     }
-
   }
-  .trends, .trends-three {
+  .trends,
+  .trends-three {
     margin-left: 5%;
   }
 }
-

@@ -2,7 +2,7 @@
 
 <div id="manga-container" class="overflow-y-scroll" style="font-family: Arial, Helvetica, sans-serif;">
     <!--Carousel-->
-    <div class="container flex  pt-3" style="display: flex;margin: 0 20% 0 30%;">
+    <div class="container flex  pt-3" style="display: flex;margin: 0 25% 0 25%;">
         <input type="radio" name="slider" id="item-1" checked />
         <input type="radio" name="slider" id="item-2" />
         <input type="radio" name="slider" id="item-3" />
@@ -25,14 +25,20 @@
 
         <!--Top mangas-->
         <div class="trends-three mt-9 text-white items-center flex">
-            <i style="font-size: 30px" class="material-icons">grade</i>
-            <span style="font-size: 20px; color: white">Top manga</span>
+            <div style="width: 75%;" class="part-left items-center flex">
+                <i style="font-size: 30px" class="material-icons">grade</i>
+                <span style="font-size: 20px; color: white">Top manga</span>
+            </div>
+            <div style="width: 25%;justify-content: flex-end;" class="items-center flex ">
+                <span style="font-size: 15px; color: white">More</span>
+                <i style="font-size: 25px" class="material-icons">chevron_right</i>
+            </div>
         </div>
         <div style="overflow: hidden; overflow-x: auto" class="manga-container2 flex flex-row flex-nowrap pt-6 pb-6">
             <div class="mangas mr-3" *ngFor="let manga of mangaInfos;let i = index">
                 <div class="manga overflow-hidden">
                     <img style="width: 100%;height: 100%;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;border-top-left-radius: 10px;border-top-right-radius: 10px;"
-                        src="{{ manga.preview }}" routerLink="/read/{{ manga.id }}" />
+                        src="{{ manga.preview }}" routerLink="/manga/{{ manga.id }}" />
                 </div>
                 <div class="manga-thumbnails2">
                     <div class="descriptions">
@@ -44,8 +50,11 @@
                         <div class="chips inline-block cursor-pointer">
                             <span> 8.50 </span>
                         </div>
-                        <span style="color: rgb(199, 196, 196);font-size: small;white-space: nowrap;">300 Caps -
-                            Completed</span>
+                        <div class="mt-1">
+                            <span style="color: rgb(199, 196, 196);font-size: small;white-space: nowrap;">{{
+                                manga.chapter_cont }} Cap -
+                                {{ manga.status }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -55,13 +64,13 @@
         <!--Latest updates-->
         <div class="trends mt-9 mb-3 text-white items-center flex">
             <i style="font-size: 30px" class="material-icons">list</i>
-            <span style="font-size: 20px; color: white">Latest updates</span>
+            <span style="font-size: 20px; color: white">Ultime aggiunte</span>
         </div>
         <div style="width: 100%; justify-content: space-evenly;border-radius: 10px;"
             class="new-box overflow-hidden  flex flex-row flex-wrap">
             <div class="loop" *ngFor="let manga of mangaInfos;let i = index">
                 <div style="width: 480px;height: 200px;border-radius: 10px;margin-bottom: 20px;"
-                    class="new-container flex" routerLink="/read/{{ manga.id }}">
+                    class="new-container flex" routerLink="/manga/{{ manga.id }}">
                     <div style="width: 50%;height: 100%;" class="new-manga">
                         <img class="new-image" style="width: 230px;height: 100%;" src="{{ manga.preview }}" />
                     </div>
@@ -77,19 +86,19 @@
                                 </div>
                             </div>
                             <div class="chapter mt-1" style="height: 120px;color: white;font-size: small">
-                                <span> New chapter:</span>
+                                <span> Nuovi capitoli:</span>
                                 <div class="flex content-center items-center">
-                                    <span>Chapter 3</span>
+                                    <span>Capitolo 3</span>
                                     <img class="new" style="width: 45px;padding-top: 3px;"
                                         src="https://i.ibb.co/G0BhLtm/download-8.gif">
                                 </div>
                                 <div class="flex content-center items-center">
-                                    <span>Chapter 2</span>
+                                    <span>Capitolo 2</span>
                                     <img class="new2" style="width: 45px;padding-top: 3px;"
                                         src="https://i.ibb.co/G0BhLtm/download-8.gif">
                                 </div>
                                 <div class=" end flex content-center items-center">
-                                    <span>Chapter 1</span>
+                                    <span>Capitolo 1</span>
                                 </div>
                             </div>
                         </div>
