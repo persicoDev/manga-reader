@@ -1,4 +1,4 @@
-import { MangaLinks } from 'src/manga';
+import { MangaInfos } from 'src/manga';
 import { ActivatedRoute } from '@angular/router';
 import { MangaService } from 'src/app/services/manga.service';
 import { Component, OnInit } from '@angular/core';
@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class ReadMangaComponent implements OnInit {
 
-  mangaLinks!: MangaLinks;
+  mangaLinks!: MangaInfos;
   id!: number;
 
   constructor(public activatedRoute: ActivatedRoute, private MangaService: MangaService) { }

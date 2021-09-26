@@ -12,13 +12,13 @@ mangaRoute.route('/').get(async (req, res, next) =>{
     res.json(await MangaInfos.find());
 })
 
-// mangaRoute.route('/manga/:id').get((req, res, next) =>{
-//    res.json(MangaInfos.findById(req.params.id))
-// })
+mangaRoute.route('/manga/:id').get(async (req, res, next) =>{
+   res.json(await MangaInfos.findOne({'id': req.params.id}))
+})
 
-// mangaRoute.route('/read/:id').get((req, res, next) =>{
-//     res.json(MangaLinks.findById(req.params.id))
-// })
+mangaRoute.route('/read/:id').get(async (req, res, next) =>{
+    res.json(await MangaInfos.findOne({'id': req.params.id}))
+})
 
 
 module.exports = mangaRoute;

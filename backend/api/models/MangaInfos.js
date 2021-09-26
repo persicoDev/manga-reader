@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const mangaInfos = mongoose.Schema({
     id: { type: Number },
     title: { type: String },
@@ -12,14 +13,8 @@ const mangaInfos = mongoose.Schema({
     artist: { type: String },
     status: { type: String },
     year: { type: String },
-    chapter_cont: { type: Number }
-})
-
- const  mangaLinks = mongoose.Schema({
-    id: { type: Number },
+    chapter_cont: { type: Number },
     link: { type: [String]}
 })
 
 module.exports = mongoose.model('manga-infos', mangaInfos);
-// module.exports = mongoose.model('manga-links', mangaLinks);
-
