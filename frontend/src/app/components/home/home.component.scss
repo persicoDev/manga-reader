@@ -30,29 +30,6 @@ input[type="radio"] {
   display: none;
 }
 
-.card {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.4s ease;
-  border-radius: 10px;
-}
-
-.container {
-  width: 45%;
-  height: 380px;
-  transform-style: preserve-3d;
-  display: flex !important;
-  justify-content: center !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-items: center !important;
-}
-
-.cards {
-  width: 100%;
-  height: 100%;
-  margin-bottom: 20px;
-}
 
 img {
   width: 100%;
@@ -94,22 +71,8 @@ img {
 .manga-container2::-webkit-scrollbar {
   display: none;
 }
-#manga-container {
+.manga-container {
   background-color: $body_color;
-  width: 100%;
-  height: 100%;
-}
-.mangas {
-  width: 145px;
-  height: 285px;
-}
-.manga {
-  width: 100%;
-  height: 205px;
-}
-.descriptions {
-  width: 145px;
-  color: white;
 }
 .chips {
   background-color: $secondary_color;
@@ -149,13 +112,13 @@ img {
     }
   }
   .container {
-    width: 50%;
+    width: 45% !important;
     height: 340px;
+    margin: 0 30% 0 25% !important;
   }
 }
 @media (max-width: 1024px) {
   .container {
-    width: 50%;
     height: 320px;
   }
 }
@@ -175,6 +138,9 @@ img {
       }
     }
   }
+  .container {
+    width: 47% !important;
+  }
 }
 @media (max-width: 768px) {
   .gallery-cell {
@@ -182,8 +148,7 @@ img {
     height: 200px;
   }
   .container {
-    width: 50%;
-    height: 250px;
+    width: 50% !important;
   }
   .box {
     margin: 0 5% 0 5% !important;
