@@ -12,7 +12,7 @@ import { animate, state, style, transition, trigger, } from "@angular/animations
       state(
         "in",
         style({
-          background: "#0051ff",
+          background: "#9f0acc",
         })
       ),
       state(
