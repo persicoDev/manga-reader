@@ -35,7 +35,9 @@
             <div class="loop" *ngFor="let manga of mangaInfos">
                 <div class="count" *ngIf="manga.id == id">
                     <div style="height: 95px;padding:25px 50px 40px 25px;" class="w-full">
-                        <span style="font-size:30px;">{{ manga.title }}</span>
+                        <div class="gradient">
+                            <span style="font-size:30px;">{{ manga.title }}</span>
+                        </div>
                     </div>
                 </div>
             </div>
