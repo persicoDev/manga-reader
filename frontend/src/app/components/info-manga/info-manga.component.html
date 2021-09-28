@@ -1,13 +1,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<div style="padding-top: 100px;" class="container-description w-full h-full overflow-y-scroll font-sans text-white ">
+<div style="padding-top: 65px;" class="container-description w-full h-full overflow-y-scroll font-sans text-white ">
     <!--su mobile togliere flex-->
-    <div class="box2 flex">
-        <div class="information-left ml-12 flex">
+    <div class="loop" *ngFor="let manga of mangaInfos">
+        <div class="count" *ngIf="manga.id == id">
+            <div class="box3" style="opacity: 0.2;" [ngStyle]="{'background-image':'url(' + manga.preview + ')'}">
+            </div>
+        </div>
+    </div>
+    <div class="box2 flex" style="opacity: .9;">
+        <div style="opacity: .9;" class="information-left ml-12 flex ">
             <div class="loop" *ngFor="let manga of mangaInfos">
                 <div class="count" *ngIf="manga.id == id">
                     <div style="width: 250px;height: 375px;display: flex;">
-                        <img style="width:100%;height: 100%;border-radius: 10px;" src="{{ manga.preview }}">
+                        <img style="width:100%;height: 100%;border-radius: 10px; opacity: 1;" src="{{ manga.preview }}">
                     </div>
                     <div (click)="bookmark()"
                         style="border: 2px solid #9f0acc;border-radius: 5px;width: 250px;height: 43px;color: #9f0acc;cursor: pointer;"
@@ -25,14 +31,15 @@
             </div>
         </div>
 
-        <div style=" padding-left: 25px;" class="information-right flex mt-1 ">
+        <div style=" padding-left: 25px;margin-top: 15px;" class="information-right flex  ">
             <div class="loop" *ngFor="let manga of mangaInfos">
                 <div class="count" *ngIf="manga.id == id">
-                    <div style="width: 100%;">
+                    <div style="height: 95px;padding:25px 50px 40px 25px;" class="w-full">
                         <span style="font-size:30px;">{{ manga.title }}</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <app-footer></app-footer>
 </div>

@@ -140,6 +140,7 @@ img {
   }
   .container {
     width: 47% !important;
+    height: 300px ;
   }
 }
 @media (max-width: 768px) {
@@ -148,7 +149,8 @@ img {
     height: 200px;
   }
   .container {
-    width: 50% !important;
+    width: 55% !important;
+
   }
   .box {
     margin: 0 5% 0 5% !important;
@@ -181,6 +183,9 @@ img {
         width: 180px !important;
       }
     }
+  }
+  .manga-container {
+    padding-bottom: 45px;
   }
 }
 @media (max-width: 469px) {

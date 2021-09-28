@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'bookmarked', component: BookmarkedComponent},
   { path: 'read/:id', component: ReadMangaComponent },
   { path: 'manga/:id', component: InfoMangaComponent},
+  { path: 'manga/:preview', component: InfoMangaComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

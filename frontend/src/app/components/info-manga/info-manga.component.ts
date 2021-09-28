@@ -107,4 +107,5 @@ export class InfoMangaComponent implements OnInit {
     this.mark = this.mark === "in" ? "out" : "in";
   }
 
+
 }
