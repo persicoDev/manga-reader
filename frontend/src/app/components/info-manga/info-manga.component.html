@@ -8,7 +8,7 @@
             </div>
         </div>
     </div>
-    <div class="box2 flex" style="opacity: .9;">
+    <div class="box2 flex " style="opacity: .9;">
         <div style="opacity: .9;" class="information-left ml-12 flex ">
             <div class="loop" *ngFor="let manga of mangaInfos">
                 <div class="count" *ngIf="manga.id == id">
@@ -31,12 +31,12 @@
             </div>
         </div>
 
-        <div style=" padding-left: 25px;margin-top: 15px;" class="information-right flex  ">
+        <div style=" padding-left: 5px;margin-top: 15px;" class="information-right flex w-full ml-3 ">
             <div class="loop" *ngFor="let manga of mangaInfos">
-                <div class="count" *ngIf="manga.id == id">
-                    <div style="height: 95px;padding:25px 50px 40px 25px;" class="w-full">
-                        <div class="gradient">
-                            <span style="font-size:30px;">{{ manga.title }}</span>
+                <div class="count " *ngIf="manga.id == id">
+                    <div style="height: 95px;" class="title w-full flex">
+                        <div class="gradient w-full flex">
+                            <span style="font-size:30px;flex-wrap: wrap;">{{ manga.title }}</span>
                         </div>
                     </div>
                 </div>

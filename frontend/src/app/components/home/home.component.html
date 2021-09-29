@@ -39,6 +39,7 @@
             </div>
         </div>
         <div class="manga-container2 flex flex-row flex-nowrap pt-6 pb-6 overflow-x-auto">
+            
             <div class="mangas mr-3 w-36 h-72" *ngFor="let manga of mangaInfos;let i = index">
                 <div class="manga overflow-hidden w-full h-52">
                     <img class="w-full h-full rounded-lg" src="{{ manga.preview }}"
@@ -71,6 +72,7 @@
         </div>
         <div style="justify-content: space-evenly;" class="new-box overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
             <div class="loop" *ngFor="let manga of mangaInfos;let i = index">
+                <div class="cont">
                 <div style="width:480px;" class="new-container flex h-48 rounded-lg mb-5" routerLink="/manga/{{ manga.id }}">
                     <div class="new-manga w-6/12 h-full">
                         <img class="new-image h-full" style="width: 230px;" src="{{ manga.preview }}" />
@@ -106,10 +108,12 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
         <!--End latest updates-->
 
     </div>
     <!--End box-->
+
     <app-footer></app-footer>
 </div>

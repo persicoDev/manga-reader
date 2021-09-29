@@ -74,6 +74,10 @@ img {
 .manga-container {
   background-color: $body_color;
 }
+.manga-container::-webkit-scrollbar {
+  display: none;
+}
+
 .chips {
   background-color: $secondary_color;
   padding: 0 6px;

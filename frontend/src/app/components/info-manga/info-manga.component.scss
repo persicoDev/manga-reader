@@ -1,5 +1,8 @@
 @import "../../../styles.scss";
 @import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+.container-description::-webkit-scrollbar {
+  display: none;
+}
 .box3{
   width: 100%;
   height: 500px;
@@ -16,7 +19,6 @@
 }
 .container-description {
   background: $body_color;
-  padding-bottom: 25px;
 }
 .material-icons.book2 {
   display: none;
@@ -25,7 +27,14 @@
 .bookmarked {
   background-color: $body_color;
 }
-
+.gradient{
+  display: flex;
+  align-items: center;
+  height: 70px;
+  text-align: left;
+  padding-left: 10px;
+  background-image: linear-gradient(to right, #6521a5, rgba(0,0,0,0));
+}
   @media (max-width:768px) {
     .box2 {
       display: unset;
@@ -36,18 +45,20 @@
       }
     }
     .information-right {
-      margin-top: 28px !important;
+      margin-top: 40px !important;
+      margin-left: 0px !important;
+    }
+    .title {
+      padding-left: 5px !important;
+    }
+    .gradient {
+      background-image:none;
+    }
+
+  }
+  @media (max-width:639px) {
+    .container-description {
+      padding-bottom: 25px;
     }
   }
 
-
-.gradient{
-  display: flex;
-  white-space: nowrap;
-  align-items: center;
-  height: 50px;
-  text-align: left;
-  padding-left: 10px;
-  width: 300px;
-  background-image: linear-gradient(to right, #6521a5, rgba(0,0,0,0));
-}
