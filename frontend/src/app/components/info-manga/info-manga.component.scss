@@ -12,7 +12,7 @@
   background-repeat: no-repeat;
   z-index: 0;
   margin-bottom: -500px;
-  filter: blur(5px)
+//   filter: blur(5px)
 }
 .box2 {
   padding-top: 30px;
@@ -62,3 +62,7 @@
     }
   }
 
+  .summary{
+    margin-top: 20px;
+    width: 80%;
+}

@@ -1,47 +1,52 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-<div style="padding-top: 65px;" class="container-description w-full h-full overflow-y-scroll font-sans text-white ">
-    <!--su mobile togliere flex-->
-    <div class="loop" *ngFor="let manga of mangaInfos">
-        <div class="count" *ngIf="manga.id == id">
-            <div class="box3" style="opacity: 0.2;" [ngStyle]="{'background-image':'url(' + manga.preview + ')'}">
+<div class="overflow-y-scroll w-full h-full">
+    <div style="padding-top: 65px;" class="container-description w-full h-full font-sans text-white ">
+        <!--su mobile togliere flex-->
+        <div class="loop" *ngFor="let manga of mangaInfos">
+            <div class="count" *ngIf="manga.id == id">
+                <div class="box3" style="opacity: 0.2;" [ngStyle]="{'background-image':'url(' + manga.preview + ')'}">
+                </div>
             </div>
         </div>
-    </div>
-    <div class="box2 flex " style="opacity: .9;">
-        <div style="opacity: .9;" class="information-left ml-12 flex ">
-            <div class="loop" *ngFor="let manga of mangaInfos">
-                <div class="count" *ngIf="manga.id == id">
-                    <div style="width: 250px;height: 375px;display: flex;">
-                        <img style="width:100%;height: 100%;border-radius: 10px; opacity: 1;" src="{{ manga.preview }}">
-                    </div>
-                    <div (click)="bookmark()"
-                        style="border: 2px solid #9f0acc;border-radius: 5px;width: 250px;height: 43px;color: #9f0acc;cursor: pointer;"
-                        class="bookmarked flex mt-3" [@animation1]="mark">
-                        <div style="width: 80%;justify-content: center;cursor: pointer;" class="items-center flex ">
-                            <span [@animation2]="mark" id="book-written" style="margin-left: 35px;;">Bookmarked</span>
+        <div class="box2 flex" style="opacity: .9;">
+            <div style="opacity: .9;" class="information-left ml-12 flex ">
+                <div class="loop" *ngFor="let manga of mangaInfos">
+                    <div class="count" *ngIf="manga.id == id">
+                        <div style="width: 250px;height: 375px;display: flex;">
+                            <img style="width:100%;height: 100%;border-radius: 10px; opacity: 1;" src="{{ manga.preview }}">
                         </div>
-                        <div style="width: 20%;justify-content: center;cursor: pointer;" class="items-center flex ">
-                            <i [@animation3]="mark" style="font-size: 30px;" class="material-icons book">bookmark</i>
-                            <i [@animation4]="mark" style="font-size: 30px;"
-                                class="material-icons book2">bookmark_added</i>
+                        <div (click)="bookmark()"
+                            style="border: 2px solid #9f0acc;border-radius: 5px;width: 250px;height: 43px;color: #9f0acc;cursor: pointer;"
+                            class="bookmarked flex mt-3" [@animation1]="mark">
+                            <div style="width: 80%;justify-content: center;cursor: pointer;" class="items-center flex ">
+                                <span [@animation2]="mark" id="book-written" style="margin-left: 35px;;">Bookmarked</span>
+                            </div>
+                            <div style="width: 20%;justify-content: center;cursor: pointer;" class="items-center flex ">
+                                <i [@animation3]="mark" style="font-size: 30px;" class="material-icons book">bookmark</i>
+                                <i [@animation4]="mark" style="font-size: 30px;"
+                                    class="material-icons book2">bookmark_added</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding-left: 5px;" class="information-right flex w-full ml-3">
+                <div class="loop" *ngFor="let manga of mangaInfos">
+                    <div class="count" *ngIf="manga.id == id">
+                        <div style="height: 95px;" class="title w-full">
+                            <div class="gradient w-full flex">
+                                <span style="font-size:30px;flex-wrap: wrap;">{{ manga.title }}</span>
+                            </div>
+                            <div class="summary h-full w-full">
+                                <span style="font-size:25px;">Trama</span><br>
+                                <span style="font-size:15px;">{{ manga.trama }}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div style=" padding-left: 5px;margin-top: 15px;" class="information-right flex w-full ml-3 ">
-            <div class="loop" *ngFor="let manga of mangaInfos">
-                <div class="count " *ngIf="manga.id == id">
-                    <div style="height: 95px;" class="title w-full flex">
-                        <div class="gradient w-full flex">
-                            <span style="font-size:30px;flex-wrap: wrap;">{{ manga.title }}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    <app-footer></app-footer>
+<app-footer></app-footer>
 </div>
