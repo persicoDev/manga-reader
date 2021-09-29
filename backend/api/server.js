@@ -1,11 +1,13 @@
-let express = require("express"),
+const express = require("express"),
    path = require("path"),
    mongoose = require("mongoose"),
    cors = require("cors"),
-   createError = require('http-errors');
+   createError = require('http-errors'),
+   mangaRoute = require("./routes/manga.routes"),
+   app = express();
    require("dotenv").config();
 
-
+   
 mongoose.Promise = global.Promise;
 
 const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@manga-database.sbycl.mongodb.net/mangas?retryWrites=true&w=majority`;
@@ -17,9 +19,6 @@ mongoose.connect(url, {
       },(error) => {
             console.log("Database could not connected: " + error);
       });
-
-const mangaRoute = require("./routes/manga.routes");
-const app = express();
 
 app.use(express.json());
 

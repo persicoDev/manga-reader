@@ -2,7 +2,6 @@ const express = require('express');
 const mangaRoute = express.Router();
 
 const MangaInfos = require('../models/MangaInfos');
-// const MangaLinks = require('../models/MangaInfos');
  
 
 let app = express();
