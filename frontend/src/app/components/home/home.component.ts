@@ -26,15 +26,15 @@ export class HomeComponent implements OnInit {
   counter(i: number) {
     return new Array(i);
   }
-  
   public scrollRight(): void {
     let container:HTMLElement | any = document.getElementById('container');
-    this.sideScroll(container, 'right', 25, 100, 10);
+    // this.sideScroll(container, 'right', 25, 100, 10);
+    this.sideScroll(container, 'right', 25, 470, 25);
   }
 
   public scrollLeft(): void {
     let container:HTMLElement | any = document.getElementById('container');
-    this.sideScroll(container, 'left', 25, 100, 10);
+    this.sideScroll(container, 'left', 25, 470, 25);
   }
 
   public sideScroll(element: HTMLElement, direction:string, speed:number, distance:number, step:number): void{
@@ -53,3 +53,7 @@ export class HomeComponent implements OnInit {
  }
 
 }
+
+  
+
+

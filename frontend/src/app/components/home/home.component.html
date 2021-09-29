@@ -32,15 +32,26 @@
             <div style="width: 75%;" class="part-left  items-center flex">
                 <i class="material-icons text-3xl">grade</i>
                 <span class="text-xl text-white">Top manga</span>
-                <button style="background-color: red;" (click)="scrollLeft()">left</button>
             </div>
             <div style="width: 25%;" class="items-center justify-end flex">
                 <span class="text-base text-white">More</span>
                 <i class="material-icons text-2xl">chevron_right</i>
             </div>
         </div>
+        <div style="z-index: 100;position: relative;top: 100px;margin-bottom: -55px;" class="container-arrows flex ">
+            <div style="left:-25;position: relative;width: 50%;">
+                <button class="button-left"
+                    style="border-radius: 100px;width: 50px;height: 50px; outline: none;display: unset;"
+                    (click)="scrollLeft()"> <i class="material-icons text-3xl">chevron_left</i></button>
+            </div>
+            <div style="position: relative;width: 50%;justify-content: flex-end;display: flex;right: -25;">
+                <button class="button-right"
+                    style="border-radius: 100px;width: 50px;height: 50px;right: 100px; outline: none;display: unset;"
+                    (click)="scrollRight()"><i class="material-icons text-3xl">chevron_right</i></button>
+            </div>
+        </div>
         <div id="container" class="manga-container2 flex flex-row flex-nowrap pt-6 pb-6 overflow-x-auto">
-            
+
             <div id="content" class="mangas mr-3 w-36 h-72" *ngFor="let manga of mangaInfos;let i = index">
                 <div class="manga overflow-hidden w-full h-52">
                     <img class="w-full h-full rounded-lg" src="{{ manga.preview }}"
@@ -63,9 +74,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <button style="background-color: red;" (click)="scrollRight()">Right</button>
 
+        </div>
         <!--End top mangas-->
 
         <!--Latest updates-->
@@ -73,44 +83,46 @@
             <i class="material-icons text-3xl">list</i>
             <span class="text-lg text-white">Ultime aggiunte</span>
         </div>
-        <div style="justify-content: space-evenly;" class="new-box overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
+        <div style="justify-content: space-evenly;"
+            class="new-box overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
             <div class="loop" *ngFor="let manga of mangaInfos;let i = index">
                 <div class="cont">
-                <div style="width:480px;" class="new-container flex h-48 rounded-lg mb-5" routerLink="/manga/{{ manga.id }}">
-                    <div class="new-manga w-6/12 h-full">
-                        <img class="new-image h-full" style="width: 230px;" src="{{ manga.preview }}" />
-                    </div>
-                    <div class="w-full" style="padding: 0 1% 1.5% 3%;">
-                        <div class="new-description mt-1 text-white" style="width: 284px;">
-                            <h3 class="whitespace-nowrap overflow-ellipsis overflow-hidden">
-                                {{ manga.title }}
-                            </h3>
-                            <div class="flex mt-1">
-                                <span class="text-gray-400 text-sm">Score</span>
-                                <div class="chips inline-block cursor-pointer">
-                                    <span> 8.50 </span>
+                    <div style="width:480px;" class="new-container flex h-48 rounded-lg mb-5"
+                        routerLink="/manga/{{ manga.id }}">
+                        <div class="new-manga w-6/12 h-full">
+                            <img class="new-image h-full" style="width: 230px;" src="{{ manga.preview }}" />
+                        </div>
+                        <div class="w-full" style="padding: 0 1% 1.5% 3%;">
+                            <div class="new-description mt-1 text-white" style="width: 284px;">
+                                <h3 class="whitespace-nowrap overflow-ellipsis overflow-hidden">
+                                    {{ manga.title }}
+                                </h3>
+                                <div class="flex mt-1">
+                                    <span class="text-gray-400 text-sm">Score</span>
+                                    <div class="chips inline-block cursor-pointer">
+                                        <span> 8.50 </span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="chapter mt-1 text-white text-sm" style="height: 120px;">
-                                <span> Nuovi capitoli:</span>
-                                <div class="flex content-center items-center">
-                                    <span>Capitolo 3</span>
-                                    <img class="new" style="width: 45px;padding-top: 3px;"
-                                        src="https://i.ibb.co/sHRJshf/download-1.gif">
-                                </div>
-                                <div class="flex content-center items-center">
-                                    <span>Capitolo 2</span>
-                                    <img class="new2" style="width: 45px;"
-                                        src="https://i.ibb.co/sHRJshf/download-1.gif">
-                                </div>
-                                <div style="padding-top: 3px;" class=" end flex content-center items-center">
-                                    <span>Capitolo 1</span>
+                                <div class="chapter mt-1 text-white text-sm" style="height: 120px;">
+                                    <span> Nuovi capitoli:</span>
+                                    <div class="flex content-center items-center">
+                                        <span>Capitolo 3</span>
+                                        <img class="new" style="width: 45px;padding-top: 3px;"
+                                            src="https://i.ibb.co/sHRJshf/download-1.gif">
+                                    </div>
+                                    <div class="flex content-center items-center">
+                                        <span>Capitolo 2</span>
+                                        <img class="new2" style="width: 45px;"
+                                            src="https://i.ibb.co/sHRJshf/download-1.gif">
+                                    </div>
+                                    <div style="padding-top: 3px;" class=" end flex content-center items-center">
+                                        <span>Capitolo 1</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
         <!--End latest updates-->
