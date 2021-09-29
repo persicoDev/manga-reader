@@ -12,7 +12,7 @@
   background-repeat: no-repeat;
   z-index: 0;
   margin-bottom: -500px;
-//   filter: blur(5px)
+  filter: blur(5px)
 }
 .box2 {
   padding-top: 30px;
@@ -34,6 +34,9 @@
   text-align: left;
   padding-left: 10px;
   background-image: linear-gradient(to right, #6521a5, rgba(0,0,0,0));
+}
+.summary {
+  width: 80%;
 }
   @media (max-width:768px) {
     .box2 {
@@ -62,7 +65,3 @@
     }
   }
 
-  .summary{
-    margin-top: 20px;
-    width: 80%;
-}

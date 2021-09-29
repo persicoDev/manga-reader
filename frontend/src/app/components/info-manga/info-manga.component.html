@@ -1,14 +1,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<div class="overflow-y-scroll w-full h-full">
-    <div style="padding-top: 65px;" class="container-description w-full h-full font-sans text-white ">
+
+<div style="padding-top: 65px;" class="container-description w-full h-full font-sans text-white overflow-y-scroll ">
         <!--su mobile togliere flex-->
         <div class="loop" *ngFor="let manga of mangaInfos">
             <div class="count" *ngIf="manga.id == id">
-                <div class="box3" style="opacity: 0.2;" [ngStyle]="{'background-image':'url(' + manga.preview + ')'}">
+                <div class="box3 h-full" style="opacity: 0.2;" [ngStyle]="{'background-image':'url(' + manga.preview + ')'}">
                 </div>
             </div>
         </div>
-        <div class="box2 flex" style="opacity: .9;">
+       
+        <div class="box2  h-full " style="opacity: .9;">
             <div style="opacity: .9;" class="information-left ml-12 flex ">
                 <div class="loop" *ngFor="let manga of mangaInfos">
                     <div class="count" *ngIf="manga.id == id">
@@ -31,22 +32,25 @@
                 </div>
             </div>
 
-            <div style="padding-left: 5px;" class="information-right flex w-full ml-3">
+            <div style="padding-left: 5px;padding-bottom: 15px;" class="information-right flex w-full ml-3">
                 <div class="loop" *ngFor="let manga of mangaInfos">
                     <div class="count" *ngIf="manga.id == id">
                         <div style="height: 95px;" class="title w-full">
                             <div class="gradient w-full flex">
                                 <span style="font-size:30px;flex-wrap: wrap;">{{ manga.title }}</span>
                             </div>
-                            <div class="summary h-full w-full">
-                                <span style="font-size:25px;">Trama</span><br>
-                                <span style="font-size:15px;">{{ manga.trama }}</span>
-                            </div>
                         </div>
+                        <div class="summary w-full">
+                            <span style="font-size:25px;">Trama</span><br>
+                            <span style="font-size:15px;">{{ manga.trama }}</span>
+                        </div>
+
                     </div>
                 </div>
             </div>
+        
         </div>
+        <app-footer></app-footer>
     </div>
-<app-footer></app-footer>
-</div>
+
+    
