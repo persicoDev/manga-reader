@@ -1,7 +1,9 @@
 import re
 import json
+import pymongo
 import requests
 import traceback
+from dbpass import *
 from itertools import chain
 from bs4 import BeautifulSoup
 
@@ -99,14 +101,14 @@ def get_single_chapter( manga_url ):
 if __name__ == "__main__":
     cont = 0
     manga_data_list = []
-    manga_obj = {}
+    myclient = pymongo.MongoClient(f'mongodb+srv://{DB_USERNAME}:{ DB_PASSWORD }@manga-database.sbycl.mongodb.net/?retryWrites=true&w=majority')
 
     for i in range(1):
         link = f'https://www.mangaworld.io/archive?page={ i }'
         print(str(i))
         get_manga( link, manga_data_list )
 
-    manga_obj = { 'mangas': manga_data_list }
-
-    with open('backend/infodb.json', 'w', encoding='utf-8') as f:
-        json.dump(manga_obj, f, ensure_ascii=False, indent=2)
+    my_database = myclient['mangas']
+    my_collection = my_database['manga-infos']
+    datas = my_collection.insert_many(manga_data_list)
+    print(datas)
