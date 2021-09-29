@@ -32,15 +32,16 @@
             <div style="width: 75%;" class="part-left  items-center flex">
                 <i class="material-icons text-3xl">grade</i>
                 <span class="text-xl text-white">Top manga</span>
+                <button style="background-color: red;" (click)="scrollLeft()">left</button>
             </div>
             <div style="width: 25%;" class="items-center justify-end flex">
                 <span class="text-base text-white">More</span>
                 <i class="material-icons text-2xl">chevron_right</i>
             </div>
         </div>
-        <div class="manga-container2 flex flex-row flex-nowrap pt-6 pb-6 overflow-x-auto">
+        <div id="container" class="manga-container2 flex flex-row flex-nowrap pt-6 pb-6 overflow-x-auto">
             
-            <div class="mangas mr-3 w-36 h-72" *ngFor="let manga of mangaInfos;let i = index">
+            <div id="content" class="mangas mr-3 w-36 h-72" *ngFor="let manga of mangaInfos;let i = index">
                 <div class="manga overflow-hidden w-full h-52">
                     <img class="w-full h-full rounded-lg" src="{{ manga.preview }}"
                         routerLink="/manga/{{ manga.id }}" />
@@ -63,6 +64,8 @@
                 </div>
             </div>
         </div>
+        <button style="background-color: red;" (click)="scrollRight()">Right</button>
+
         <!--End top mangas-->
 
         <!--Latest updates-->

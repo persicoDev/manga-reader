@@ -27,5 +27,29 @@ export class HomeComponent implements OnInit {
     return new Array(i);
   }
   
+  public scrollRight(): void {
+    let container:HTMLElement | any = document.getElementById('container');
+    this.sideScroll(container, 'right', 25, 100, 10);
+  }
+
+  public scrollLeft(): void {
+    let container:HTMLElement | any = document.getElementById('container');
+    this.sideScroll(container, 'left', 25, 100, 10);
+  }
+
+  public sideScroll(element: HTMLElement, direction:string, speed:number, distance:number, step:number): void{
+    let scrollAmount = 0;
+    let slideTimer = setInterval(function(){
+        if(direction == 'left'){
+            element.scrollLeft -= step;
+        } else {
+            element.scrollLeft += step;
+        }
+        scrollAmount += step;
+        if(scrollAmount >= distance){
+            window.clearInterval(slideTimer);
+        }
+    }, speed);
+ }
 
 }
