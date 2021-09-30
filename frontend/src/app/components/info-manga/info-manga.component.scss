@@ -26,6 +26,11 @@
 }
 .bookmarked {
   background-color: $body_color;
+  border: 2px solid $secondary_color;
+  color: white;
+  .material-icons{
+    color: $secondary_color;
+  }
 }
 .gradient{
   display: flex;
@@ -33,10 +38,17 @@
   height: 70px;
   text-align: left;
   padding-left: 10px;
-  background-image: linear-gradient(to right, #6521a5, rgba(0,0,0,0));
+  // background-image: linear-gradient(to right, #6521a5, rgba(0,0,0,0));
+  background-image: linear-gradient(to right, $secondary_color, rgba(0,0,0,0));
 }
 .summary {
   width: 80%;
+}
+.information-box{
+  padding:20px 25px 0px 25px;
+  background-color: $body_color;
+  background: radial-gradient(circle, $body_color 20%, $nav_color 80%);
+  border: 2px solid $secondary_color;
 }
   @media (max-width:768px) {
     .box2 {

@@ -20,6 +20,7 @@ body {
   padding: 30px 10px;
   transition: background 0.4s ease-in;
   background-color: #c394f8;
+  background: black;
 
   &.blue {
     background-color: #428aa6;
@@ -60,7 +61,7 @@ img {
   z-index: 1;
 
   img {
-    box-shadow: 0px 0px 15px 0px rgba(185, 57, 245, 0.973);
+    box-shadow: 0px 0px 15px 0px $secondary_color;
     // box-shadow: 0px 4px 5px 0px rgba(81, 81, 81, 0.47);
   }
 }
@@ -71,6 +72,8 @@ img {
   display: none;
 }
 .manga-container {
+  background: repeating-conic-gradient(from 45deg, rgba(0, 0, 0, 0.05) 0% 25%, $body_color 0% 50%);
+  background-size: 40px 40px;
   background-color: $body_color;
 }
 .manga-container::-webkit-scrollbar {
@@ -79,6 +82,12 @@ img {
 .button-left,
 .button-right {
   background-color: $secondary_color;
+  color: white;
+  background: rgba(0, 0, 0, 0);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, $secondary_color 100%);
+  // background:  $secondary_color;
+  // background: radial-gradient(circle, $secondary_color 10%, rgba(0, 0, 0, 0) 80%);
+  box-shadow: 0px 0px 5px 0px $secondary_color;
 }
 .chips {
   background-color: $secondary_color;
