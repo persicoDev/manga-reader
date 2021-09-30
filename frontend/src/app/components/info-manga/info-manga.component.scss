@@ -45,10 +45,16 @@
   width: 80%;
 }
 .information-box{
-  padding:20px 25px 0px 25px;
+  padding:20px 25px 10px 25px;
   background-color: $body_color;
   background: radial-gradient(circle, $body_color 20%, $nav_color 80%);
   border: 2px solid $secondary_color;
+}
+.value, .type{
+  font-size: 15px;
+}
+.value{
+  padding-bottom: 10px;
 }
   @media (max-width:768px) {
     .box2 {

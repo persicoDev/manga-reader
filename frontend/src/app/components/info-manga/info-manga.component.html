@@ -58,13 +58,18 @@
     <div class="information-bottom flex w-full ml-12" style="padding-top: 40px;">
         <div class="loop" *ngFor="let manga of mangaInfos">
             <div class="count" *ngIf="manga.id == id">  <!-- sistemare div information box per altezza in base a contenuto-->
-                <div class="information-box flex" style="width: 250px;height: 220px;border-radius: 10px;">
+                <div class="information-box flex" style="width: 250px; height: 100%; border-radius: 10px;">
                     <div class="data-set">
-                        <div class="data" style="font-weight: bold; font-size: 15px; padding-bottom: 20px;"><b>Autore:</b> {{ manga.author}} </div>
-                        <div class="data" style="font-weight: bold; font-size: 15px; padding-bottom: 20px;"><b>Artista:</b> {{ manga.artist}} </div>
-                        <div class="data" style="font-weight: bold; font-size: 15px; padding-bottom: 20px;"><b>Numero capitoli:</b> {{ manga.chapter_cont}} </div>
-                        <div class="data" style="font-weight: bold; font-size: 15px; padding-bottom: 20px;"><b>Stato:</b> {{ manga.status}} </div>
-                        <div class="data" style="font-weight: bold; font-size: 15px; padding-bottom: 20px;"><b>Data inizio:</b> {{ manga.year}} </div>
+                        <div class="type"><b>Autore:</b></div>
+                        <div class="value"> {{ manga.author}} </div>
+                        <div class="type"><b>Artista:</b></div>
+                        <div class="value"> {{ manga.artist}} </div>
+                        <div class="type"><b>Numero capitoli:</b></div>
+                        <div class="value"> {{ manga.chapter_cont}} </div>
+                        <div class="type"><b>Stato:</b></div>
+                        <div class="value"> {{ manga.status}} </div>
+                        <div class="type"><b>Data inizio:</b></div>
+                        <div class="value"> {{ manga.year}} </div>
                     </div>
                 </div>
             </div>
