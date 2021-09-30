@@ -8,7 +8,6 @@ from itertools import chain
 from bs4 import BeautifulSoup
 
 
-
 def get_manga( archive_link, manga_data_list ):
     global cont
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
@@ -26,10 +25,7 @@ def get_manga( archive_link, manga_data_list ):
         print('manga:' + manga.find('a')['href'])
         manga_information = get_manga_info(manga_information, manga.find('a')['href'])
         manga_information['link'] = get_single_manga(manga_information, chapter_cont, manga_link = manga.find('a')['href'])
-        manga_information['link'].sort()
-        manga_information['link'] = list(chain.from_iterable(manga_information['link']))
         manga_data_list.append(manga_information)
-
 
 def get_manga_info(manga_information, link):
 
@@ -65,33 +61,36 @@ def get_manga_info(manga_information, link):
     }
 
 def get_single_manga( manga_information, chapter_cont, manga_link ):
-
     manga_list = []
     page_content = BeautifulSoup(requests.get(manga_link).content, 'html.parser')
     manga_part = page_content.find('div', class_='chapters-wrapper')
-
     for manga in manga_part('div', class_='chapter'):
         chapter_cont += 1
+        manga_chapter = manga.find('a').find('span', {'class': 'd-inline-block'}).get_text()
         manga_url = manga.find('a')['href']
         if str(manga_url).endswith('?style=list'):
             manga_url = manga_url[:-11]
         manga_url = f'{ manga_url }/1'
         manga_url = f'{ manga_url }?style=list'
         print(f'link chapter: { str(manga_url) }')
-        manga_list.append(get_single_chapter(manga_url))
+        manga_list.append(get_single_chapter(manga_url, manga_chapter))
     manga_information['chapter_cont'] = chapter_cont
 
     return manga_list
 
+def get_single_chapter( manga_url, manga_chapter):
 
-def get_single_chapter( manga_url ):
-    save = []
+    save = {}
+    save_list = []
 
     try:
         soup = BeautifulSoup(requests.get(manga_url).content, 'html.parser')
+        manga_chapter = manga_chapter.replace(" ", "_")
         manga_container = soup.find_all('img', {"class": "page-image img-fluid"}) #modifica tag src per diminuire righe
         for single_manga_link in manga_container:
-            save.append(str(single_manga_link['src']))
+            save_list.append(str(single_manga_link['src']))
+        save_list.sort()
+        save[str(manga_chapter)] = save_list
     except Exception:
         traceback.print_exc()
 
@@ -99,12 +98,13 @@ def get_single_chapter( manga_url ):
 
 
 if __name__ == "__main__":
+
     cont = 0
     manga_data_list = []
     myclient = pymongo.MongoClient(f'mongodb+srv://{DB_USERNAME}:{ DB_PASSWORD }@manga-database.sbycl.mongodb.net/?retryWrites=true&w=majority')
 
     for i in range(1):
-        link = f'https://www.mangaworld.io/archive?page={ i }'
+        link = f'https://www.mangaworld.in/archive?page={ i }'
         print(str(i))
         get_manga( link, manga_data_list )
 
