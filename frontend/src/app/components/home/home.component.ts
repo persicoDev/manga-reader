@@ -23,12 +23,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangaInfos = mangas); }
 
-  counter(i: number) {
-    return new Array(i);
-  }
+  counter(i: number) { return new Array(i); }
+
   public scrollRight(): void {
     let container:HTMLElement | any = document.getElementById('container');
-    // this.sideScroll(container, 'right', 25, 100, 10);
     this.sideScroll(container, 'right', 25, 470, 25);
   }
 
@@ -39,6 +37,7 @@ export class HomeComponent implements OnInit {
 
   public sideScroll(element: HTMLElement, direction:string, speed:number, distance:number, step:number): void{
     let scrollAmount = 0;
+
     let slideTimer = setInterval(function(){
         if(direction == 'left'){
             element.scrollLeft -= step;
@@ -50,7 +49,8 @@ export class HomeComponent implements OnInit {
             window.clearInterval(slideTimer);
         }
     }, speed);
- }
+    
+  }
 
 }
 

@@ -3,11 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MangaService } from 'src/app/services/manga.service';
 import { MangaInfos, MangaLinks } from 'src/manga';
 import { animate, state, style, transition, trigger, } from "@angular/animations";
+
+
 @Component({
   selector: 'app-info-manga',
   templateUrl: './info-manga.component.html',
   styleUrls: ['./info-manga.component.scss'],
   animations: [
+
     trigger("animation1", [
       state(
         "in",
@@ -59,6 +62,7 @@ import { animate, state, style, transition, trigger, } from "@angular/animations
       transition("in => out", animate("0.2s")),
       transition("out => in", animate("0.2s")),
     ]),
+
     trigger("animation4", [
       state(
         "in",
@@ -75,12 +79,14 @@ import { animate, state, style, transition, trigger, } from "@angular/animations
       transition("in => out", animate("0.1s")),
       transition("out => in", animate("0.1s")),
     ]),
-    
+
   ],
 })
 export class InfoMangaComponent implements OnInit {
+
   manga!: MangaInfos;
   id?: number;
+  mark: string = "out";
   chapterCont!: number;
 
   constructor(public activatedRoute: ActivatedRoute,private MangaService: MangaService, public router: Router) { }
@@ -92,12 +98,10 @@ export class InfoMangaComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
   
-
-  mark: string = "out";
-
   bookmark(): void {
     this.mark = this.mark === "in" ? "out" : "in";
   }
+
   counter(i: number) {
     return new Array(i);
   }
