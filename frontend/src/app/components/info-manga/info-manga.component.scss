@@ -44,7 +44,7 @@
 .summary {
   width: 80%;
 }
-.info-box{
+.info-box,.chapter{
   padding:20px 25px 10px 25px;
   background-color: $body_color;
   background: radial-gradient(circle, $body_color 20%, $nav_color 80%);
@@ -59,7 +59,16 @@
 .type span {
   font-size: 1.0rem; 
 } 
-
+  .chapter-box {
+    background-color: $secondary_color;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    align-items: center;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 10px; 
+    width: 100%;
+  }
   @media (max-width:768px) {
     .box2 {
       display: unset;
@@ -89,7 +98,8 @@
     .information-bottom {
       padding-top: 0  !important;
       margin-left: 10px !important;
-      margin: 0 !important; 
+      margin: 0 !important;
+      display: unset; 
     }
     .info-box {
       width: 100% !important;
@@ -111,7 +121,10 @@
       margin-right: 20px !important;
       white-space: nowrap;
     }
-
+  .chapter {
+    margin-left: 0 !important;
+    margin-top: 15px !important;
+  }
   }
   @media (max-width:639px) {
     .container-description {

@@ -26,4 +26,6 @@ export class MangaService {
     return this.http.get<MangaLinks>(`${this.linkApiUrl}/${id}`);
     console.log('miao');
   }
+
+  getSingleMangaLink(id: number): Observable<MangaInfos> { return this.http.get<MangaInfos>(`${this.infoApiUrl}/${id}`); }
 }

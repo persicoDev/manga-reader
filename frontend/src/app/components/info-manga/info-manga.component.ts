@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MangaService } from 'src/app/services/manga.service';
-import { MangaInfos } from 'src/manga';
+import { MangaInfos, MangaLinks } from 'src/manga';
 import { animate, state, style, transition, trigger, } from "@angular/animations";
 @Component({
   selector: 'app-info-manga',
@@ -75,36 +75,31 @@ import { animate, state, style, transition, trigger, } from "@angular/animations
       transition("in => out", animate("0.1s")),
       transition("out => in", animate("0.1s")),
     ]),
+    
   ],
 })
 export class InfoMangaComponent implements OnInit {
-  mangaInfos: MangaInfos[] = [];
+  manga!: MangaInfos;
   id?: number;
+  chapterCont!: number;
 
+  constructor(public activatedRoute: ActivatedRoute,private MangaService: MangaService, public router: Router) { }
 
-  constructor(
-    public activatedRoute: ActivatedRoute,
-    private MangaService: MangaService,
-    public router: Router
-  ) {
-    this.MangaService.getMangas().subscribe(
-      (mangas) => (this.mangaInfos = mangas)
-    );
-  }
-
-  ngOnInit(): void {
-    this.getMangas();
+  async ngOnInit(): Promise<void> {
+    this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.manga = (await this.MangaService.getSingleMangaLink(this.id).toPromise());
+    this.chapterCont = this.manga.chapter_cont;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }
-
-  getMangas() {
-    this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-  }
+  
 
   mark: string = "out";
 
   bookmark(): void {
     this.mark = this.mark === "in" ? "out" : "in";
+  }
+  counter(i: number) {
+    return new Array(i);
   }
 
 
