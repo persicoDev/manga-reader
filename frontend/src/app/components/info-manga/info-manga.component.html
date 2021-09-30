@@ -9,9 +9,9 @@
             </div>
         </div>
     </div>
-    <div class="overflow-hidden">
+    <div class="overflow-hidden " style="padding-bottom: 10px;">
         <div class="box2 flex " style="opacity: .9;">
-            <div style="opacity: .9;" class="information-left ml-12 flex ">
+            <div style="opacity: .9;margin-left: 15px;" class="information-left flex ">
                 <div class="loop" *ngFor="let manga of mangaInfos">
                     <div class="count" *ngIf="manga.id == id">
                         <div style="width: 250px;height: 375px;display: flex;">
@@ -57,27 +57,26 @@
                 </div>
             </div><br>
         </div>
-        <div class="information-bottom flex w-full ml-12" style="padding-top: 40px;">
+        <div class="wrap1">
+        <div class="information-bottom flex w-full " style="padding-top: 55px;margin-left: 15px;">
+            <div class="wrap2">
             <div class="loop" *ngFor="let manga of mangaInfos">
                 <div class="count" *ngIf="manga.id == id">
-                    <!-- sistemare div information box per altezza in base a contenuto-->
-                    <div class="information-box flex" style="width: 250px; height: 100%; border-radius: 10px;">
-                        <div class="data-set">
-                            <div class="type"><b>Autore:</b></div>
-                            <div class="value"> {{ manga.author}} </div>
-                            <div class="type"><b>Artista:</b></div>
-                            <div class="value"> {{ manga.artist}} </div>
-                            <div class="type"><b>Numero capitoli:</b></div>
-                            <div class="value"> {{ manga.chapter_cont}} </div>
-                            <div class="type"><b>Stato:</b></div>
-                            <div class="value"> {{ manga.status}} </div>
-                            <div class="type"><b>Data inizio:</b></div>
-                            <div class="value"> {{ manga.year}} </div>
-                        </div>
+                    <div class="info-box " style="width: 250px; height: 100%; border-radius: 10px;">
+                            <div class="type"><b>Autore:</b><br><span style="word-wrap: break-word;" class="text-gray-400" >{{ manga.author }}</span> </div>
+                            <div class="type"><b>Artista:</b><br><span style="word-wrap: break-word;" class="text-gray-400">{{ manga.artist }} </span></div>
+                            <div class="type"><b>Generi:</b><br><span style="word-wrap: break-word;" class="text-gray-400">{{ manga.genres }} </span></div>
+                            <div class="type"><b>Capitoli:</b><br><span class="text-gray-400">{{ manga.chapter_cont }}</span> </div>
+                            <div class="type"><b>Stato:</b><br> <span class="text-gray-400">{{ manga.status }}</span> </div>
+                            <div class="type"><b>Data inizio:</b><br> <span class="text-gray-400">{{ manga.year }}</span> </div>
+                            <div class="type"><b>Alternativi:</b><br><span style="word-wrap: break-word;" class="text-gray-400">{{ manga.alt_title }} </span></div>
                     </div>
+                    <div class="chapter"></div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
     </div>
     <app-footer></app-footer>
 </div>
