@@ -1,5 +1,7 @@
 @import '../../../styles.scss';
-
+.item {
+  background-color: $nav_color;
+}
 
 .active {
   outline: none;
