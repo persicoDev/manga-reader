@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<div style="padding-top: 65px;" class="container-description w-full h-full font-sans text-white overflow-y-scroll overflow-hidden">
+<div style="padding-top: 65px;" class="container-description w-full h-full font-sans text-white overflow-y-scroll ">
     <!--su mobile togliere flex-->
     <div class="loop" *ngFor="let manga of mangaInfos">
         <div class="count" *ngIf="manga.id == id">
@@ -9,67 +9,71 @@
             </div>
         </div>
     </div>
-
-    <div class="box2 flex" style="opacity: .9;">
-        <div style="opacity: .9;" class="information-left ml-12 flex ">
-            <div class="loop" *ngFor="let manga of mangaInfos">
-                <div class="count" *ngIf="manga.id == id">
-                    <div style="width: 250px;height: 375px;display: flex;">
-                        <img style="width:100%;height: 100%;border-radius: 10px; opacity: 1;" src="{{ manga.preview }}">
-                    </div>
-                    <div (click)="bookmark()"
-                        style="border-radius: 5px;width: 250px;height: 43px;cursor: pointer;"
-                        class="bookmarked flex mt-3" [@animation1]="mark">
-                        <div style="width: 80%;justify-content: center;cursor: pointer;" class="items-center flex ">
-                            <span [@animation2]="mark" id="book-written" style="margin-left: 35px;">Bookmarked</span>
+    <div class="overflow-hidden">
+        <div class="box2 flex " style="opacity: .9;">
+            <div style="opacity: .9;" class="information-left ml-12 flex ">
+                <div class="loop" *ngFor="let manga of mangaInfos">
+                    <div class="count" *ngIf="manga.id == id">
+                        <div style="width: 250px;height: 375px;display: flex;">
+                            <img style="width:100%;height: 100%;border-radius: 10px; opacity: 1;"
+                                src="{{ manga.preview }}">
                         </div>
-                        <div style="width: 20%;justify-content: center;cursor: pointer;" class="items-center flex ">
-                            <i [@animation3]="mark" style="font-size: 30px;" class="material-icons book">bookmark</i>
-                            <i [@animation4]="mark" style="font-size: 30px;"
-                                class="material-icons book2">bookmark_added</i>
+                        <div (click)="bookmark()" style="border-radius: 5px;width: 250px;height: 43px;cursor: pointer;"
+                            class="bookmarked flex mt-3" [@animation1]="mark">
+                            <div style="width: 80%;justify-content: center;cursor: pointer;" class="items-center flex ">
+                                <span [@animation2]="mark" id="book-written"
+                                    style="margin-left: 35px;">Bookmarked</span>
+                            </div>
+                            <div style="width: 20%;justify-content: center;cursor: pointer;" class="items-center flex ">
+                                <i [@animation3]="mark" style="font-size: 30px;"
+                                    class="material-icons book">bookmark</i>
+                                <i [@animation4]="mark" style="font-size: 30px;"
+                                    class="material-icons book2">bookmark_added</i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div style="padding-left: 5px;padding-bottom: 15px;" class="information-right flex w-full ml-3">
+                <div class="loop" *ngFor="let manga of mangaInfos">
+                    <div class="count" *ngIf="manga.id == id">
+                        <div style="height: 100px;" class="title w-full">
+                            <div class="gradient w-full flex">
+                                <span style="font-size:30px;flex-wrap: wrap;">{{ manga.title }}</span>
+                            </div>
+                        </div>
+                        <div class="ml-3">
+                            <span style="font-size:25px;">Trama</span>
+                        </div>
+                        <div class="hr" style="width: 90%;margin: 10px 0 10px 0;">
+                            <hr>
+                        </div>
+                        <div class="summary w-full ml-3">
+                            <span style="font-size:15px;">{{ manga.trama }}</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div><br>
         </div>
-
-        <div style="padding-left: 5px;padding-bottom: 15px;" class="information-right flex w-full ml-3">
+        <div class="information-bottom flex w-full ml-12" style="padding-top: 40px;">
             <div class="loop" *ngFor="let manga of mangaInfos">
                 <div class="count" *ngIf="manga.id == id">
-                    <div style="height: 100px;" class="title w-full">
-                        <div class="gradient w-full flex">
-                            <span style="font-size:30px;flex-wrap: wrap;">{{ manga.title }}</span>
+                    <!-- sistemare div information box per altezza in base a contenuto-->
+                    <div class="information-box flex" style="width: 250px; height: 100%; border-radius: 10px;">
+                        <div class="data-set">
+                            <div class="type"><b>Autore:</b></div>
+                            <div class="value"> {{ manga.author}} </div>
+                            <div class="type"><b>Artista:</b></div>
+                            <div class="value"> {{ manga.artist}} </div>
+                            <div class="type"><b>Numero capitoli:</b></div>
+                            <div class="value"> {{ manga.chapter_cont}} </div>
+                            <div class="type"><b>Stato:</b></div>
+                            <div class="value"> {{ manga.status}} </div>
+                            <div class="type"><b>Data inizio:</b></div>
+                            <div class="value"> {{ manga.year}} </div>
                         </div>
-                    </div>
-                    <div class="ml-3">
-                        <span style="font-size:25px;">Trama</span>
-                    </div>
-                    <div class="hr" style="width: 90%;margin: 10px 0 10px 0;">
-                        <hr>
-                    </div>
-                    <div class="summary w-full ml-3">
-                        <span style="font-size:15px;">{{ manga.trama }}</span>
-                    </div>
-
-                </div>
-            </div>
-        </div><br>
-    </div>
-    <div class="information-bottom flex w-full ml-12" style="padding-top: 40px;">
-        <div class="loop" *ngFor="let manga of mangaInfos">
-            <div class="count" *ngIf="manga.id == id">  <!-- sistemare div information box per altezza in base a contenuto-->
-                <div class="information-box flex" style="width: 250px; height: 100%; border-radius: 10px;">
-                    <div class="data-set">
-                        <div class="type"><b>Autore:</b></div>
-                        <div class="value"> {{ manga.author}} </div>
-                        <div class="type"><b>Artista:</b></div>
-                        <div class="value"> {{ manga.artist}} </div>
-                        <div class="type"><b>Numero capitoli:</b></div>
-                        <div class="value"> {{ manga.chapter_cont}} </div>
-                        <div class="type"><b>Stato:</b></div>
-                        <div class="value"> {{ manga.status}} </div>
-                        <div class="type"><b>Data inizio:</b></div>
-                        <div class="value"> {{ manga.year}} </div>
                     </div>
                 </div>
             </div>
