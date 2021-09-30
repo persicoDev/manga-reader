@@ -169,6 +169,10 @@ img {
   .box {
     margin: 0 5% 0 5% !important;
   }
+  .container-arrows {
+    margin-bottom: 0px !important;
+    display: none !important;
+  }
 }
 @media (max-width: 639px) {
   .container {
@@ -204,9 +208,6 @@ img {
   .button-left,
   .button-right {
     display: none !important;
-  }
-  .container-arrows {
-    margin-bottom: 0px !important;
   }
 }
 @media (max-width: 469px) {
