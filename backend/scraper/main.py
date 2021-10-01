@@ -1,14 +1,19 @@
+import os
 import re
 import json
 import pymongo
 import requests
 import traceback
-from dbpass import *
 from itertools import chain
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+
+load_dotenv()
+DB_USERNAME = str(os.environ.get("DB_USERNAME"))
+DB_PASSWORD = str(os.environ.get("DB_PASSWORD"))
 
 
-def get_manga( archive_link, manga_data_list ):
+def get_manga(archive_link, manga_data_list):
     global cont
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
 
@@ -16,7 +21,7 @@ def get_manga( archive_link, manga_data_list ):
         chapter_cont = 0
         manga_information = {}
         cont += 1
-        print(f'giusto per il contatore: { cont }')
+        print(f'giusto per il contatore: {cont}')
         manga_information['id'] = cont
         manga_information['title'] = manga.find('a')['title']
         manga_information['preview'] = manga.find('img')['src']
@@ -24,11 +29,12 @@ def get_manga( archive_link, manga_data_list ):
         manga_information['routeName'] = str(manga_information['routeName']).replace(" ", "-")
         print('manga:' + manga.find('a')['href'])
         manga_information = get_manga_info(manga_information, manga.find('a')['href'])
-        manga_information['link'] = get_single_manga(manga_information, chapter_cont, manga_link = manga.find('a')['href'])
+        manga_information['link'] = get_single_manga(manga_information, chapter_cont,
+                                                     manga_link=manga.find('a')['href'])
         manga_data_list.append(manga_information)
 
-def get_manga_info(manga_information, link):
 
+def get_manga_info(manga_information, link):
     manga = BeautifulSoup(requests.get(link).content, 'html.parser')
     trama = manga.find('div', {'id': 'noidungm'}).get_text()
     manga_info = manga.find('div', {'class': 'meta-data'})
@@ -60,7 +66,8 @@ def get_manga_info(manga_information, link):
         'year': year,
     }
 
-def get_single_manga( manga_information, chapter_cont, manga_link ):
+
+def get_single_manga(manga_information, chapter_cont, manga_link):
     manga_list = []
     page_content = BeautifulSoup(requests.get(manga_link).content, 'html.parser')
     manga_part = page_content.find('div', class_='chapters-wrapper')
@@ -70,23 +77,24 @@ def get_single_manga( manga_information, chapter_cont, manga_link ):
         manga_url = manga.find('a')['href']
         if str(manga_url).endswith('?style=list'):
             manga_url = manga_url[:-11]
-        manga_url = f'{ manga_url }/1'
-        manga_url = f'{ manga_url }?style=list'
-        print(f'link chapter: { str(manga_url) }')
+        manga_url = f'{manga_url}/1'
+        manga_url = f'{manga_url}?style=list'
+        print(f'link chapter: {str(manga_url)}')
         manga_list.append(get_single_chapter(manga_url, manga_chapter))
     manga_information['chapter_cont'] = chapter_cont
 
     return manga_list
 
-def get_single_chapter( manga_url, manga_chapter):
 
+def get_single_chapter(manga_url, manga_chapter):
     save = {}
     save_list = []
 
     try:
         soup = BeautifulSoup(requests.get(manga_url).content, 'html.parser')
         manga_chapter = manga_chapter.replace(" ", "_")
-        manga_container = soup.find_all('img', {"class": "page-image img-fluid"}) #modifica tag src per diminuire righe
+        manga_container = soup.find_all('img',
+                                        {"class": "page-image img-fluid"})  # modifica tag src per diminuire righe
         for single_manga_link in manga_container:
             save_list.append(str(single_manga_link['src']))
         save_list.sort()
@@ -98,17 +106,18 @@ def get_single_chapter( manga_url, manga_chapter):
 
 
 if __name__ == "__main__":
-
     cont = 0
     manga_data_list = []
-    myclient = pymongo.MongoClient(f'mongodb+srv://{DB_USERNAME}:{ DB_PASSWORD }@manga-database.sbycl.mongodb.net/?retryWrites=true&w=majority')
+    my_client = pymongo.MongoClient(
+        f'mongodb+srv://{DB_USERNAME}:{DB_PASSWORD}@manga-database.sbycl.mongodb.net/?retryWrites=true&w=majority')
 
     for i in range(1):
-        link = f'https://www.mangaworld.in/archive?page={ i }'
+        link: str = f'https://www.mangaworld.in/archive?page={i}'
         print(str(i))
-        get_manga( link, manga_data_list )
+        get_manga(link, manga_data_list)
 
-    my_database = myclient['mangas']
+    db = my_client.test
+    my_database = my_client['Manga-Database']
     my_collection = my_database['manga-infos']
     datas = my_collection.insert_many(manga_data_list)
     print(datas)
