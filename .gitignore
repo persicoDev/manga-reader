@@ -8,3 +8,5 @@ backend/api/.env
 backend/scraper/.env
 
 backend/scraper/dbpass.py
+
+.idea/
