@@ -240,3 +240,11 @@ img {
     margin-left: 5%;
   }
 }
+@media (max-width:425px) {
+  .trends {
+    margin-top: 0px !important;
+  }
+  .manga-container2 {
+    padding-bottom: 15px !important;
+  }
+}

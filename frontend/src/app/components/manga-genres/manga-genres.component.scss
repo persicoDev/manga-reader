@@ -1,0 +1,265 @@
+@import "../../../styles.scss";
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  overflow-y: auto;
+  background: repeating-conic-gradient(
+    from 45deg,
+    rgba(0, 0, 0, 0.05) 0% 25%,
+    #291d55 0% 50%
+  );
+  background-size: 40px 40px;
+  background-color: #291d55;
+}
+.tabs {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  background: repeating-conic-gradient(
+    from 45deg,
+    rgba(0, 0, 0, 0.05) 0% 25%,
+    #291d55 0% 50%
+  );
+  background-size: 40px 40px;
+  background-color: #291d55;
+  position: fixed;
+  padding: 0 30px 0 30px;
+}
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+.button-left,
+.button-right {
+  position: fixed;
+  background-color: $secondary_color;
+  color: rgb(255, 255, 255);
+  background: repeating-conic-gradient(
+    from 45deg,
+    rgba(0, 0, 0, 0.05) 0% 25%,
+    #291d55 0% 50%
+  );
+  background-size: 40px 40px;
+  background-color: #291d55;
+}
+.tab {
+  cursor: pointer;
+  padding: 10px 15px 15px 15px;
+  margin: 0px 5px 0px 5px;
+  background: transparent;
+  color: rgb(175, 174, 174);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 100%;
+  height: 40px;
+}
+.trama {
+  margin-top: 0.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+.tab span {
+  width: 100%;
+  white-space: nowrap;
+}
+.panels {
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.panel {
+  width: 100%;
+  display: none;
+  animation: fadein 0.8s;
+  color: white;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.radio {
+  display: none;
+}
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel,
+#three:checked ~ .panels #three-panel,
+#four:checked ~ .panels #four-panel,
+#five:checked ~ .panels #five-panel,
+#six:checked ~ .panels #six-panel,
+#seven:checked ~ .panels #seven-panel,
+#eight:checked ~ .panels #eight-panel,
+#nine:checked ~ .panels #nine-panel,
+#ten:checked ~ .panels #ten-panel,
+#eleven:checked ~ .panels #eleven-panel,
+#twelve:checked ~ .panels #twelve-panel,
+#thirteen:checked ~ .panels #thirteen-panel,
+#fourteen:checked ~ .panels #fourteen-panel,
+#fifteen:checked ~ .panels #fifteen-panel,
+#sixteen:checked ~ .panels #sixteen-panel,
+#seventeen:checked ~ .panels #seventeen-panel,
+#eighteen:checked ~ .panels #eighteen-panel,
+#nineteen:checked ~ .panels #nineteen-panel,
+#twenty:checked ~ .panels #twenty-panel,
+#twentyone:checked ~ .panels #twentyone-panel,
+#twentytwo:checked ~ .panels #twentytwo-panel,
+#twentythree:checked ~ .panels #twentythree-panel,
+#twentyfour:checked ~ .panels #twentyfour-panel,
+#twentyfive:checked ~ .panels #twentyfive-panel,
+#twentysix:checked ~ .panels #twentysix-panel,
+#twentyseven:checked ~ .panels #twentyseven-panel,
+#twentyeight:checked ~ .panels #twentyeight-panel,
+#twentynine:checked ~ .panels #twentynine-panel,
+#thirty:checked ~ .panels #thirty-panel,
+#thirtyone:checked ~ .panels #thirtyone-panel,
+#thirtytwo:checked ~ .panels #thirtytwo-panel,
+#thirtythree:checked ~ .panels #thirtythree-panel,
+#thirtyfour:checked ~ .panels #thirtyfour-panel,
+#thirtyfive:checked ~ .panels #thirtyfive-panel,
+#thirtysix:checked ~ .panels #thirtysix-panel,
+#thirtyseven:checked ~ .panels #thirtyseven-panel {
+  display: block;
+}
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab,
+#three:checked ~ .tabs #three-tab,
+#four:checked ~ .tabs #four-tab,
+#five:checked ~ .tabs #five-tab,
+#six:checked ~ .tabs #six-tab,
+#seven:checked ~ .tabs #seven-tab,
+#eight:checked ~ .tabs #eight-tab,
+#nine:checked ~ .tabs #nine-tab,
+#ten:checked ~ .tabs #ten-tab,
+#eleven:checked ~ .tabs #eleven-tab,
+#twelve:checked ~ .tabs #twelve-tab,
+#thirteen:checked ~ .tabs #thirteen-tab,
+#fourteen:checked ~ .tabs #fourteen-tab,
+#fifteen:checked ~ .tabs #fifteen-tab,
+#sixteen:checked ~ .tabs #sixteen-tab,
+#seventeen:checked ~ .tabs #seventeen-tab,
+#eighteen:checked ~ .tabs #eighteen-tab,
+#nineteen:checked ~ .tabs #nineteen-tab,
+#twenty:checked ~ .tabs #twenty-tab,
+#twentyone:checked ~ .tabs #twentyone-tab,
+#twentytwo:checked ~ .tabs #twentytwo-tab,
+#twentythree:checked ~ .tabs #twentythree-tab,
+#twentyfour:checked ~ .tabs #twentyfour-tab,
+#twentyfive:checked ~ .tabs #twentyfive-tab,
+#twentysix:checked ~ .tabs #twentysix-tab,
+#twentyseven:checked ~ .tabs #twentyseven-tab,
+#twentyeight:checked ~ .tabs #twentyeight-tab,
+#twentynine:checked ~ .tabs #twentynine-tab,
+#thirty:checked ~ .tabs #thirty-tab,
+#thirtyone:checked ~ .tabs #thirtyone-tab,
+#thirtytwo:checked ~ .tabs #thirtytwo-tab,
+#thirtythree:checked ~ .tabs #thirtythree-tab,
+#thirtyfour:checked ~ .tabs #thirtyfour-tab,
+#thirtyfive:checked ~ .tabs #thirtyfive-tab,
+#thirtysix:checked ~ .tabs #thirtysix-tab,
+#thirtyseven:checked ~ .tabs #thirtyseven-tab {
+  color: white;
+  border-bottom: 4px solid $secondary_color;
+  background: radial-gradient(circle, $nav_color 10%, $body_color 90%);
+}
+.chips {
+  background-color: $secondary_color;
+  padding: 0 6px;
+  height: 16px;
+  margin-left: 6px;
+  line-height: 16.5px;
+  border-radius: 25px;
+}
+.chips span {
+  color: $body_color;
+  cursor: pointer;
+  font-size: 10px;
+}
+.new-container {
+  background: $nav_color;
+}
+.new-box span {
+  display: flex;
+}
+
+@media (max-width: 1105px) {
+  .box {
+    margin: 0% !important;
+  }
+}
+@media (max-width: 995px) {
+  .box {
+    margin: 0 10% 0 10% !important;
+  }
+  .new-box {
+    justify-content: unset !important;
+    height: 100% !important;
+  }
+  .padding-information {
+    padding-top: 10px !important;
+    padding-left: 10px !important;
+  }
+  .new-container {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .loop {
+    width: 100% !important;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  .new-manga {
+    width: 210px !important;
+  }
+  .new-description {
+    width: 90% !important;
+  }
+  .trama {
+    width: 100% !important;
+    height: 95px !important;
+    -webkit-line-clamp: 4;
+  }
+}
+@media (max-width:768px) {
+  .box {
+    margin: 0 5% 0 5% !important;
+  }
+}
+@media (max-width:600px) {
+  .loop {
+    height: 190px !important;
+  }
+}
+@media (max-width:425px) {
+  .box {
+    margin: 0 3% 0 0% !important;
+  }
+  .loop {
+    height: 150px !important;
+  }
+  .trama {
+    height: 56px !important;
+    -webkit-line-clamp: 2;
+  }
+  .padding-information {
+    padding-top: 5px !important;
+  }
+  .new-manga {
+    width: 180px !important;
+  }
+}

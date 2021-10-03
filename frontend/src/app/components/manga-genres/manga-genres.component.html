@@ -1,0 +1,134 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<div class="wrapper" style="margin-top: 64px;">
+  <input class="radio" id="one" name="group" type="radio" checked>
+  <input class="radio" id="two" name="group" type="radio">
+  <input class="radio" id="three" name="group" type="radio">
+  <input class="radio" id="four" name="group" type="radio">
+  <input class="radio" id="five" name="group" type="radio">
+  <input class="radio" id="six" name="group" type="radio">
+  <input class="radio" id="seven" name="group" type="radio">
+  <input class="radio" id="eight" name="group" type="radio">
+  <input class="radio" id="nine" name="group" type="radio">
+  <input class="radio" id="ten" name="group" type="radio">
+  <input class="radio" id="eleven" name="group" type="radio">
+  <input class="radio" id="twelve" name="group" type="radio">
+  <input class="radio" id="thirteen" name="group" type="radio">
+  <input class="radio" id="fourteen" name="group" type="radio">
+  <input class="radio" id="fifteen" name="group" type="radio">
+  <input class="radio" id="sixteen" name="group" type="radio">
+  <input class="radio" id="seventeen" name="group" type="radio">
+  <input class="radio" id="eighteen" name="group" type="radio">
+  <input class="radio" id="nineteen" name="group" type="radio">
+  <input class="radio" id="twenty" name="group" type="radio">
+  <input class="radio" id="twentyone" name="group" type="radio">
+  <input class="radio" id="twentytwo" name="group" type="radio">
+  <input class="radio" id="twentythree" name="group" type="radio">
+  <input class="radio" id="twentyfour" name="group" type="radio">
+  <input class="radio" id="twentyfive" name="group" type="radio">
+  <input class="radio" id="twentysix" name="group" type="radio">
+  <input class="radio" id="twentyseven" name="group" type="radio">
+  <input class="radio" id="twentyeight" name="group" type="radio">
+  <input class="radio" id="twentynine" name="group" type="radio">
+  <input class="radio" id="thirty" name="group" type="radio">
+  <input class="radio" id="thirtyone" name="group" type="radio">
+  <input class="radio" id="thirtytwo" name="group" type="radio">
+  <input class="radio" id="thirtythree" name="group" type="radio">
+  <input class="radio" id="thirtyfour" name="group" type="radio">
+  <input class="radio" id="thirtyfive" name="group" type="radio">
+  <input class="radio" id="thirtysix" name="group" type="radio">
+  <input class="radio" id="thirtyseven" name="group" type="radio">
+  <div style="margin-bottom: -10px;background: transparent;height: 1px;" class="container-arrows flex z-20 relative">
+    <div style="position: relative;width: 50%;">
+      <button class="button-left" style="width: 30px;height: 40px;outline: none;display: unset;" (click)="scrollLeft()">
+        <i class="material-icons text-3xl">chevron_left</i></button>
+    </div>
+    <div style="position: relative;width: 50%;justify-content: flex-end;display: flex;">
+      <button class="button-right" style="width: 30px;height: 40px; outline: none;display: unset;"
+        (click)="scrollRight()"><i class="material-icons text-3xl">chevron_right</i></button>
+    </div>
+  </div>
+  <div id="container" class="tabs">
+
+    <label class="tab" id="one-tab" for="one"><span>Adulti</span></label>
+    <label class="tab" id="two-tab" for="two"><span>Arti Marziali</span></label>
+    <label class="tab" id="three-tab" for="three"><span>Avventura</span></label>
+    <label class="tab" id="four-tab" for="four"><span>Azione</span></label>
+    <label class="tab" id="five-tab" for="five"><span>Commedia</span></label>
+    <label class="tab" id="six-tab" for="six"><span>Doujinshi</span></label>
+    <label class="tab" id="seven-tab" for="seven"><span>Drammatico</span></label>
+    <label class="tab" id="eight-tab" for="eight"><span>Ecchi</span></label>
+    <label class="tab" id="nine-tab" for="nine"><span>Fantasy</span></label>
+    <label class="tab" id="ten-tab" for="ten"><span>Gender Bender</span></label>
+    <label class="tab" id="eleven-tab" for="eleven"><span>Harem</span></label>
+    <label class="tab" id="twelve-tab" for="twelve"><span>Harem</span></label>
+    <label class="tab" id="thirteen-tab" for="thirteen"><span>Hentai</span></label>
+    <label class="tab" id="fourteen-tab" for="fourteen"><span>Horror</span></label>
+    <label class="tab" id="fifteen-tab" for="fifteen"><span>Josei</span></label>
+    <label class="tab" id="sixteen-tab" for="sixteen"><span>Lolicon</span></label>
+    <label class="tab" id="seventeen-tab" for="seventeen"><span>Maturo</span></label>
+    <label class="tab" id="eighteen-tab" for="eighteen"><span>Mecha</span></label>
+    <label class="tab" id="nineteen-tab" for="nineteen"><span>Mistero</span></label>
+    <label class="tab" id="twenty-tab" for="twenty"><span>Psicologico</span></label>
+    <label class="tab" id="twentyone-tab" for="twentyone"><span>Romantico</span></label>
+    <label class="tab" id="twentytwo-tab" for="twentytwo"><span>Sci-fi</span></label>
+    <label class="tab" id="twentythree-tab" for="twentythree"><span>Scolastico</span></label>
+    <label class="tab" id="twentyfour-tab" for="twentyfour"><span>Seinen</span></label>
+    <label class="tab" id="twentyfive-tab" for="twentyfive"><span>Shotacon</span></label>
+    <label class="tab" id="twentysix-tab" for="twentysix"><span>Shoujo</span></label>
+    <label class="tab" id="twentyseven-tab" for="twentyseven"><span>Shoujo Ai</span></label>
+    <label class="tab" id="twentyeight-tab" for="twentyeight"><span>Shounen</span></label>
+    <label class="tab" id="twentynine-tab" for="twentynine"><span>Shounen Ai</span></label>
+    <label class="tab" id="thirty-tab" for="thirty"><span>Slice of Life</span></label>
+    <label class="tab" id="thirtyone-tab" for="thirtyone"><span>Smut</span></label>
+    <label class="tab" id="thirtytwo-tab" for="thirtytwo"><span>Soprannaturale</span></label>
+    <label class="tab" id="thirtythree-tab" for="thirtythree"><span>Sport</span></label>
+    <label class="tab" id="thirtyfour-tab" for="thirtyfour"><span>Storico</span></label>
+    <label class="tab" id="thirtyfive-tab" for="thirtyfive"><span>Tragico</span></label>
+    <label class="tab" id="thirtysix-tab" for="thirtysix"><span>Yaoi</span></label>
+    <label class="tab" id="thirtyseven-tab" for="thirtyseven"><span>Yuri</span></label>
+  </div>
+  <div class="panels">
+    <div *ngFor="let id of ids">
+      <div class="panel" id="{{ id.name }}">
+        <div class="box" style="margin: 0 5% 0 5%">
+          <div style="justify-content: space-around;margin-top: 70px;"
+            class="new-box overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
+            <div class="loop" *ngFor="let manga of mangaInfos;let i = index">
+              <div class="cont">
+                <div style="width:480px;" class="new-container flex h-48 rounded-lg mb-5 ml-3"
+                  routerLink="/manga/{{ manga.id }}">
+                  <div class="new-manga w-6/12 h-full">
+                    <img class="new-image h-full" style="width: 230px;" src="{{ manga.preview }}" />
+                  </div>
+                  <div class="padding-information w-full" style="padding: 0 1% 1.5% 3%;">
+                    <div class="new-description mt-1 text-white" style="width: 284px;">
+                      <h3 class="whitespace-nowrap overflow-ellipsis overflow-hidden">
+                        {{ manga.title }}
+                      </h3>
+                      <div class="flex mt-1">
+                        <span class="text-gray-400 text-sm">Score</span>
+                        <div class="chips inline-block cursor-pointer" style="margin-top: 3px;">
+                          <span> 8.50 </span>
+                        </div>
+                      </div>
+                      <div class="state flex" style="margin-top: 0.25rem;">
+                        <span class="text-gray-400">Stato: </span>
+                        <span>{{ manga.status}}</span>
+                      </div>
+                      <div class="trama flex text-white">
+                        <span class="text-gray-400">Trama:</span>
+                        {{ manga.trama }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
