@@ -7,6 +7,7 @@ import traceback
 from itertools import chain
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+from googlesearch import search
 
 load_dotenv()
 DB_USERNAME = str(os.environ.get("DB_USERNAME"))
@@ -28,13 +29,23 @@ def get_manga(archive_link, manga_data_list):
         manga_information['routeName'] = re.sub("[^0-9a-zA-Z]+", "", manga_information['title'])
         manga_information['routeName'] = str(manga_information['routeName']).replace(" ", "-")
         print('manga:' + manga.find('a')['href'])
-        manga_information = get_manga_info(manga_information, manga.find('a')['href'])
+        manga_information = get_manga_info(manga_information, manga.find('a')['href'], manga_information['title'])
         manga_information['link'] = get_single_manga(manga_information, chapter_cont,
                                                      manga_link=manga.find('a')['href'])
         manga_data_list.append(manga_information)
 
+def get_score(title, author):
+    print("\nStampa google search")
+    title = title.replace("-", " ")
+    title = title.replace(".", " ")
+    print(f'{title} {author} myanimelist manga')
+    search_results = search(f'{title} {author} myanimelist manga')
+    soup = BeautifulSoup(requests.get(search_results[0]).content, 'html.parser')
+    score = soup.find("div", {"class": "score-label"}).get_text()
+    print(score)
+    return score
 
-def get_manga_info(manga_information, link):
+def get_manga_info(manga_information, link, title):
     manga = BeautifulSoup(requests.get(link).content, 'html.parser')
     trama = manga.find('div', {'id': 'noidungm'}).get_text()
     manga_info = manga.find('div', {'class': 'meta-data'})
@@ -55,6 +66,8 @@ def get_manga_info(manga_information, link):
         if re.search('year', str(link)):
             year = link.get_text()
 
+    score = get_score(title, author)
+
     return {
         **manga_information,
         'trama': trama,
@@ -62,6 +75,7 @@ def get_manga_info(manga_information, link):
         'genres': genres,
         'author': author,
         'artist': artist,
+        'score': score,
         'status': status,
         'year': year,
     }
