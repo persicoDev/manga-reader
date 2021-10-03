@@ -1,38 +1,49 @@
+import os
 import re
 import json
 import requests
 import traceback
 from itertools import chain
 from bs4 import BeautifulSoup
+from googlesearch import search
 
 
-
-def get_manga( archive_link, manga_data_list, manga_link_list ):
+def get_manga(archive_link, manga_data_list):
     global cont
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
 
     for manga in soup('div', class_='entry'):
         chapter_cont = 0
         manga_information = {}
-        manga_links = {}
         cont += 1
-        print(f'giusto per il contatore: { cont }')
-        manga_information['id'] = manga_links['id'] = cont
+        print(f'giusto per il contatore: {cont}')
+        manga_information['id'] = cont
         manga_information['title'] = manga.find('a')['title']
         manga_information['preview'] = manga.find('img')['src']
         manga_information['routeName'] = re.sub("[^0-9a-zA-Z]+", "", manga_information['title'])
         manga_information['routeName'] = str(manga_information['routeName']).replace(" ", "-")
         print('manga:' + manga.find('a')['href'])
-        manga_information = get_manga_info(manga_information, manga.find('a')['href'])
-        manga_links['link'] = get_single_manga(manga_information, chapter_cont, manga_link = manga.find('a')['href'])
-        manga_links['link'].sort()
-        manga_links['link'] = list(chain.from_iterable(manga_links['link']))
-        manga_link_list.append(manga_links)
+        manga_information = get_manga_info(manga_information, manga.find('a')['href'], manga_information['title'])
+        manga_information['link'] = get_single_manga(manga_information, chapter_cont,
+                                                     manga_link=manga.find('a')['href'])
         manga_data_list.append(manga_information)
 
+def get_score(title, author):
+    print("\nStampa google search")
+    title = title.replace("-", " ")
+    title = title.replace(".", " ")
+    print(f'{title} {author} myanimelist manga')
+    search_results = search(f'{title} {author} myanimelist manga')
+    soup = BeautifulSoup(requests.get(search_results[0]).content, 'html.parser')
+    score = soup.find("div", {"class": "score-label"})
+    if score == None:
+        score = 'N/A'
+    else:
+        score = score.get_text()
+    print(score)
+    return score
 
-def get_manga_info(manga_information, link):
-
+def get_manga_info(manga_information, link, title):
     manga = BeautifulSoup(requests.get(link).content, 'html.parser')
     trama = manga.find('div', {'id': 'noidungm'}).get_text()
     manga_info = manga.find('div', {'class': 'meta-data'})
@@ -53,6 +64,8 @@ def get_manga_info(manga_information, link):
         if re.search('year', str(link)):
             year = link.get_text()
 
+    score = get_score(title, author)
+
     return {
         **manga_information,
         'trama': trama,
@@ -60,38 +73,44 @@ def get_manga_info(manga_information, link):
         'genres': genres,
         'author': author,
         'artist': artist,
+        'score': score,
         'status': status,
         'year': year,
     }
 
-def get_single_manga( manga_information, chapter_cont, manga_link ):
 
+def get_single_manga(manga_information, chapter_cont, manga_link):
     manga_list = []
     page_content = BeautifulSoup(requests.get(manga_link).content, 'html.parser')
     manga_part = page_content.find('div', class_='chapters-wrapper')
-
     for manga in manga_part('div', class_='chapter'):
         chapter_cont += 1
+        manga_chapter = manga.find('a').find('span', {'class': 'd-inline-block'}).get_text()
         manga_url = manga.find('a')['href']
         if str(manga_url).endswith('?style=list'):
             manga_url = manga_url[:-11]
-        manga_url = f'{ manga_url }/1'
-        manga_url = f'{ manga_url }?style=list'
-        print(f'link chapter: { str(manga_url) }')
-        manga_list.append(get_single_chapter(manga_url))
+        manga_url = f'{manga_url}/1'
+        manga_url = f'{manga_url}?style=list'
+        print(f'link chapter: {str(manga_url)}')
+        manga_list.append(get_single_chapter(manga_url, manga_chapter))
     manga_information['chapter_cont'] = chapter_cont
 
     return manga_list
 
 
-def get_single_chapter( manga_url ):
-    save = []
+def get_single_chapter(manga_url, manga_chapter):
+    save = {}
+    save_list = []
 
     try:
         soup = BeautifulSoup(requests.get(manga_url).content, 'html.parser')
-        manga_container = soup.find_all('img', {"class": "page-image img-fluid"}) #modifica tag src per diminuire righe
+        manga_chapter = manga_chapter.replace(" ", "_")
+        manga_container = soup.find_all('img',
+                                        {"class": "page-image img-fluid"})  # modifica tag src per diminuire righe
         for single_manga_link in manga_container:
-            save.append(str(single_manga_link['src']))
+            save_list.append(str(single_manga_link['src']))
+        save_list.sort()
+        save[str(manga_chapter)] = save_list
     except Exception:
         traceback.print_exc()
 
@@ -101,22 +120,14 @@ def get_single_chapter( manga_url ):
 if __name__ == "__main__":
     cont = 0
     manga_data_list = []
-    manga_link_list = []
     manga_obj = {}
 
     for i in range(1):
-        link = f'https://www.mangaworld.io/archive?page={ i }'
+        link = f'https://www.mangaworld.in/archive?page={ i }'
         print(str(i))
-        get_manga( link, manga_data_list, manga_link_list )
+        get_manga( link, manga_data_list)
 
     manga_obj = { 'mangas': manga_data_list }
 
-    with open('backend/infodb.json', 'w', encoding='utf-8') as f:
-        json.dump(manga_obj, f, ensure_ascii=False, indent=2)
-    
-    manga_obj = {}
-
-    manga_obj = { 'mangas': manga_link_list }
-
-    with open('backend/linkdb.json', 'w', encoding='utf-8') as f:
+    with open('backend/db.json', 'w', encoding='utf-8') as f:
         json.dump(manga_obj, f, ensure_ascii=False, indent=2)

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MangaService } from 'src/app/services/manga.service';
-import { MangaInfos, MangaLinks } from 'src/manga';
+import { MangaInfos } from 'src/manga';
 import { animate, state, style, transition, trigger, } from "@angular/animations";
 
 
