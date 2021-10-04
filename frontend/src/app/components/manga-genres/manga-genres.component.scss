@@ -250,13 +250,14 @@ img {
 }
 @media (max-width:425px) {
   .box {
-    margin: 0 3% 0 0% !important;
+    margin: 0 0% 0 0% !important;
   }
   .loop {
     height: 150px !important;
+    padding: 0 3% 0 3% !important;
   }
   .trama {
-    height: 56px !important;
+    height: 54px !important;
     -webkit-line-clamp: 2;
   }
   .padding-information {
@@ -264,5 +265,11 @@ img {
   }
   .new-manga {
     width: 180px !important;
+  }
+  .new-container {
+    margin:  0  !important;
+  }
+  .new-description {
+    width: 160px !important;
   }
 }

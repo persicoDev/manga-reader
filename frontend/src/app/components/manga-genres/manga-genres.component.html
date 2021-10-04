@@ -95,7 +95,6 @@
           <div style="justify-content: space-around;margin-top: 70px;"
             class="new-box overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
             <div class="loop" *ngFor="let manga of mangaInfos;let i = index">
-              <div class="cont">
                 <div style="width:480px;" class="new-container flex h-48 rounded-lg mb-5 ml-3"
                   routerLink="/manga/{{ manga.id }}">
                   <div class="new-manga w-6/12 h-full">
@@ -123,7 +122,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </div>
