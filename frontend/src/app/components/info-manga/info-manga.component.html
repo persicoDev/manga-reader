@@ -1,1 +1,116 @@
-<p>info-manga works!</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<div style="padding-top: 65px;" class="container-description w-full h-full font-sans text-white overflow-y-scroll pt-16">
+
+    <!--Start background-->
+    <div>
+        <div>
+            <div class="box3 h-full" style="opacity: 0.2;"
+                [ngStyle]="{'background-image':'url(' + manga.preview + ')'}">
+            </div>
+        </div>
+    </div>
+    <!--End background-->
+
+    <div class="overflow-hidden " style="padding-bottom: 20px;">
+
+        <!--Start container of the plot and title-->
+        <div class="box2 flex " style="opacity: .9;">
+
+            <!--Start information left-->
+            <div style="opacity: .9;margin-left: 15px;" class="information-left flex ">
+                <div>
+                    <div>
+                        <div class="flex" style="width: 250px;height: 375px;">
+                            <img class="w-full h-full rounded-lg" style="opacity: 1;"
+                                src="{{ manga.preview }}">
+                        </div>
+                        <div (click)="bookmark()" style="width: 250px;height: 43px;" class="bookmarked flex mt-3 rounded-md cursor-pointer" [@animation1]="mark">
+                            <div style="width: 80%;" class="items-center flex justify-center cursor-pointer">
+                                <span [@animation2]="mark" id="book-written" style="margin-left: 35px;">Bookmarked</span>
+                            </div>
+                            <div style="width: 20%;" class="items-center flex justify-center cursor-pointer">
+                                <i [@animation3]="mark" class="material-icons book text-3xl">bookmark</i>
+                                <i [@animation4]="mark" class="material-icons book2 text-3xl">bookmark_added</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End information left-->
+
+            <!--Start information right-->
+            <div style="padding-left: 5px;padding-bottom: 15px;" class="information-right flex w-full ml-3">
+                <div>
+                    <div>
+                        <div class="title w-full h-24">
+                            <div class="gradient w-full flex">
+                                <span class="text-3xl flex-wrap">{{ manga.title }}</span>
+                            </div>
+                        </div>
+                        <div class="ml-3 mt-3 text-2xl"> <span>Trama</span>
+                        </div>
+                        <div class="hr" style="width: 90%;margin: 10px 0 10px 0;">
+                            <hr>
+                        </div>
+                        <div class="summary w-full ml-3  text-sm">
+                            <span>{{ manga.trama }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+            <!--End information right-->
+
+        </div>
+        <!--End container of the plot and title-->
+
+        <!--Start container of information about the manga and the chapters-->
+        <div class="wrap1 flex">
+            <div class="information-bottom flex w-full h-full" style="padding-top: 55px;margin-left: 15px;">
+
+                <!--Start manga information-->
+                <div class="wrap2">
+                    <div>
+                        <div>
+                            <div class="info-box rounded-lg" style="width: 250px;">
+                                <div class="type"><b>Autore:</b><br><span style="word-wrap: break-word;" class="text-gray-400" >{{manga.author}}</span> </div>
+                                <div class="type"><b>Artista:</b><br><span style="word-wrap: break-word;" class="text-gray-400">{{manga.artist}} </span></div>
+                                <div class="type"><b>Generi:</b><br><span style="word-wrap: break-word;" class="text-gray-400">{{manga.genres}} </span></div>
+                                <div class="type"><b>Score:</b><br><span style="word-wrap: break-word;" class="text-gray-400">{{manga.score}} </span></div>
+                                <div class="type"><b>Capitoli:</b><br><span class="text-gray-400">{{manga.chapter_cont}}</span></div>
+                                <div class="type"><b>Stato:</b><br> <span class="text-gray-400">{{manga.status}}</span> </div>
+                                <div class="type"><b>Data inizio:</b><br> <span class="text-gray-400">{{manga.year}}</span></div>
+                                <div class="type"><b>Alternativi:</b><br><span style="word-wrap: break-word;" class="text-gray-400">{{manga.alt_title}} </span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--End manga information-->
+
+                <!--Start chapters-->
+                <div class="chapter rounded-lg w-full" style="margin:0 5% 0 5%;height: 500px;">
+                    <div>
+                        <div class="ml-3">
+                            <span class="text-2xl" >Capitoli</span>
+                        </div>
+                        <div class="hr w-full" style="margin: 10px 0 10px 0;">
+                            <hr>
+                        </div>
+                    </div>
+                    <div style="overflow-y: auto;height: 410px;">
+                        <div class="chapter-wrap justify-evenly flex-wrap" style="padding:0 4% 0 4%;">
+                            <div class="chapter-box flex" *ngFor="let in of counter(manga.chapter_cont);let i = index">
+                                <span>Capitolo {{ i+1 }}</span>
+                            </div><br>
+                        </div>
+                    </div>
+                </div>
+                <!--End chapters-->
+
+            </div>
+        </div>
+        <!--End container of information about the manga and the chapters-->
+
+    </div>
+    <app-footer></app-footer>
+</div>

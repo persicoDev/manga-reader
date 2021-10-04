@@ -1,0 +1,136 @@
+@import "../../../styles.scss";
+@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
+.container-description::-webkit-scrollbar {
+  display: none;
+}
+.box3{
+  width: 100%;
+  height: 500px;
+  background-attachment: fixed;
+  background-position: center 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 0;
+  margin-bottom: -500px;
+  filter: blur(5px)
+}
+.box2 {
+  padding-top: 30px;
+}
+.container-description {
+  background: $body_color;
+}
+.material-icons.book2 {
+  display: none;
+  color: white;
+}
+.bookmarked {
+  background-color: $body_color;
+  border: 2px solid $secondary_color;
+  color: white;
+  .material-icons{
+    color: $secondary_color;
+  }
+}
+.gradient{
+  display: flex;
+  align-items: center;
+  height: 70px;
+  text-align: left;
+  padding-left: 10px;
+  // background-image: linear-gradient(to right, #6521a5, rgba(0,0,0,0));
+  background-image: linear-gradient(to right, $secondary_color, rgba(0,0,0,0));
+}
+.summary {
+  width: 80%;
+}
+.info-box,.chapter{
+  padding:20px 25px 10px 25px;
+  background-color: $body_color;
+  background: radial-gradient(circle, $body_color 20%, $nav_color 80%);
+  border: 2px solid $secondary_color;
+}
+.type {
+  padding-bottom: 10px;
+}
+.type b {
+  font-size: 1.1rem;
+}
+.type span {
+  font-size: 1.0rem; 
+} 
+  .chapter-box {
+    background-color: $secondary_color;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    align-items: center;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 10px; 
+    width: 100%;
+  }
+  @media (max-width:768px) {
+    .box2 {
+      display: unset;
+      .information-left {
+       justify-content: center;
+       margin: 0px !important;
+       padding-top: 30px;
+      }
+    }
+    .information-right {
+      margin-top: 40px !important;
+      margin-left: 0px !important;
+      padding-right: 5px !important;
+    }
+    .title {
+      padding-left: 5px !important;
+      height: 70px !important;
+    }
+    .gradient {
+      background-image:none;
+    }
+    .summary {
+      width: 96% !important;
+      margin-right: 0.75rem !important;
+    } 
+    .hr {
+      width: 100% !important;
+    }
+    .information-bottom {
+      padding-top: 0  !important;
+      margin-left: 10px !important;
+      margin: 0 !important;
+      display: unset; 
+    }
+    .info-box {
+      width: 100% !important;
+      display: flex;
+      overflow-x: auto;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+    .info-box::-webkit-scrollbar {
+      display: none;
+    }
+    .wrap1 {
+      margin:  0 3% 0 3%;
+    }
+    .wrap2 {
+      width: 100% !important;
+    }
+    .type {
+      margin-right: 20px !important;
+      white-space: nowrap;
+    }
+  .chapter {
+    margin-left: 0 !important;
+    margin-top: 15px !important;
+  }
+  }
+  @media (max-width:639px) {
+    .container-description {
+      padding-bottom: 25px;
+    }
+  }
+

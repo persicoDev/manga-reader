@@ -6,11 +6,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { BookmarkedComponent } from './components/bookmarked/bookmarked.component';
-import { MangaItemComponent } from './components/manga-item/manga-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReadMangaComponent } from './components/read-manga/read-manga.component'
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
 import { InfoMangaComponent } from './components/info-manga/info-manga.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MangaGenresComponent } from './components/manga-genres/manga-genres.component';
+
 
 @NgModule({
   declarations: [
@@ -18,10 +20,11 @@ import { InfoMangaComponent } from './components/info-manga/info-manga.component
     HomeComponent,
     NavMenuComponent,
     BookmarkedComponent,
-    MangaItemComponent,
     ReadMangaComponent,
     BottomBarComponent,
     InfoMangaComponent,
+    FooterComponent,
+    MangaGenresComponent,
   ],
   imports: [
     BrowserModule,

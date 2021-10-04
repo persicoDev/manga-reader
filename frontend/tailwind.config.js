@@ -8,6 +8,8 @@ module.exports = {
     purge: {
       content: [
         './src/**/*.{html,ts,css,scss,sass,less,styl}',
+        './src/app/components/**/*{html,ts,css,scss,sass,less,styl}',
+        './src/app/**/*{html,ts,css,scss,sass,less,styl}',
       ]
     },
     darkMode: 'class', // or 'media' or 'class'
