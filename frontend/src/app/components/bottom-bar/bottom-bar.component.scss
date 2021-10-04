@@ -1,0 +1,20 @@
+@import '../../../styles.scss';
+.item {
+  background-color: $nav_color;
+}
+
+.active {
+  outline: none;
+  border-top: solid 3px $secondary_color;
+  color: $secondary_color;
+}
+
+#item {
+  background-color: $nav_color;
+}
+
+@media (min-width: 639px) {
+  #item {
+    display: none;
+  }
+}
