@@ -41,7 +41,11 @@ def get_score(title, author):
     print(f'{title} {author} myanimelist manga')
     search_results = search(f'{title} {author} myanimelist manga')
     soup = BeautifulSoup(requests.get(search_results[0]).content, 'html.parser')
-    score = soup.find("div", {"class": "score-label"}).get_text()
+    score = soup.find("div", {"class": "score-label"})
+    if score == None:
+        score = "N/A"
+    else:
+        score = score.get_text()
     print(score)
     return score
 
