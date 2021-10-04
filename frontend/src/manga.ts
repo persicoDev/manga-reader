@@ -14,3 +14,4 @@ export interface MangaInfos {
     chapter_cont: number;
     link: string[];
 }
+

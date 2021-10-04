@@ -1,11 +1,17 @@
 import os
 import re
 import json
+import pymongo
 import requests
 import traceback
 from itertools import chain
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
 from googlesearch import search
+
+load_dotenv()
+DB_USERNAME = str(os.environ.get("DB_USERNAME"))
+DB_PASSWORD = str(os.environ.get("DB_PASSWORD"))
 
 
 def get_manga(archive_link, manga_data_list):
@@ -35,11 +41,7 @@ def get_score(title, author):
     print(f'{title} {author} myanimelist manga')
     search_results = search(f'{title} {author} myanimelist manga')
     soup = BeautifulSoup(requests.get(search_results[0]).content, 'html.parser')
-    score = soup.find("div", {"class": "score-label"})
-    if score == None:
-        score = 'N/A'
-    else:
-        score = score.get_text()
+    score = soup.find("div", {"class": "score-label"}).get_text()
     print(score)
     return score
 
@@ -120,14 +122,16 @@ def get_single_chapter(manga_url, manga_chapter):
 if __name__ == "__main__":
     cont = 0
     manga_data_list = []
-    manga_obj = {}
+    my_client = pymongo.MongoClient(
+        f'mongodb+srv://{DB_USERNAME}:{DB_PASSWORD}@manga-database.sbycl.mongodb.net/?retryWrites=true&w=majority')
 
     for i in range(1):
-        link = f'https://www.mangaworld.in/archive?page={ i }'
+        link: str = f'https://www.mangaworld.in/archive?page={i}'
         print(str(i))
-        get_manga( link, manga_data_list)
+        get_manga(link, manga_data_list)
 
-    manga_obj = { 'mangas': manga_data_list }
-
-    with open('backend/db.json', 'w', encoding='utf-8') as f:
-        json.dump(manga_obj, f, ensure_ascii=False, indent=2)
+    db = my_client.test
+    my_database = my_client['Manga-Database']
+    my_collection = my_database['manga-infos']
+    datas = my_collection.insert_many(manga_data_list)
+    print(datas)
