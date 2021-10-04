@@ -10,7 +10,7 @@ const express = require("express"),
    
 mongoose.Promise = global.Promise;
 
-const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@Manga-Database.sbycl.mongodb.net/Manga-Database?retryWrites=true&w=majority`;
+const url = process.env.MONGO_URL;
 
 mongoose.connect(url, {
       useNewUrlParser: true,
