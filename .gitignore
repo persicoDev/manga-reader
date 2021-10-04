@@ -10,3 +10,5 @@ backend/scraper/.env
 backend/scraper/dbpass.py
 
 .idea/
+
+backend/api/node_modules/

@@ -20,7 +20,6 @@ export class ReadMangaComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.mangaLinks = (await this.MangaService.getSingleManga(this.id).toPromise());
-    console.log(this.mangaLinks);
   }
 
 }

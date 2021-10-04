@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
 
   async ngOnInit(): Promise<void> { 
     this.mangaInfos = (await this.MangaService.getMangas().toPromise());
-    console.log(this.mangaInfos[0]);
+    console.log(this.mangaInfos);
    }
 
   counter(i: number) { return new Array(i); }

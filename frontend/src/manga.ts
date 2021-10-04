@@ -8,7 +8,7 @@ export interface MangaInfos {
     genres: string[];
     author: string;
     artist: string;
-    score: string;
+    // score: string;
     status: string;
     year: string;
     chapter_cont: number;
