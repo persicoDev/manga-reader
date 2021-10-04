@@ -4,3 +4,5 @@ manga-reader/node_modules/
 backend/node_modules/
 
 backend/api/.env
+
+.idea/
