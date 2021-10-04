@@ -1,10 +1,8 @@
 import os
 import re
-import json
 import pymongo
 import requests
 import traceback
-from itertools import chain
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from googlesearch import search
@@ -13,7 +11,7 @@ load_dotenv()
 DB_USERNAME = str(os.environ.get("DB_USERNAME"))
 DB_PASSWORD = str(os.environ.get("DB_PASSWORD"))
 
-
+print(DB_PASSWORD)
 def get_manga(archive_link, manga_data_list):
     global cont
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
@@ -42,7 +40,7 @@ def get_score(title, author):
     search_results = search(f'{title} {author} myanimelist manga')
     soup = BeautifulSoup(requests.get(search_results[0]).content, 'html.parser')
     score = soup.find("div", {"class": "score-label"})
-    if score == None:
+    if score is None:
         score = "N/A"
     else:
         score = score.get_text()
