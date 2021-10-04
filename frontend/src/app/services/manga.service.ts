@@ -13,16 +13,15 @@ const httpOption = {
 @Injectable({ providedIn: 'root' })
 
 export class MangaService {
-  
 
-  private apiUrl = 'http://localhost:3000/mangas'
+  private apiUrl = 'http://localhost:4000/api'
   
   constructor(private http:HttpClient) { }
 
   getMangas(): Observable<MangaInfos[]> { return this.http.get<MangaInfos[]>(this.apiUrl); }
   
-  getSingleManga(id: number): Observable<MangaInfos> { return this.http.get<MangaInfos>(`${this.apiUrl}/${id}`); }
-
-  getSingleMangaLink(id: number): Observable<MangaInfos> { return this.http.get<MangaInfos>(`${this.apiUrl}/${id}`); }
-  
+  getSingleManga(id: number): Observable<MangaInfos> {
+    return this.http.get<MangaInfos>(`${this.apiUrl}/read/${id}`);
+    console.log('miao');
+  }
 }
