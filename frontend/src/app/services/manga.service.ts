@@ -14,7 +14,7 @@ const httpOption = {
 
 export class MangaService {
 
-  private apiUrl = 'http://localhost:4000/api'
+  private apiUrl = 'https://persico-manga-reader.herokuapp.com/api';
   
   constructor(private http:HttpClient) { }
 
