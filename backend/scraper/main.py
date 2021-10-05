@@ -3,6 +3,7 @@ import re
 import pymongo
 import requests
 import traceback
+from itertools import chain
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from googlesearch import search
@@ -17,10 +18,11 @@ def get_manga(archive_link, manga_data_list):
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
 
     for manga in soup('div', class_='entry'):
-        chapter_cont = 0
         manga_information = {}
+        chapter_cont = 0
         cont += 1
         print(f'giusto per il contatore: {cont}')
+        manga_information['link'] = {}
         manga_information['id'] = cont
         manga_information['title'] = manga.find('a')['title']
         manga_information['preview'] = manga.find('img')['src']
@@ -28,8 +30,8 @@ def get_manga(archive_link, manga_data_list):
         manga_information['routeName'] = str(manga_information['routeName']).replace(" ", "-")
         print('manga:' + manga.find('a')['href'])
         manga_information = get_manga_info(manga_information, manga.find('a')['href'], manga_information['title'])
-        manga_information['link'] = get_single_manga(manga_information, chapter_cont,
-                                                     manga_link=manga.find('a')['href'])
+        manga_information['link'].update(get_single_manga(manga_information, chapter_cont,manga_link=manga.find('a')['href']))
+        # manga_information['link'] = list(chain.from_iterable(manga_information['link']))
         manga_data_list.append(manga_information)
 
 def get_score(title, author):
@@ -84,7 +86,7 @@ def get_manga_info(manga_information, link, title):
 
 
 def get_single_manga(manga_information, chapter_cont, manga_link):
-    manga_list = []
+    manga_list = {}
     page_content = BeautifulSoup(requests.get(manga_link).content, 'html.parser')
     manga_part = page_content.find('div', class_='chapters-wrapper')
     for manga in manga_part('div', class_='chapter'):
@@ -96,7 +98,7 @@ def get_single_manga(manga_information, chapter_cont, manga_link):
         manga_url = f'{manga_url}/1'
         manga_url = f'{manga_url}?style=list'
         print(f'link chapter: {str(manga_url)}')
-        manga_list.append(get_single_chapter(manga_url, manga_chapter))
+        manga_list.update(get_single_chapter(manga_url, manga_chapter))
     manga_information['chapter_cont'] = chapter_cont
 
     return manga_list
@@ -109,8 +111,7 @@ def get_single_chapter(manga_url, manga_chapter):
     try:
         soup = BeautifulSoup(requests.get(manga_url).content, 'html.parser')
         manga_chapter = manga_chapter.replace(" ", "_")
-        manga_container = soup.find_all('img',
-                                        {"class": "page-image img-fluid"})  # modifica tag src per diminuire righe
+        manga_container = soup.find_all('img',{"class": "page-image img-fluid"})  # modifica tag src per diminuire righe
         for single_manga_link in manga_container:
             save_list.append(str(single_manga_link['src']))
         save_list.sort()
