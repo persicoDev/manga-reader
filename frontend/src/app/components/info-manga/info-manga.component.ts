@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { MangaInfos } from 'src/manga';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MangaService } from 'src/app/services/manga.service';
-import { MangaInfos } from 'src/manga';
+import { Component, OnInit,  } from '@angular/core';
 import { animate, state, style, transition, trigger, } from "@angular/animations";
 
 
@@ -82,20 +82,45 @@ import { animate, state, style, transition, trigger, } from "@angular/animations
 
   ],
 })
+
 export class InfoMangaComponent implements OnInit {
 
-  manga!: MangaInfos;
-  id?: number;
+  Object = Object;
   mark: string = "out";
   chapterCont!: number;
+  manga!: MangaInfos;
+  mangaToReplace!: MangaInfos;
+  id?: number;
 
   constructor(public activatedRoute: ActivatedRoute,private MangaService: MangaService, public router: Router) { }
 
   async ngOnInit(): Promise<void> {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.manga = (await this.MangaService.getSingleManga(this.id).toPromise());
+    this.mangaToReplace = (await this.MangaService.getSingleManga(this.id).toPromise());
+    // this.Object.keys(this.mangaToReplace.link) = this.stringReplace(this.Object.keys(this.mangaToReplace.link));
+    // for (let key of this.Object.keys(this.mangaToReplace.link)) {
+    //   console.log(key);
+    //   key = key.replace("_", " ")
+    // }
+    // console.log(this.mangaToReplace.link.keys())
+    // this.Object.keys(this.mangaToReplace.link) = this.stringReplace(this.Object.keys(this.mangaToReplace.link));
+    // for(let i = 0; i < this.Object.keys(this.mangaToReplace.link).length; i++){
+    //   let mockString:string = ''
+    //   this.Object.keys(this.mangaToReplace.link)[i] = this.Object.keys(this.mangaToReplace.link)[i].split('_').join(' ');
+    //   console.log(this.Object.keys(this.mangaToReplace.link)[i].split('_').join(' '));
+    // }
+    // console.log(this.Object.keys(this.mangaToReplace.link));
+    console.log(this.Object.keys(this.mangaToReplace.link));
+    this.manga = this.mangaToReplace;
+    console.log('negro')
+    // console.log(this.Object.keys(this.manga.link))
+    console.log(this.manga);
     this.chapterCont = this.manga.chapter_cont;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }  
+
+  stringReplace(string:string[]): string[] {
+    return string.map(x => x.replace("_", " "));
   }
   
   bookmark(): void {
@@ -105,6 +130,5 @@ export class InfoMangaComponent implements OnInit {
   counter(i: number) {
     return new Array(i);
   }
-
 
 }

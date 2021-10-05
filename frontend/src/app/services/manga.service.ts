@@ -14,14 +14,15 @@ const httpOption = {
 
 export class MangaService {
 
-  private apiUrl = 'https://persico-manga-reader.herokuapp.com/api';
-  
+  private apiUrl = 'http://localhost:4000/api';
+
   constructor(private http:HttpClient) { }
 
-  getMangas(): Observable<MangaInfos[]> { return this.http.get<MangaInfos[]>(this.apiUrl); }
+  getMangas(): Observable<MangaInfos[]> { return this.http.get<MangaInfos[]>(this.apiUrl);  }
   
   getSingleManga(id: number): Observable<MangaInfos> {
     return this.http.get<MangaInfos>(`${this.apiUrl}/read/${id}`);
     console.log('miao');
   }
+
 }
