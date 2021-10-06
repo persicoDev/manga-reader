@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'bookmarked', component: BookmarkedComponent},
   { path: 'manga-genres', component: MangaGenresComponent},
-  { path: 'read/:id', component: ReadMangaComponent },
+  { path: 'read/:id/:item', component: ReadMangaComponent },
   { path: 'manga/:id', component: InfoMangaComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
