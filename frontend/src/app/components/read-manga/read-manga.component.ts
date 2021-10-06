@@ -14,12 +14,15 @@ export class ReadMangaComponent implements OnInit {
 
   mangaLinks!: MangaInfos;
   id!: number;
+  item!: string;
 
   constructor(public activatedRoute: ActivatedRoute, private MangaService: MangaService) { }
 
   async ngOnInit(): Promise<void> {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.mangaLinks = (await this.MangaService.getSingleManga(this.id).toPromise());
+    this.item = String(this.activatedRoute.snapshot.params.params);
+    console.log(this.item);
+    // this.mangaLinks = (await this.MangaService.getSingleManga(this.id).toPromise());
   }
 
 }

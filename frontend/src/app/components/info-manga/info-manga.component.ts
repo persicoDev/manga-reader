@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { MangaInfos } from 'src/manga';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MangaService } from 'src/app/services/manga.service';
-import { MangaInfos } from 'src/manga';
+import { Component, OnInit,  } from '@angular/core';
 import { animate, state, style, transition, trigger, } from "@angular/animations";
 
 
@@ -82,29 +82,25 @@ import { animate, state, style, transition, trigger, } from "@angular/animations
 
   ],
 })
+
 export class InfoMangaComponent implements OnInit {
 
+  Object = Object;
+  mark: string = "out";
   manga!: MangaInfos;
   id?: number;
-  mark: string = "out";
-  chapterCont!: number;
 
   constructor(public activatedRoute: ActivatedRoute,private MangaService: MangaService, public router: Router) { }
 
   async ngOnInit(): Promise<void> {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.manga = (await this.MangaService.getSingleManga(this.id).toPromise());
-    this.chapterCont = this.manga.chapter_cont;
+    this.manga= (await this.MangaService.getSingleManga(this.id).toPromise());
+    console.log(this.manga);
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-  }
-  
+  }  
+
   bookmark(): void {
     this.mark = this.mark === "in" ? "out" : "in";
   }
-
-  counter(i: number) {
-    return new Array(i);
-  }
-
 
 }

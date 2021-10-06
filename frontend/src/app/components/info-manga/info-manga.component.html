@@ -99,9 +99,11 @@
                     </div>
                     <div style="overflow-y: auto;height: 410px;">
                         <div class="chapter-wrap justify-evenly flex-wrap" style="padding:0 4% 0 4%;">
-                            <div class="chapter-box flex" *ngFor="let in of counter(manga.chapter_cont);let i = index">
-                                <span>Capitolo {{ i+1 }}</span>
-                            </div><br>
+                            <div class="chapter-box flex" *ngFor="let item of Object.keys(manga.link)">
+                                <a routerLink="/read/{{ manga.id }}/{{ item }}">
+                                    <span>{{ item.replace("_", " ") }} </span>
+                                </a>    
+                            </div>
                         </div>
                     </div>
                 </div>
