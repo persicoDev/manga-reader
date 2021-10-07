@@ -1,6 +1,6 @@
-// type MangaLinks = {
-//     [key:string]: string[];
-// }
+type MangaLinks = {
+    [key:string]: string[];
+}
 
 
 export interface MangaInfos {
@@ -17,6 +17,6 @@ export interface MangaInfos {
     status: string;
     year: string;
     chapter_cont: number;
-    link: Map<string, [string]>;
+    link: MangaLinks[];
 }
 
