@@ -242,6 +242,9 @@ img {
   .button-left, .button-right{
     display: none !important;
   }
+  .tabs {
+    padding: 1px !important;
+  }
 }
 @media (max-width:600px) {
   .loop {
@@ -270,6 +273,12 @@ img {
     margin:  0  !important;
   }
   .new-description {
-    width: 160px !important;
+    width: 230px !important;
+    margin-right: 0 !important;
+  }
+}
+@media (max-width:375px) {
+  .new-description {
+    width: 170px !important;
   }
 }
