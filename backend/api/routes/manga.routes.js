@@ -15,7 +15,7 @@ mangaRoute.route('/manga/:id').get(async (req, res, next) =>{
    res.json(await MangaInfos.findOne({'id': req.params.id}));
 })
 
-mangaRoute.route('/read/:id/:chapter').get(async (req, res, next) =>{
+mangaRoute.route('/read/:id/').get(async (req, res, next) =>{
     res.json(await MangaInfos.findOne({'id': req.params.id}));
 })
 
