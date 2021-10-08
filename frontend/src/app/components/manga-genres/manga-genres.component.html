@@ -95,7 +95,7 @@
           <div style="justify-content: space-around;margin-top: 70px;"
             class="new-box overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
             <div class="loop" *ngFor="let manga of mangaInfos;let i = index">
-                <div style="width:480px;" class="new-container flex h-48 rounded-lg mb-5 ml-3"
+                <div style="width:480px;" class="new-container flex h-48 rounded-lg mb-5 ml-3 cursor-pointer"
                   routerLink="/manga/{{ manga.id }}">
                   <div class="new-manga w-6/12 h-full">
                     <img class="new-image h-full" style="width: 230px;" src="{{ manga.preview }}" />
@@ -108,8 +108,7 @@
                       <div class="flex mt-1">
                         <span class="text-gray-400 text-sm">Score</span>
                         <div class="chips inline-block cursor-pointer" style="margin-top: 3px;">
-                          <!-- <span> {{ manga.score}} </span> -->
-                          <span>9</span>
+                           <span> {{ manga.score}} </span> 
                         </div>
                       </div>
                       <div class="state flex" style="margin-top: 0.25rem;">
