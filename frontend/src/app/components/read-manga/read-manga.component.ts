@@ -12,17 +12,25 @@ import { MangaInfos } from 'src/manga';
 
 export class ReadMangaComponent implements OnInit {
 
-  mangaLinks!: MangaInfos;
+  manga!: MangaInfos;
+  mangaLinks!: string[] | any;
   id!: number;
-  item!: string;
+  chapter!: string;
 
   constructor(public activatedRoute: ActivatedRoute, private MangaService: MangaService) { }
 
   async ngOnInit(): Promise<void> {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.item = String(this.activatedRoute.snapshot.params.params);
-    console.log(this.item);
-    // this.mangaLinks = (await this.MangaService.getSingleManga(this.id).toPromise());
+    this.chapter = String(this.activatedRoute.snapshot.paramMap.get('item'));
+    this.manga = (await this.MangaService.getSingleMangaChapter(this.id).toPromise());
+    this.mangaLinks = this.getMangaLinks();
+  }
+
+  getMangaLinks(): string[] | any {
+    for (let [k, v] of Object.entries(this.manga.link)){
+      if (k == this.chapter)
+        return v;
+    }    
   }
 
 }
