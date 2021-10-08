@@ -20,13 +20,8 @@ export class MangaService {
 
   getMangas(): Observable<MangaInfos[]> { return this.http.get<MangaInfos[]>(this.apiUrl); }
 
-  getSingleManga(id: number): Observable<MangaInfos> {
-    return this.http.get<MangaInfos>(`${this.apiUrl}/manga/${id}`);
-  }
+  getSingleManga(id: number): Observable<MangaInfos> { return this.http.get<MangaInfos>(`${this.apiUrl}/manga/${id}`); }
   
-  getSingleMangaChapter(id: number, chapter: string): Observable<MangaInfos> {
-    return this.http.get<MangaInfos>(`${this.apiUrl}/read/${id}/${chapter}`);
-    console.log('miao');
-  }
+  getSingleMangaChapter(id: number): Observable<MangaInfos> { return this.http.get<MangaInfos>(`${this.apiUrl}/read/${id}`); }
 
 }
