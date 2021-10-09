@@ -4,9 +4,9 @@
     class="container-description w-full h-full font-sans text-white overflow-y-scroll pt-16">
     <div class="box fixed w-full" style="z-index: 40;" [@animation4]="info">
         <div class="info-manga pl-3 mb-3 mt-3 flex items-center" [@animation2]="info">
-            <div style="width:480px;" class="title flex rounded-lg" routerLink="/manga/{{ manga.id }}">
+            <div style="width:480px;" class=" flex rounded-lg" routerLink="/manga/{{ manga.id }}">
                 <div class="w-full">
-                    <div class="mt-1 text-white" style="width: 430px;">
+                    <div class="title mt-1 text-white" style="width: 430px;">
                         <h3 class="text-2xl whitespace-nowrap overflow-ellipsis overflow-hidden"
                             style="font-weight:bold;">
                             {{ manga.title }}
@@ -20,20 +20,41 @@
                 class="material-icons cursor-pointer">expand_less</i>
         </div>
 
-        <div class="chapters " [@animation3]="info">
-            <div class="chapter flex items-center">
-                <b>{{this.chapter}}</b>
-                <i class="material-icons text-2xl">keyboard_arrow_down</i>
+        <div class="chapters " [@animation3]="info" >
+            <div class="chapter flex items-center" [@animation8]="choice" [@animation5]="info" (click)="Chapters()">
+                <div style="width: 140px;">
+                    <b >{{this.chapter.replace("_", " ")}}</b>
+                </div>
+                <div>
+                    <i class="material-icons text-2xl" style="align-items: flex-end;" [@animation7]="choice">keyboard_arrow_down</i>
+                </div>
             </div>
         </div>
     </div>
-    <div class="all-chapters" style="z-index: 39;">
+    <div [@animation9]="choice" class="box-chapters" style="overflow-y: auto;height: 100%;z-index: 39;position: fixed;width: 100%;">
+        <div class="gradation"  >
+            <div style="padding-top: 100px;padding-bottom: 130px;" [@animation6]="info">
+            <div *ngFor="let item of Object.keys(manga.link).reverse()">
 
+                <div class="chapter-box flex" style="font-size: 18px;" *ngIf="item == this.chapter">
+                    <a class="choice" routerLink="/read/{{ manga.id }}/{{ item }}">
+                        <span style="cursor: pointer;" >{{ item.replace("_", " ") }} </span>
+                    </a>
+                </div>
+                <div class="chapter-box2 flex" style="font-size: 18px;" *ngIf="item != this.chapter">
+                    <a class="choice" routerLink="/read/{{ manga.id }}/{{ item }}">
+                        <span style="cursor: pointer;" >{{ item.replace("_"," ") }} </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
     </div>
     <div class="img-chapters" style="padding-bottom: 40px;">
         <div style="justify-content: center;" class="flex" *ngFor="let manga of mangaLinks">
             <img style="margin-bottom: 20px;" src="{{manga}}">
         </div>
     </div>
+
     <app-footer></app-footer>
 </div>
