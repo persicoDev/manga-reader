@@ -98,13 +98,15 @@
                         </div>
                     </div>
                     <div style="overflow-y: auto;height: 410px;">
-                        <div class="chapter-wrap justify-evenly flex-wrap" style="padding:0 4% 0 4%;">
-                            <div class="chapter-box flex" *ngFor="let item of Object.keys(manga.link)">
-                                <a routerLink="/read/{{ manga.id }}/{{ item }}">
+                        <div *ngFor="let item of Object.keys(manga.link)">
+                        <div routerLink="/read/{{ manga.id }}/{{ item }}" class="chapter-wrap justify-evenly flex-wrap" style="padding:0 4% 0 4%;">
+                            <div class="chapter-box flex" >
+                                <a>
                                     <span>{{ item.replace("_", " ") }} </span>
                                 </a>    
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <!--End chapters-->
