@@ -31,9 +31,28 @@
             </div>
         </div>
     </div>
-    <div [@animation9]="choice" class="box-chapters" style="overflow-y: auto;height: 100%;z-index: 39;position: fixed;width: 100%;">
-        <div class="gradation"  >
-            <div style="padding-top: 100px;padding-bottom: 130px;" [@animation6]="info">
+
+    <div [@animation9]="choice" class="box-chapters" style="overflow-y: auto;width: 100%;z-index: 39;position: fixed;">
+        <div style="padding-top:100px;padding-bottom: 130px;" >
+        <div style=" cursor:pointer;" *ngFor="let item of Object.keys(manga.link).reverse()">
+            <div class="chapter-box flex" style="font-size: 18px;" *ngIf="item == this.chapter">
+                    <a class="choice" routerLink="/read/{{ manga.id }}/{{ item }}">
+                        <span style="cursor: pointer;" >{{ item.replace("_", " ") }} </span>
+                    </a>
+                </div>
+                <div class="chapter-box2 flex" style="font-size: 18px;" *ngIf="item != this.chapter">
+                    <a class="choice" routerLink="/read/{{ manga.id }}/{{ item }}">
+                        <span style="cursor: pointer;" >{{ item.replace("_"," ") }} </span>
+                    </a>
+                </div>
+    </div>
+    </div>
+    </div>
+
+
+   <!--<div [@animation9]="choice" class="box-chapters" style="overflow-y: auto;height: 100%;z-index: 39;position: fixed;width: 100%;">
+        <div class="gradation" >
+            <div style="padding-top: 100px;padding-bottom: 130px;height: 100%;" [@animation6]="info">
             <div *ngFor="let item of Object.keys(manga.link).reverse()">
 
                 <div class="chapter-box flex" style="font-size: 18px;" *ngIf="item == this.chapter">
@@ -49,7 +68,7 @@
             </div>
         </div>
         </div>
-    </div>
+    </div>-->
     <div class="img-chapters" style="padding-bottom: 40px;">
         <div style="justify-content: center;" class="flex" *ngFor="let manga of mangaLinks">
             <img style="margin-bottom: 20px;" src="{{manga}}">

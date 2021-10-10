@@ -7,9 +7,18 @@
 .box {
   background: linear-gradient(180deg, #000 0, rgba(220, 9, 20, 0));
   color: white;
+  height: 120px;
 }
 .box-chapters {
   display: none;
+  background: linear-gradient(
+    180deg,
+    #000,
+    rgba(0, 0, 0, 0.5) 100%,
+    transparent
+  );
+  width: 450px !important;
+  height: 100%;
 }
 .chapter {
   background-color: $secondary_color;
@@ -46,16 +55,7 @@
 .box-chapters::-webkit-scrollbar {
   display: none;
 }
-.gradation {
-  background: linear-gradient(
-    180deg,
-    #000,
-    rgba(0, 0, 0, 0.5) 100%,
-    transparent
-  );
-  width: 450px;
-  
-}
+
 .chapter-box,.chapter-box2 {
     font-size: 18px;
     letter-spacing: -.1px;
@@ -73,8 +73,8 @@
   .arrow {
     display: unset;
   }
-  .gradation {
-    width: 100%;
+  .box-chapters {
+    width: 100% !important;
   }
 }
 @media (max-width: 535px) {
