@@ -50,7 +50,6 @@
     $secondary_color 100%
   );
   border-radius: 100px;
-  display: none;
 }
 .box-chapters::-webkit-scrollbar {
   display: none;
@@ -70,9 +69,6 @@
   color: $secondary_color;
 }
 @media (max-width:768px) {
-  .arrow {
-    display: unset;
-  }
   .box-chapters {
     width: 100% !important;
   }
