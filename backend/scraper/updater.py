@@ -3,6 +3,7 @@ import math
 from bs4 import BeautifulSoup
 import requests
 import traceback
+from main import get_score
 
 
 def get_new_chapters(manga_link, chapter_cont, link_list):
@@ -66,12 +67,21 @@ def get_chapter_cont(id, title):
 
 if __name__ == "__main__":
     manga_obj= {}
+    top_list = []
     manga_list = []
-    with open('backend/test.json', 'r', encoding="utf8") as json_data:
+    with open('backend/infodb.json', 'r', encoding="utf8") as json_data:
         data = json.load(json_data)
         print(type(data))
         for manga in data["mangas"]:
             print("\nTitolo " + manga["title"])
+
+            manga["score"] = get_score(manga["title"], manga["author"])  
+            top_obj = {  
+                "id": manga["id"],
+                "score": manga["score"]
+            }
+            top_list.append(top_obj)
+
             if manga["status"] != "Finito" and manga["status"] != "Droppato":
                 print("\nControllando per update")
                 chapter_cont, manga_link = get_chapter_cont(manga["id"], manga["title"])
@@ -84,13 +94,23 @@ if __name__ == "__main__":
         json_data.close()
     
     manga_obj = {"mangas": manga_list}
-    with open('backend/test.json', 'w', encoding="utf8") as f:
+    with open('backend/infodb.json', 'w', encoding="utf8") as f: # save updated links
         f.seek(0)
         json.dump(manga_obj, f, ensure_ascii=False, indent=2)
         f.truncate()
         f.close()
 
-        # json_data.seek(0)        # <--- should reset file position to the beginning.
-        # json.dump(data, json_data, indent=2)
-        # json_data.truncate()     # remove remaining part
-        # json_data.close()
+    for i in range(len(top_list)):  # manga sorting by score
+        for j in range(i+1, len(top_list)):
+            if top_list[j]["score"] == "N/A":
+                top_list.append(top_list[j])
+                top_list.remove(top_list[j])
+            elif float(top_list[j]["score"]) > float(top_list[i]["score"]):
+                tmp = top_list[i]
+                top_list[i] = top_list[j]
+                top_list[j] = tmp
+    with open('backend/top_manga.json', 'w', encoding="utf8") as f: # save updated top mangas
+        f.seek(0)
+        json.dump({"top": top_list}, f, ensure_ascii=False, indent=2)
+        f.truncate()
+        f.close()
