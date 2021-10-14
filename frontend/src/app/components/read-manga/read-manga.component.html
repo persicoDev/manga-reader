@@ -73,12 +73,10 @@
         <div style="justify-content: center;" class="flex" *ngFor="let manga of mangaLinks">
             <img style="margin-bottom: 20px;" src="{{manga}}">
         </div>
-        <div class="arrow-top">
-            <i style="position: relative;"
-                class="material-icons cursor-pointer">expand_less</i>
-        </div>
-        NEGRO
+        
     </div>
-    
-    <app-footer></app-footer>
+    <div (click)="scrollToTop()" class="scroll-to-top" >
+        scrollToTop 
+     </div>
+         <app-footer></app-footer>
 </div>
