@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 <div style="padding-top: 64px;"
-    class="container-description w-full h-full font-sans text-white overflow-y-scroll pt-16">
+    class="container-description w-full h-full noselect font-sans text-white overflow-y-scroll pt-16">
     <div class="box fixed w-full" style="z-index: 40;" [@animation4]="info">
         <div class="info-manga pl-3 mb-3 mt-3 flex items-center" [@animation2]="info">
-            <div style="width:480px;" class=" flex rounded-lg" routerLink="/manga/{{ manga.id }}">
+            <div class=" flex rounded-lg" routerLink="/manga/{{ manga.id }}">
                 <div class="w-full">
                     <div class="title mt-1 text-white" style="width: 430px;">
                         <h3 class="text-2xl whitespace-nowrap overflow-ellipsis overflow-hidden"
@@ -73,7 +73,12 @@
         <div style="justify-content: center;" class="flex" *ngFor="let manga of mangaLinks">
             <img style="margin-bottom: 20px;" src="{{manga}}">
         </div>
+        <div class="arrow-top">
+            <i style="position: relative;"
+                class="material-icons cursor-pointer">expand_less</i>
+        </div>
+        NEGRO
     </div>
-
+    
     <app-footer></app-footer>
 </div>
