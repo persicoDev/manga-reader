@@ -2,9 +2,6 @@ import { MangaService } from 'src/app/services/manga.service';
 import { Component, OnInit } from '@angular/core';
 import { MangaInfos } from 'src/manga';
 
-export interface id {
-  name: string;
-}
 
 @Component({
   selector: 'app-manga-genres',
@@ -20,49 +17,90 @@ export class MangaGenresComponent implements OnInit {
     { src: "https://cdn.mangaworld.io/mangas/5fc7aeadab5e153e7db16e5a.jpg?1624711215322" },
     { src: "https://cdn.mangaworld.io/mangas/5f727cde7160751a30589243.jpg?1624711047739" }
   ];
-  ids: id[] = [
-    {name: 'one-panel'},
-    {name: 'two-panel'},
-    {name: 'three-panel'},
-    {name: 'four-panel'},
-    {name: 'five-panel'},
-    {name: 'six-panel'},
-    {name: 'seven-panel'},
-    {name: 'eight-panel'},
-    {name: 'nine-panel'},
-    {name: 'ten-panel'},
-    {name: 'eleven-panel'},
-    {name: 'twelve-panel'},
-    {name: 'thirteen-panel'},
-    {name: 'fourteen-panel'},
-    {name: 'fifteen-panel'},
-    {name: 'sixteen-panel'},
-    {name: 'seventeen-panel'},
-    {name: 'eighteen-panel'},
-    {name: 'nineteen-panel'},
-    {name: 'twenty-panel'},
-    {name: 'twentyone-panel'},
-    {name: 'twentytwo-panel'},
-    {name: 'twentythree-panel'},
-    {name: 'twentyfour-panel'},
-    {name: 'twentyfive-panel'},
-    {name: 'twentysix-panel'},
-    {name: 'twentyseven-panel'},
-    {name: 'twentyeight-panel'},
-    {name: 'twentynine-panel'},
-    {name: 'thirty-panel'},
-    {name: 'thirtyone-panel'},
-    {name: 'thirtytwo-panel'},
-    {name: 'thirtythree-panel'},
-    {name: 'thirtyfour-panel'},
-    {name: 'thirtyfive-panel'},
-    {name: 'thirtysix-panel'},
-    {name: 'thirtyseven-panel'}
-  ];
+
+  items = {
+     numbers: [
+      'one',
+      'two',
+      'three',
+      'four',
+      'five',
+      'six',
+      'seven',
+      'eight',
+      'nine',
+      'ten',
+      'eleven',
+      'twelve',
+      'thirteen',
+      'fourteen',
+      'fifteen',
+      'sixteen',
+      'seventeen',
+      'eighteen',
+      'nineteen',
+      'twenty',
+      'twentyone',
+      'twentytwo',
+      'twentythree',
+      'twentyfour',
+      'twentyfive',
+      'twentysix',
+      'twentyseven',
+      'twentyeight',
+      'twentynine',
+      'thirty',
+      'thirtyone',
+      'thirtytwo',
+      'thirtythree',
+      'thirtyfour',
+      'thirtyfive',
+      'thirtysix',
+      'thirtyseven'],
+      
+       genres: [
+        'Adulti',
+        'Arti Marziali',
+        'Azione',
+        'Commedia',
+        'Doujinshi',
+        'Drammatico',
+        'Ecchi',
+        'Fantasy',
+        'Gender Bender',
+        'Harem',
+        'Hentai',
+        'Horror',
+        'Josei',
+        'Lolicon',
+        'Maturo',
+        'Mecha',
+        'Mistero',
+        'Psicologico',
+        'Romantico',
+        'Sci-fi',
+        'Scolastico',
+        'Seinen',
+        'Shotacon',
+        'Shoujo',
+        'Shoujo Ai',
+        'Shounen',
+        'Shounen Ai',
+        'Slice of Life',
+        'Smut',
+        'Soprannaturale',
+        'Sport',
+        'Storico',
+        'Tragico',
+        'Yaoi',
+        'Yuri' ] };
 
   constructor(private MangaService: MangaService) { }
 
-  ngOnInit(): void { this.MangaService.getMangas().subscribe((mangas) => this.mangaInfos = mangas); }
+  ngOnInit(): void { 
+    console.log(this.items)
+    this.MangaService.getMangas().subscribe((mangas) => this.mangaInfos = mangas);
+   }
 
   counter(i: number) { return new Array(i); }
 

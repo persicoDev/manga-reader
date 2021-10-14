@@ -13,7 +13,7 @@ DB_USERNAME = str(os.environ.get("DB_USERNAME"))
 DB_PASSWORD = str(os.environ.get("DB_PASSWORD"))
 
 print(DB_PASSWORD)
-def get_manga(archive_link, manga_data_list):
+def get_manga(archive_link, manga_data_list, top_list):
     global cont
     soup = BeautifulSoup(requests.get(archive_link).content, 'html.parser')
 
@@ -32,6 +32,14 @@ def get_manga(archive_link, manga_data_list):
         manga_information = get_manga_info(manga_information, manga.find('a')['href'], manga_information['title'])
         manga_information['link'].update(get_single_manga(manga_information, chapter_cont,manga_link=manga.find('a')['href']))
         # manga_information['link'] = list(chain.from_iterable(manga_information['link']))
+
+        manga["score"] = get_score(manga["title"], manga["author"])  
+        top_obj = {  
+            "id": manga_information["id"],
+            "score": manga_information["score"]
+        }
+        top_list.append(top_obj)
+
         manga_data_list.append(manga_information)
 
 def get_score(title, author):
@@ -125,16 +133,32 @@ def get_single_chapter(manga_url, manga_chapter):
 if __name__ == "__main__":
     cont = 0
     manga_data_list = []
+    top_list = []
     my_client = pymongo.MongoClient(
         f'mongodb+srv://{DB_USERNAME}:{DB_PASSWORD}@manga-database.sbycl.mongodb.net/?retryWrites=true&w=majority')
 
     for i in range(1):
         link: str = f'https://www.mangaworld.in/archive?page={i}'
         print(str(i))
-        get_manga(link, manga_data_list)
+        get_manga(link, manga_data_list, top_list)
 
     db = my_client.test
     my_database = my_client['Manga-Database']
     my_collection = my_database['manga-infos']
     datas = my_collection.insert_many(manga_data_list)
     print(datas)
+
+    for i in range(len(top_list)):  # manga sorting by score
+        for j in range(i+1, len(top_list)):
+            if top_list[j]["score"] == "N/A":
+                top_list.append(top_list[j])
+                top_list.remove(top_list[j])
+            elif float(top_list[j]["score"]) > float(top_list[i]["score"]):
+                tmp = top_list[i]
+                top_list[i] = top_list[j]
+                top_list[j] = tmp
+    with open('backend/top_manga.json', 'w', encoding="utf8") as f: # save updated top mangas
+        f.seek(0)
+        json.dump({"top": top_list}, f, ensure_ascii=False, indent=2)
+        f.truncate()
+        f.close()
