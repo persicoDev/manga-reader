@@ -1,9 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<div style="padding-top: 64px;"
-    class="container-description w-full h-full noselect font-sans text-white overflow-y-scroll pt-16">
+<div style="padding-top: 64px;" class="container-description w-full h-full noselect font-sans text-white overflow-y-scroll pt-16" >
     <div class="box fixed w-full" style="z-index: 40;" [@animation4]="info">
-        <div class="info-manga pl-3 mb-3 mt-3 flex items-center" [@animation2]="info">
+        <div class="info-manga pl-3 mb-3 mt-3 flex items-center" >
             <div class=" flex rounded-lg" routerLink="/manga/{{ manga.id }}">
                 <div class="w-full">
                     <div class="title mt-1 text-white" style="width: 430px;">
@@ -15,12 +14,8 @@
                 </div>
             </div>
         </div>
-        <div class="arrow absolute" style="right: 15;top: 20;" (click)="Information()">
-            <i [@animation1]="info" style="position: relative;top: -4;font-size: 2.5rem;line-height: 1;right: 3;"
-                class="material-icons cursor-pointer">expand_less</i>
-        </div>
 
-        <div class="chapters " [@animation3]="info" >
+        <div class="chapters " [@animation3]="info"  >
             <div class="chapter flex items-center" [@animation8]="choice" [@animation5]="info" (click)="Chapters()">
                 <div style="width: 140px;">
                     <b >{{this.chapter.replace("_", " ")}}</b>
@@ -69,7 +64,7 @@
         </div>
         </div>
     </div>-->
-    <div class="img-chapters" style="padding-bottom: 40px;">
+    <div class="img-chapters" style="padding-bottom: 40px;" (click)="Information()">
         <div style="justify-content: center;" class="flex" *ngFor="let manga of mangaLinks">
             <img style="margin-bottom: 20px;" src="{{manga}}">
         </div>

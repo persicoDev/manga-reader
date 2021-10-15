@@ -1,9 +1,7 @@
 @import "../../../styles.scss";
 @import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
 
-::-webkit-scrollbar{
-  width: 0px;
-}
+
 
 .scroll-to-top {
   position: fixed;
@@ -38,6 +36,7 @@
   );
   width: 450px !important;
   height: 100%;
+  pointer-events: none;
 }
 .chapter {
   background-color: $secondary_color;
@@ -57,19 +56,6 @@
 .chapter-box {
   color: $secondary_color;
 }
-.arrow {
-  width: 35px;
-  height: 35px;
-  background-color: $secondary_color;
-  color: white;
-  background: rgba(0, 0, 0, 0);
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0) 0%,
-    $secondary_color 100%
-  );
-  border-radius: 100px;
-}
 .arrow-top{
   position: fixed;
   background-color:red;
@@ -85,9 +71,8 @@
     bottom: 150px;
   }
 }
-.box-chapters::-webkit-scrollbar {
-  display: none;
-}
+
+
 
 .chapter-box,.chapter-box2 {
     font-size: 18px;
