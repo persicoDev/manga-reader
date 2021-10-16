@@ -26,7 +26,9 @@
   padding-top: 30px;
 }
 .container-description {
-  background: $body_color;
+  background: repeating-conic-gradient(from 45deg, rgba(0, 0, 0, 0.05) 0% 25%, $body_color 0% 50%);
+  background-size: 40px 40px;
+  background-color: $body_color;
 }
 .material-icons.book2 {
   display: none;

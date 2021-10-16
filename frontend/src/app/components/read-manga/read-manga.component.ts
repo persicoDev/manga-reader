@@ -77,6 +77,7 @@ import {
         'in',
         style({
           transform: 'translateY(-999px)',
+          opacity: '0'
         })
       ),
       state(
@@ -85,7 +86,7 @@ import {
           transform: 'rotate(0deg)',
         })
       ),
-      transition('in => out', animate('0.5s')),
+      transition('in => out', animate('0.2s')),
       transition('out => in', animate('0.1s')),
     ]),
     trigger('animation5', [

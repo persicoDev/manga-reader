@@ -1,6 +1,5 @@
 @import "../../../styles.scss";
 
-
 .footer {
   background-color: $nav_color;
 }
@@ -12,73 +11,15 @@
   -ms-user-select: none;
   user-select: none;
 }
-
-.footer .social a {
-  font-size: 24px;
-  color: inherit;
-  border: 1px solid rgb(255, 255, 255);
-  width: 40px;
-  height: 40px;
-  line-height: 38px;
-  display: inline-block;
-  text-align: center;
-  border-radius: 50%;
-  margin: 0 8px;
-}
-
-.social i {
-  margin-top: 5.5px;
-}
-
 .footer .social a:hover {
   border: 1px solid $secondary_color;
   color: $secondary_color;
 }
-
-.footer ul {
-  margin-top: 0;
-  padding: 0;
-  list-style: none;
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 0;
-  text-align: center;
-}
-
-.footer ul a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer ul li {
-  display: inline-block;
-  padding: 0 15px;
-}
-
 .footer ul li a:hover {
   color: $secondary_color;
 }
-
-.footer .copyright {
-  margin-top: 15px;
-  text-align: center;
-  color: #aaa;
-}
 .waves {
-  position: relative;
-  width: 100%;
-  height: 90px;
   background: $body-color;
-  overflow: hidden;
-}
-.waves .wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background: url(https://i.ibb.co/R7DnfVC/wave-4.png);
-  background-size: 1000px 105px;
 }
 .waves .wave.wave1 {
   animation: animate 5s linear infinite;
@@ -101,7 +42,6 @@
   animation-delay: -3s;
   bottom: 10px;
 }
-
 @keyframes animate {
   0%{
     background-position-x: 0;
@@ -118,13 +58,11 @@
     background-position-x: 1000px;
   }
 }
-
 @media (max-width: 639px) {
 
   .footer {
     margin-top: 0px !important;
     padding-top: 20px !important;
   }
-
 }
 
