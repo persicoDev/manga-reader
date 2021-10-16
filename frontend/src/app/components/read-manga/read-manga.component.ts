@@ -154,6 +154,22 @@ import {
       transition('in => out', animate('0.1s')),
       transition('out => in', animate('0.1s')),
     ]),
+    trigger('animation10', [
+      state(
+        'in',
+        style({
+          'pointer-events': "none",
+        })
+      ),
+      state(
+        'out',
+        style({
+          transform: 'rotate(0deg)',
+        })
+      ),
+      transition('in => out', animate('0.1s')),
+      transition('out => in', animate('0.1s')),
+    ]),
   ],
 })
 export class ReadMangaComponent implements OnInit {
