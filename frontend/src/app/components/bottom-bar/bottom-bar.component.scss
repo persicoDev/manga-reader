@@ -1,23 +1,5 @@
 @import "../../../styles.scss";
-/*.item {
-  background-color: $nav_color;
-}
 
-.active {
-  outline: none;
-  border-top: solid 3px $secondary_color;
-  color: $secondary_color;
-}
-
-#item {
-  background-color: $nav_color;
-}
-
-@media (min-width: 639px) {
-  #item {
-    display: none;
-  }
-}*/
 body {
   margin: 0 auto;
   color: #373737;
@@ -48,6 +30,7 @@ input[name="menu"] {
   height: 56px;
   overflow: hidden;
   background: $nav_color;
+  border: 2px solid $secondary_color;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -63,9 +46,9 @@ input[name="menu"] {
 
 .list .link-wrap > label {
   color: rgba(255, 255, 255, 0.75);
-  width: 10%;
-  z-index: 999;
-  font-size: 12px;
+  width: 15%;
+  z-index: 40;
+  font-size: 10px;
   cursor: pointer;
   padding: 4px 0px;
   text-align: center;
@@ -74,6 +57,7 @@ input[name="menu"] {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  outline: none;
 }
 .list .link-wrap > label > i,
 .list .link-wrap > label > span {
@@ -106,5 +90,10 @@ input[name="menu"] {
 @media (min-width: 639px) {
   .list {
     display: none;
+  }
+}
+@media (max-width: 280px) {
+  .list .link-wrap > label {
+    font-size: 8px;
   }
 }
