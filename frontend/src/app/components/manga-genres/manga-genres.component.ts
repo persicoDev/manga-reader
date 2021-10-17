@@ -21,7 +21,7 @@ export class MangaGenresComponent implements OnInit {
   items = {
      numbers: [
       'one',
-      'two',
+      'two2',
       'three',
       'four',
       'five',

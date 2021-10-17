@@ -98,7 +98,7 @@ img {
   display: none;
 }
 #one:checked ~ .panels #one-panel,
-#two:checked ~ .panels #two-panel,
+#two2:checked ~ .panels #two2-panel,
 #three:checked ~ .panels #three-panel,
 #four:checked ~ .panels #four-panel,
 #five:checked ~ .panels #five-panel,
@@ -137,7 +137,7 @@ img {
   display: block;
 }
 #one:checked ~ .tabs #one-tab,
-#two:checked ~ .tabs #two-tab,
+#two2:checked ~ .tabs #two2-tab,
 #three:checked ~ .tabs #three-tab,
 #four:checked ~ .tabs #four-tab,
 #five:checked ~ .tabs #five-tab,
