@@ -1,8 +1,6 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { MangaService } from 'src/app/services/manga.service';
-import { Component, OnInit } from '@angular/core';
-import { HostListener } from '@angular/core';
-import { ViewportScroller } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { MangaInfos } from 'src/manga';
 import {
   animate,
@@ -184,9 +182,7 @@ export class ReadMangaComponent implements OnInit {
   topPosToStartShowing = 100;
   choice: string = 'out';
   pageYoffset = 0;
-  @HostListener('window:scroll', ['$event']) onScroll(){
-    this.pageYoffset = window.pageYOffset;
-  }
+  @ViewChild('scroll') scroll!: ElementRef;
 
 
   Information(): void {
@@ -203,9 +199,7 @@ export class ReadMangaComponent implements OnInit {
   constructor(
     public activatedRoute: ActivatedRoute,
     private MangaService: MangaService,
-    public router: Router,
-    private scroll: ViewportScroller
-  ) {}
+    public router: Router) {}
 
 
   async ngOnInit(): Promise<void> {
@@ -221,20 +215,10 @@ export class ReadMangaComponent implements OnInit {
       if (k == this.chapter) return v;
     }
   }
-  checkScroll() {
-    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    console.log('erdiocane');
-    console.log('[scroll]', scrollPosition);
-    
-    if (scrollPosition >= this.topPosToStartShowing) {
-      this.isShow = true;
-    } else {
-      this.isShow = false;
-    }
-  }
-
-  // TODO: Cross browsing
-  scrollToTop() {
-    this.scroll.scrollToPosition([0,0]);
+  
+  scrollTop() {
+    console.log('a fra e che faccio adesso?');
+    // window.scrollTo(0, 0);
+    this.scroll.nativeElement.scrollTop = 0;
   }
 }
