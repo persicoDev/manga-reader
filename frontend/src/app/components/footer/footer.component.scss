@@ -25,22 +25,20 @@
   animation: animate 5s linear infinite;
   z-index: 30;
   opacity: 1;
-  animation-delay: 0s;
   bottom: 0;
-}
-.waves .wave.wave3 {
-  animation: animate 5s linear infinite;
-  z-index: 28;
-  opacity: 0.2;
-  animation-delay: -2s;
-  bottom: 11px;
 }
 .waves .wave.wave2 {
   animation: animate2 5s linear infinite;
   z-index: 29;
   opacity: 0.5;
-  animation-delay: -3s;
   bottom: 10px;
+}
+.waves .wave.wave3 {
+  animation: animate3 5s linear infinite;
+  z-index: 28;
+  opacity: 0.3;
+  animation-delay: -3s;
+  bottom: 11px;
 }
 @keyframes animate {
   0%{
@@ -55,7 +53,15 @@
     background-position-x: 0;
   }
   100%{
-    background-position-x: 1000px;
+    background-position-x: -1000px;
+  }
+}
+@keyframes animate3 {
+  0%{
+    background-position-x: 1000; //da rivedere
+  }
+  100%{
+    background-position-x: 0px;
   }
 }
 @media (max-width: 639px) {

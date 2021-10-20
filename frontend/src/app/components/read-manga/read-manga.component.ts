@@ -1,7 +1,8 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { MangaService } from 'src/app/services/manga.service';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core'
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core'
 import { MangaInfos } from 'src/manga';
+import { Observable, fromEvent } from 'rxjs';
 import {
   animate,
   state,
@@ -171,7 +172,7 @@ import {
     ]),
   ],
 })
-export class ReadMangaComponent implements OnInit {
+export class ReadMangaComponent implements OnInit, AfterViewInit {
   manga!: MangaInfos;
   mangaLinks!: string[] | any;
   id!: number;
@@ -183,7 +184,6 @@ export class ReadMangaComponent implements OnInit {
   choice: string = 'out';
   pageYoffset = 0;
   @ViewChild('scroll') scroll!: ElementRef;
-
 
   Information(): void {
     this.info = this.info === 'in' ? 'out' : 'in';
@@ -217,8 +217,15 @@ export class ReadMangaComponent implements OnInit {
   }
   
   scrollTop() {
-    console.log('a fra e che faccio adesso?');
-    // window.scrollTo(0, 0);
     this.scroll.nativeElement.scrollTop = 0;
+  }
+
+  ngAfterViewInit(){
+    // var scrollEvent = fromEvent(document, "scroll").subscribe(res => console.log(res));
+    // if (this.scroll.nativeElement.scrollTop > 300) {
+    //   this.scroll.nativeElement.setAttribute("style", "background-color:red; border: 1px solid blue;");
+    // } else {
+    //   this.scroll.nativeElement.setAttribute("style", "background-color:blue; border: 1px solid blue;");
+    // }
   }
 }
