@@ -15,6 +15,10 @@
   border: 1px solid $secondary_color;
   color: $secondary_color;
 }
+.footer .social i:hover {
+  color: $secondary_color;
+}
+
 .footer ul li a:hover {
   color: $secondary_color;
 }
@@ -58,10 +62,10 @@
 }
 @keyframes animate3 {
   0%{
-    background-position-x: 1000; //da rivedere
+    background-position-x: 0; 
   }
   100%{
-    background-position-x: 0px;
+    background-position-x: 900px;
   }
 }
 @media (max-width: 639px) {
