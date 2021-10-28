@@ -55,12 +55,12 @@ export class MangaGenresComponent implements OnInit {
       'thirtythree',
       'thirtyfour',
       'thirtyfive',
-      'thirtysix',
-      'thirtyseven'],
+      'thirtysix',],
       
        genres: [
         'Adulti',
         'Arti Marziali',
+        'Avventura',
         'Azione',
         'Commedia',
         'Doujinshi',
@@ -93,7 +93,8 @@ export class MangaGenresComponent implements OnInit {
         'Storico',
         'Tragico',
         'Yaoi',
-        'Yuri' ] };
+        'Yuri' ] 
+      };
 
   constructor(private MangaService: MangaService) { }
 
@@ -124,6 +125,7 @@ export class MangaGenresComponent implements OnInit {
             element.scrollLeft += step;
         }
         scrollAmount += step;
+        console.log(scrollAmount)
         if(scrollAmount >= distance){
             window.clearInterval(slideTimer);
         }
