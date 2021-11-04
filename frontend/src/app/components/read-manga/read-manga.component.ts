@@ -1,15 +1,9 @@
+import { MangaInfos } from 'src/manga';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MangaService } from 'src/app/services/manga.service';
+import { animate, state, style, transition, trigger} from '@angular/animations';
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core'
-import { MangaInfos } from 'src/manga';
-import { Observable, fromEvent } from 'rxjs';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+
 
 @Component({
   selector: 'app-read-manga',
