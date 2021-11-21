@@ -1,7 +1,38 @@
-<nav id="item" style="width:100%; z-index: 32;" class="fixed bottom-0  h-14 flex overflow-x-auto" (click)="onButtonGroupClick($event)">
-    <i style="width: 20%; height:56px;" routerLink="/bookmarked" class="material-icons flex items-center justify-center flex-grow-1 min-w-50 overflow-hidden whitespace-nowrap  text-gray-300 cursor-pointer">bookmark</i>
-    <i style="width: 20%; height:56px;" class="material-icons text-gray-300 flex items-center justify-center flex-grow-1 min-w-50 overflow-hidden whitespace-nowrap cursor-pointer">category</i>
-    <i style="width: 20%; height:56px;" routerLink="/home" class="material-icons text-gray-300 flex items-center justify-center flex-grow-1 min-w-50 overflow-hidden whitespace-nowrap cursor-pointer">home</i>
-    <i style="width: 20%; height:56px;" class="material-icons text-gray-300 flex items-center justify-center flex-grow-1 min-w-50 overflow-hidden whitespace-nowrap cursor-pointer">inventory_2</i>
-    <i style="width: 20%; height:56px;" class="material-icons text-gray-300 flex items-center justify-center flex-grow-1 min-w-50 overflow-hidden whitespace-nowrap cursor-pointer">person</i>
+<nav class="menu" style="width:100%; z-index: 40;" class="fixed bottom-1  h-14 flex overflow-x-auto"
+    (click)="onButtonGroupClick($event)">
+    <input type="radio" name="menu" id="one">
+    <input type="radio" name="menu" id="two">
+    <input type="radio" name="menu" id="three" checked>
+    <input type="radio" name="menu" id="four">
+    <input type="radio" name="menu" id="five">
+
+    <div class="list flex">
+        <div class="link-wrap flex">
+            <label routerLink="/bookmarked" for="one"
+                class="items-center justify-center flex-grow-1 overflow-hidden whitespace-nowrap cursor-pointer">
+                <i class="material-icons">bookmark</i>
+                <span>Bookmark</span>
+            </label>
+            <label routerLink="/manga-genres"for="two"
+                class="items-center justify-center flex-grow-1 overflow-hidden whitespace-nowrap cursor-pointer">
+                <i class="material-icons">category</i>
+                <span>Generi</span>
+            </label>
+            <label routerLink="/home" for="three"
+                class="items-center justify-center flex-grow-1 overflow-hidden whitespace-nowrap cursor-pointer">
+                <i class="material-icons ">home</i>
+                <span>Home</span>
+            </label>
+            <label for="four"
+                class="items-center justify-center flex-grow-1 overflow-hidden whitespace-nowrap cursor-pointer">
+                <i class="material-icons ">inventory_2</i>
+                <span>Archivio</span>
+            </label>
+            <label for="five"
+                class="items-center justify-center flex-grow-1 overflow-hidden whitespace-nowrap cursor-pointer">
+                <i class="material-icons ">person</i>
+                <span>Profilo</span>
+            </label>
+        </div>
+    </div>
 </nav>

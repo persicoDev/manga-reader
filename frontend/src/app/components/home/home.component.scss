@@ -4,6 +4,14 @@
 * {
   box-sizing: border-box;
 }
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 html,
 body {
@@ -231,7 +239,6 @@ img {
     }
     .new,
     .new2 {
-      width: 35px !important;
       height: 25px;
     }
   }

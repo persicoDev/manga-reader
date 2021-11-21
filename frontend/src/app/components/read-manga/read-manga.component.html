@@ -1,4 +1,62 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<div style="all: unset; display: flex; align-items: center; justify-content: center; padding-top: 10em;" *ngFor="let mangalink of this.mangaLinks.link">
-    <img src="{{ mangalink }}">
+<div id="container" style="padding-top: 64px;"
+    class="container-description w-full h-full noselect font-sans text-white overflow-y-scroll" #scroll>
+    <div class="box fixed w-full" style="z-index: 40;" [@animation4]="info">
+        <div class="info-manga pl-3 mb-3 mt-3 flex items-center">
+            <div class=" flex rounded-lg" routerLink="/manga/{{ manga.id }}">
+                <div class="w-full">
+                    <div class="title mt-1 text-white" style="width: 430px;">
+                        <h3 class="text-2xl whitespace-nowrap overflow-ellipsis overflow-hidden"
+                            style="font-weight:bold;">
+                            {{ manga.title }}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapters " [@animation3]="info">
+            <div class="chapter flex items-center" [@animation8]="choice" [@animation5]="info" (click)="Chapters()">
+                <div style="width: 140px;">
+                    <b>{{this.chapter.replace("_", " ")}}</b>
+                </div>
+                <div>
+                    <i class="material-icons text-2xl" style="align-items: flex-end;"
+                        [@animation7]="choice">keyboard_arrow_down</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div [@animation9]="choice" class="box-chapters"
+        style="overflow-y: auto;height: 100%;z-index: 39;position: fixed;width: 100%;">
+        <div class="gradation">
+            <div style="padding-top: 100px;padding-bottom: 130px;">
+                <div *ngFor="let item of Object.keys(manga.link).reverse()">
+
+                    <div class="chapter-box flex" style="font-size: 18px;" *ngIf="item == this.chapter">
+                        <a class="choice" routerLink="/read/{{ manga.id }}/{{ item }}">
+                            <span style="cursor: pointer;">{{ item.replace("_", " ") }} </span>
+                        </a>
+                    </div>
+                    <div class="chapter-box2 flex" style="font-size: 18px;" *ngIf="item != this.chapter">
+                        <a class="choice" routerLink="/read/{{ manga.id }}/{{ item }}">
+                            <span style="cursor: pointer;">{{ item.replace("_"," ") }} </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="img-chapters" style="padding-bottom: 40px;" (click)="Information()">
+        <div style="justify-content: center;" class="flex" *ngFor="let manga of mangaLinks">
+            <img style="margin-bottom: 20px;" src="{{manga}}">
+        </div>
+
+    </div>
+    <button (click)="scrollTop()" class="scroll-to-top z-50">
+        <i class="material-icons">arrow_upward</i>
+    </button>
+    <app-footer></app-footer>
 </div>

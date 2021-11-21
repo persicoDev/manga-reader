@@ -23,3 +23,4 @@ describe('ReadMangaComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

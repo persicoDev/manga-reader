@@ -43,10 +43,8 @@ def get_manga(archive_link, manga_data_list, top_list):
         manga_data_list.append(manga_information)
 
 def get_score(title, author):
-    print("\nStampa google search")
     title = title.replace("-", " ")
     title = title.replace(".", " ")
-    print(f'{title} {author} myanimelist manga')
     search_results = search(f'{title} {author} myanimelist manga')
     soup = BeautifulSoup(requests.get(search_results[0]).content, 'html.parser')
     score = soup.find("div", {"class": "score-label"})

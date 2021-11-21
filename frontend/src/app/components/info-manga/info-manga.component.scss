@@ -3,6 +3,14 @@
 .container-description::-webkit-scrollbar {
   display: none;
 }
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .box3{
   width: 100%;
   height: 500px;
@@ -18,7 +26,9 @@
   padding-top: 30px;
 }
 .container-description {
-  background: $body_color;
+  background: repeating-conic-gradient(from 45deg, rgba(0, 0, 0, 0.05) 0% 25%, $body_color 0% 50%);
+  background-size: 40px 40px;
+  background-color: $body_color;
 }
 .material-icons.book2 {
   display: none;
@@ -59,16 +69,34 @@
 .type span {
   font-size: 1.0rem; 
 } 
-  .chapter-box {
-    background-color: $secondary_color;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    align-items: center;
-    height: 50px;
-    border-radius: 10px;
-    padding-left: 10px; 
-    width: 100%;
-  }
+.chapter-container::-webkit-scrollbar{
+  width: 7px;
+}
+.chapter-container::-webkit-scrollbar-track{
+  background: transparent;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.chapter-container::-webkit-scrollbar-thumb{
+	-webkit-box-shadow: inset 0 0 6px $nav_color;
+  border-radius: 10px;
+  background-color: $body_color;
+  opacity: 0.3;
+}
+.chapter-container::-webkit-scrollbar-thumb:hover{
+  background-color: $secondary_color;
+  opacity:1;
+}
+.chapter-box {
+  background-color: $secondary_color;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  align-items: center;
+  height: 50px;
+  border-radius: 10px;
+  padding-left: 10px; 
+  width: 100%;
+}
   @media (max-width:768px) {
     .box2 {
       display: unset;

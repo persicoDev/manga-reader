@@ -1,20 +1,99 @@
-@import '../../../styles.scss';
-.item {
-  background-color: $nav_color;
+@import "../../../styles.scss";
+
+body {
+  margin: 0 auto;
+  color: #373737;
+  background: #f1f1f1;
+  font-family: sans-serif;
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+.clearfix:after,
+.clearfix:before {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+  display: block;
 }
 
-.active {
+input[name="menu"] {
+  display: none;
+}
+
+.list {
+  width: 100%;
+  height: 56px;
+  overflow: hidden;
+  background: $nav_color;
+  border: 2px solid $secondary_color;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: relative;
+  margin: 0 5px;
+}
+.list .link-wrap {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.list .link-wrap > label {
+  color: rgba(255, 255, 255, 0.75);
+  width: 15%;
+  z-index: 40;
+  font-size: 10px;
+  cursor: pointer;
+  padding: 4px 0px;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   outline: none;
-  border-top: solid 3px $secondary_color;
+}
+.list .link-wrap > label > i,
+.list .link-wrap > label > span {
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+.list .link-wrap > label > span {
+  height: 0;
+  display: block;
+  font-weight: 500;
+  -webkit-transform: translateY(45px);
+  transform: translateY(45px);
+}
+#one:checked ~ .list label[for="one"] > span,
+#two:checked ~ .list label[for="two"] > span,
+#three:checked ~ .list label[for="three"] > span,
+#four:checked ~ .list label[for="four"] > span,
+#five:checked ~ .list label[for="five"] > span {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  height: auto;
+}
+#one:checked ~ .list .link-wrap > label[for="one"],
+#two:checked ~ .list .link-wrap > label[for="two"],
+#three:checked ~ .list .link-wrap > label[for="three"],
+#four:checked ~ .list .link-wrap > label[for="four"],
+#five:checked ~ .list .link-wrap > label[for="five"] {
   color: $secondary_color;
 }
-
-#item {
-  background-color: $nav_color;
-}
-
 @media (min-width: 639px) {
-  #item {
+  .list {
     display: none;
+  }
+}
+@media (max-width: 280px) {
+  .list .link-wrap > label {
+    font-size: 8px;
   }
 }

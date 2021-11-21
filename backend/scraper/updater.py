@@ -7,7 +7,8 @@ from main import get_score
 
 
 def get_new_chapters(manga_link, chapter_cont, link_list):
-    new_chapter_cont = chapter_cont
+    modified_chapter_cont = chapter_cont
+    new_chapter_cont = 0
     new_links = []
     soup = BeautifulSoup(requests.get(manga_link).content, 'html.parser')
     all_chap = soup.find_all("a", {"class": "chap"})
@@ -17,6 +18,7 @@ def get_new_chapters(manga_link, chapter_cont, link_list):
         type_title_num = type(title_num)
         print(f"Chapter name = {span}\nnum = {title_num}, type = {type_title_num}\nChapter cont = {chapter_cont}")
         if title_num > chapter_cont:
+            modified_chapter_cont += 1
             new_chapter_cont += 1
             print(f"--Trovato nuovo capitolo numero {title_num}--")
             chapter_name = span.replace(" ", "_")
@@ -28,12 +30,10 @@ def get_new_chapters(manga_link, chapter_cont, link_list):
             new_links.append(get_single_chapter(manga_url, chapter_name))
         else:
             break
-        # get_single_chapter(manga_url, chapter_name)
     new_links.reverse()
-    print(type(new_links))
     for links in new_links:
         link_list.insert(0, links)
-    return link_list, new_chapter_cont
+    return new_chapter_cont, link_list, modified_chapter_cont
 
 def get_single_chapter(manga_url, manga_chapter):
     save = {}
@@ -71,7 +71,6 @@ if __name__ == "__main__":
     manga_list = []
     with open('backend/infodb.json', 'r', encoding="utf8") as json_data:
         data = json.load(json_data)
-        print(type(data))
         for manga in data["mangas"]:
             print("\nTitolo " + manga["title"])
 
@@ -82,12 +81,12 @@ if __name__ == "__main__":
             }
             top_list.append(top_obj)
 
+            manga["new_chapters"] = 0
             if manga["status"] != "Finito" and manga["status"] != "Droppato":
                 print("\nControllando per update")
                 chapter_cont, manga_link = get_chapter_cont(manga["id"], manga["title"])
                 print(f"Attuale chapter cont = {chapter_cont}")
-                manga["link"], manga["chapter_cont"] = get_new_chapters(manga_link, manga["chapter_cont"], manga["link"])
-                # manga["link"].update(link_list)
+                manga["new_chapters"], manga["link"], manga["chapter_cont"] = get_new_chapters(manga_link, manga["chapter_cont"], manga["link"])
             else:
                 print("Finito/Droppato")
             manga_list.append(manga)

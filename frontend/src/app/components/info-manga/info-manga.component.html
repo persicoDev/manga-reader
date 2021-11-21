@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<div style="padding-top: 65px;" class="container-description w-full h-full font-sans text-white overflow-y-scroll pt-16">
+<div style="padding-top: 65px;" class="container-description noselect w-full h-full font-sans text-white overflow-y-scroll pt-16">
 
     <!--Start background-->
     <div>
@@ -97,14 +97,16 @@
                             <hr>
                         </div>
                     </div>
-                    <div style="overflow-y: auto;height: 410px;">
-                        <div class="chapter-wrap justify-evenly flex-wrap" style="padding:0 4% 0 4%;">
-                            <div class="chapter-box flex" *ngFor="let item of Object.keys(manga.link)">
-                                <a routerLink="/read/{{ manga.id }}/{{ item }}">
+                    <div style="overflow-y: auto;height: 410px;" class="chapter-container">
+                        <div style="cursor:pointer;" *ngFor="let item of Object.keys(manga.link)">
+                        <div routerLink="/read/{{ manga.id }}/{{ item }}" class="chapter-wrap justify-evenly flex-wrap" style="padding:0 4% 0 4%;">
+                            <div class="chapter-box flex" >
+                                <a>
                                     <span>{{ item.replace("_", " ") }} </span>
                                 </a>    
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
                 <!--End chapters-->
