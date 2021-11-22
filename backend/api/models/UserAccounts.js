@@ -7,7 +7,6 @@ const UserType = mongoose.Schema ({
         lowercase: true, unique: true
      },
     password: { type: String, requided: true }
-            
 })
 
 UserType.pre('save', function(next) {

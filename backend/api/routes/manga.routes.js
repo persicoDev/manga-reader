@@ -7,11 +7,11 @@ router.route('/').get(async (_req, res) =>{
     res.json(await MangaInfos.find());
 })
 
-router.route('/manga/:id').get(async (req, res, _next) =>{
+router.route('/manga/:id').get(async (req, res, _next) => {
    res.json(await MangaInfos.findOne({'id': req.params.id}));
 })
 
-router.route('/read/:id/').get(async (req, res, _next) =>{
+router.route('/read/:id/').get(async (req, res, _next) => {
     res.json(await MangaInfos.findOne({'id': req.params.id}));
 })
 
