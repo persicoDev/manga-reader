@@ -4,6 +4,9 @@ const express = require("express"),
    cors = require("cors"),
    createError = require('http-errors'),
    mangaRoute = require("./routes/manga.routes"),
+   passport = require('passport'),
+   expressValidator = require('express-validator'),
+   expressSession = require('express-session')
    app = express();
    require("dotenv").config();
 
@@ -12,13 +15,11 @@ mongoose.Promise = global.Promise;
 
 const url = process.env.MONGO_URL;
 
-mongoose.connect(url, {
-      useNewUrlParser: true,
-   }).then(() => {
+mongoose.connect(url, { useNewUrlParser: true }).then(() => {
          console.log("Database sucessfully connected");
-      },(error) => {
-            console.log("Database could not connected: " + error);
-      });
+            },(error) => {
+                  console.log("Database could not connected: " + error);
+               });
 
 app.use(express.json());
 
