@@ -12,6 +12,7 @@ import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component
 import { InfoMangaComponent } from './components/info-manga/info-manga.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MangaGenresComponent } from './components/manga-genres/manga-genres.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { MangaGenresComponent } from './components/manga-genres/manga-genres.com
     InfoMangaComponent,
     FooterComponent,
     MangaGenresComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
