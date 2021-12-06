@@ -51,7 +51,7 @@
     </div>
     <div class="img-chapters" style="padding-bottom: 40px;" (click)="Information()">
         <div style="justify-content: center;" class="flex" *ngFor="let manga of mangaLinks">
-            <img style="margin-bottom: 20px;" src="{{manga}}">
+            <img style="margin-bottom: 20px;" [src]="manga">
         </div>
 
     </div>
