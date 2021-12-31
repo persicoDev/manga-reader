@@ -1,38 +1,47 @@
-<nav class="menu" style="width:100%; z-index: 40;" class="fixed bottom-1  h-14 flex overflow-x-auto"
-    (click)="onButtonGroupClick($event)">
-    <input type="radio" name="menu" id="one">
-    <input type="radio" name="menu" id="two">
-    <input type="radio" name="menu" id="three" checked>
-    <input type="radio" name="menu" id="four">
-    <input type="radio" name="menu" id="five">
+<div class="box w-full z-40 justify-center items-center fixed bottom-1  h-14 flex overflow-x-auto">
 
-    <div class="list flex">
-        <div class="link-wrap flex">
-            <label routerLink="/bookmarked" for="one"
-                class="items-center justify-center flex-grow-1 overflow-hidden whitespace-nowrap cursor-pointer">
-                <i class="material-icons">bookmark</i>
-                <span>Bookmark</span>
-            </label>
-            <label routerLink="/manga-genres"for="two"
-                class="items-center justify-center flex-grow-1 overflow-hidden whitespace-nowrap cursor-pointer">
-                <i class="material-icons">category</i>
-                <span>Generi</span>
-            </label>
-            <label routerLink="/home" for="three"
-                class="items-center justify-center flex-grow-1 overflow-hidden whitespace-nowrap cursor-pointer">
-                <i class="material-icons ">home</i>
-                <span>Home</span>
-            </label>
-            <label for="four"
-                class="items-center justify-center flex-grow-1 overflow-hidden whitespace-nowrap cursor-pointer">
-                <i class="material-icons ">inventory_2</i>
-                <span>Archivio</span>
-            </label>
-            <label for="five"
-                class="items-center justify-center flex-grow-1 overflow-hidden whitespace-nowrap cursor-pointer">
-                <i class="material-icons ">person</i>
-                <span>Profilo</span>
-            </label>
+    <div class="phone w-full h-px z-40 m-auto flex items-end fixed justify-center bottom-0">
+        <input class="none hidden" type="radio" name="s" id="s1">
+        <input class="none hidden" type="radio" name="s" id="s2">
+        <input class="none hidden" type="radio" name="s" id="s3" checked="checked">
+        <input class="none hidden" type="radio" name="s" id="s4">
+        <input class="none hidden" type="radio" name="s" id="s5">
+
+        <label
+            class="bookmarked cursor-pointer flex w-2/6 h-16 relative items-center justify-center before:content-[''] before:absolute"
+            for="s1" routerLink="/bookmarked"> <i
+                class="material-icons absolute text-2xl text-white m-auto z-40 bottom-[23px]">bookmark</i>
+            <span class="absolute text-sm text-white m-auto z-40 bottom-2 duration-300 ">Bookmark</span></label>
+        <label
+            class="cursor-pointer flex w-2/6 h-16 relative items-center justify-center before:content-[''] before:absolute"
+            for="s2" routerLink="/manga-genres"> <i
+                class="material-icons absolute text-2xl text-white m-auto z-40 bottom-[23px]">category</i>
+            <span class="absolute text-sm text-white m-auto z-40 bottom-2 duration-300">Generi</span></label>
+        <label
+            class="cursor-pointer flex w-2/6 h-16 relative items-center justify-center before:content-[''] before:absolute"
+            for="s3" routerLink="/home"><i
+                class="material-icons absolute text-2xl text-white m-auto z-40 bottom-[23px]">home</i>
+            <span class="absolute text-sm text-white m-auto z-40 bottom-2 duration-300">Home</span></label>
+        <label
+            class="cursor-pointer flex w-2/6 h-16 relative items-center justify-center before:content-[''] before:absolute"
+            for="s4"><i class="material-icons absolute text-2xl text-white m-auto z-40 bottom-[23px]">inventory_2</i>
+            <span class="absolute text-sm text-white m-auto z-40 bottom-2 duration-300">Archivio</span></label>
+        <label
+            class="cursor-pointer flex w-2/6 h-16 relative items-center justify-center before:content-[''] before:absolute"
+            for="s5"> <i class="material-icons absolute text-2xl text-white m-auto z-40 bottom-[23px]">person</i>
+            <span class="absolute text-sm text-white m-auto z-40 bottom-2 duration-300">Profilo</span></label>
+
+        <div
+            class="circle absolute w-[60px] h-[60px] bg-[#533eaf] bottom-12 z-[2] rounded-full left-0 right-0 m-auto duration-100">
         </div>
+
+        <div class="phone_content w-full overflow-hidden absolute">
+            <div class="phone_bottom w-full h-16 bg-[#483b85] flex justify-center ">
+                <span
+                    class="indicator w-[70px] h-[70px] rounded-full absolute left-0 right-0 top-[-42px] m-auto duration-100 "></span>
+            </div>
+        </div>
+
     </div>
-</nav>
+
+</div>

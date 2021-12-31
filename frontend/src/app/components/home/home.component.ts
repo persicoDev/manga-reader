@@ -11,6 +11,7 @@ import { MangaInfos } from 'src/manga';
 export class HomeComponent implements OnInit {
 
   mangaInfos: MangaInfos[] = [];
+  
 
   public slides = [
     { src: "https://cdn.mangaworld.io/mangas/5f75048a5a6cee7b7f49083e.jpg?1624711215499" },
@@ -39,6 +40,7 @@ export class HomeComponent implements OnInit {
 
   public sideScroll(element: HTMLElement, direction:string, speed:number, distance:number, step:number): void{
     let scrollAmount = 0;
+    
 
     let slideTimer = setInterval(function(){
         if(direction == 'left'){
@@ -51,6 +53,8 @@ export class HomeComponent implements OnInit {
             window.clearInterval(slideTimer);
         }
     }, speed);
+
+   
     
   }
 

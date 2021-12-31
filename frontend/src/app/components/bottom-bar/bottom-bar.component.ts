@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bottom-bar.component.scss'],
 })
 export class BottomBarComponent implements OnInit {
+  activatedRoute: any;
+  bool!: Number;
   constructor() {}
 
   ngOnInit(): void {}

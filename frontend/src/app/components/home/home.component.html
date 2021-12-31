@@ -52,11 +52,11 @@
             </div>
         </div>
         <div id="container" class="manga-container2 flex flex-row flex-nowrap pt-6 pb-6 overflow-x-auto">
-            <div class="mangas mr-3 w-36 h-72" *ngFor="let manga of mangaInfos;let i = index">
-                <div class="manga overflow-hidden w-full h-52">
+            <ul class="mangas mr-3 flex flex-wrap" *ngFor="let manga of mangaInfos;let i = index">
+                <li class="manga overflow-hidden w-full h-52">
                     <img class="w-full h-full rounded-lg" src="{{ manga.preview }}"
                         routerLink="/manga/{{ manga.id }}" />
-                </div>
+                </li>
                 <div class="manga-thumbnails2">
                     <div class="descriptions w-36 text-white p-1">
                         <h3 class=" whitespace-nowrap overflow-ellipsis overflow-hidden text-base">
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </ul>
 
         </div>
         <!--End top mangas-->
