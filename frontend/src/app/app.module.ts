@@ -27,6 +27,7 @@ import { LoginComponent } from './components/login/login.component';
     FooterComponent,
     MangaGenresComponent,
     LoginComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
-<nav class=" nav-wrapper  fixed z-50">
+<div class=" nav-wrapper w-full bg-[#483b85]  fixed z-50">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16 noselect">
       <!--Left side-->
-      <div class="flex-1 flex items-center display: none; sm:items-stretch sm:justify-start">
+      <div class="cc flex-1 flex items-center display: none; sm:items-stretch sm:justify-start">
         <div class="flex-shrink-0 flex items-center">
           <img routerLink="/home" class="cursor-pointer block lg:hidden h-10 w-12"
             src="https://i.ibb.co/8cdXW2C/corvo2.png"
@@ -13,16 +13,25 @@
         </div>
         <div class="hidden sm:block sm:ml-4">
           <div class="items flex space-x-4">
-
-            <a routerLink="/home"
-              class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-
-            <a routerLink="/bookmarked"
-              class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Bookmarked</a>
-
-            <a routerLink="/manga-genres" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Generi</a>
-
-            <a href="#" class="text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">Archivio</a>
+            <nav class="w-[600px] h-[60px] flex text-center relative bg-transparent">
+              <input type="radio" name="a" id="a1" checked="checked">
+              <input type="radio" name="a" id="a2">
+              <input type="radio" name="a" id="a3">
+              <input type="radio" name="a" id="a4">
+              <div class="slider absolute h-[70%] w-[18%] bg-[#8e44ad] left-[5] top-[9] rounded-[5px] z-[1] "></div>
+              <label class="a1 w-[18%] h-[70%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a1">
+              <span class="mr-1 text-white">Home</span>
+              </label>
+              <label class="a2 w-[18%] h-[70%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a2">
+                <span class="bookmarked mr-1 text-white">Bookmarked</span>
+              </label>
+              <label class="a3 w-[18%] h-[70%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a3">
+                <span class="mr-1 text-white">Generi</span>
+              </label>
+              <label class="a4 w-[18%] h-[70%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a4">
+                <span class="mr-1 text-white">Archivio</span>
+              </label>
+            </nav>
           </div>
         </div>
       </div>
@@ -73,4 +82,4 @@
 
     </div>
   </div>
-</nav>
+</div>
