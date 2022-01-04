@@ -14,11 +14,11 @@
             </label>
             <label style="transition: transform 0.4s ease;"
                 class="card left-0 right-0 cursor-pointer absolute rounded-lg w-full h-full" for="item-2" id="news-2">
-                <img src="https://i.ibb.co/qgc2dG9/spyxfamily.jpg" alt="news" />
+                <img src="https://i.ibb.co/dKnLjh7/Sexy-Cosplay-Doll-image.jpg" alt="news" />
             </label>
             <label style="transition: transform 0.4s ease;"
                 class="card left-0 right-0 cursor-pointer absolute rounded-lg w-full h-full" for="item-3" id="news-3">
-                <img src="https://i.ibb.co/4fzfPtL/tokyo-revengers.jpg" alt="news" />
+                <img src="https://i.ibb.co/Sd3LhK3/Blue-Lock-Chapter-96.jpg" alt="news" />
             </label>
         </div>
     </div>
@@ -38,7 +38,7 @@
                 <i class="material-icons text-2xl">chevron_right</i>
             </div>
         </div>
-        <div style="top: 95px;margin-bottom: -10px;background: transparent;height: 1px;"
+        <div style="top: 132px;margin-bottom: -10px;background: transparent;height: 1px;"
             class="container-arrows flex z-20 relative">
             <div style="left:-35;position: relative;width: 50%;">
                 <button class="button-left"
@@ -51,30 +51,25 @@
                     (click)="scrollRight()"><i class="material-icons text-3xl">chevron_right</i></button>
             </div>
         </div>
-        <div id="container" class="manga-container2 flex flex-row flex-nowrap pt-6 pb-6 overflow-x-auto">
-            <ul class="mangas mr-3 flex flex-wrap" *ngFor="let manga of mangaInfos;let i = index">
-                <li class="manga overflow-hidden w-full h-52">
-                    <img class="w-full h-full rounded-lg" src="{{ manga.preview }}"
-                        routerLink="/manga/{{ manga.id }}" />
-                </li>
-                <div class="manga-thumbnails2">
-                    <div class="descriptions w-36 text-white p-1">
-                        <h3 class=" whitespace-nowrap overflow-ellipsis overflow-hidden text-base">
-                            {{ manga.title }}
-                        </h3>
-                        <span class="text-gray-400 text-sm">Score</span>
-                        <div class="chips inline-block cursor-pointer ">
-                            <span> {{ manga.score}} </span>
-                        </div>
-                        <div class=" text-gray-400 text-sm whitespace-nowrap">
-                            <span>
-                                {{ manga.chapter_cont }} Cap - {{ manga.status }}
-                            </span>
-                        </div>
+        <div id="container" class="manga-container2 flex flex-row flex-nowrap  pb-6 overflow-x-auto">
+            <div class="ul mr-[105px] flex flex-wrap p-0" *ngFor="let manga of mangaInfos;let i = index">
+                <li class="booking-card w-full " style="background-image: url('{{ manga.preview }}' )">
+                  <div class="book-container">
+                    <div class="content" routerLink="/manga/{{ manga.id }}">
+                      <button class="btn" >Leggi</button>
                     </div>
-                </div>
-            </ul>
-
+                  </div>
+                  <div class="informations-container">
+                    <h2 class="title text-white font-medium max-h-[50px] line-camp-2 overflow-hidden"> {{ manga.title }} </h2>
+                    <p class="sub-title">{{ manga.chapter_cont }} Cap - {{ manga.status }}</p>
+                    
+                    <div class="more-information">
+                      <b>Trama:</b>
+                      <p class="disclaimer">{{ manga.trama }}</p>
+                      </div>
+                  </div>
+                </li>
+              </div>
         </div>
         <!--End top mangas-->
 

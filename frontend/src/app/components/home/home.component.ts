@@ -11,7 +11,6 @@ import { MangaInfos } from 'src/manga';
 export class HomeComponent implements OnInit {
 
   mangaInfos: MangaInfos[] = [];
-  
 
   public slides = [
     { src: "https://cdn.mangaworld.io/mangas/5f75048a5a6cee7b7f49083e.jpg?1624711215499" },

@@ -255,3 +255,175 @@ img {
     padding-bottom: 15px !important;
   }
 }
+
+
+
+
+
+@mixin radius($val) {
+  -webkit-border-radius: $val;
+  -moz-border-radius: $val;
+  border-radius: $val;
+}
+
+@mixin cardsOpen() {
+    &::before {
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .book-container {
+      .content {
+        opacity: 1;
+
+        transform: translateY(20px);
+      }
+    }
+
+    .informations-container {      
+      transform: translateY(40px);
+      .more-information {
+        opacity: 1;
+      }
+    }
+}
+
+
+
+h2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;       
+}
+
+.ul{
+   
+  
+  .booking-card{
+    position: relative;
+    display: flex;
+    flex: 0 0 220px;
+    flex-direction: column;
+    margin: 20px;
+    width:100px ;
+    margin-bottom: 30px;
+    @include radius(10px);
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+    color: white;
+    transition: .3s;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transition: .3s;
+    }
+    
+    .book-container {
+      height: 40px;
+      .content {
+        position: relative;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        
+        transform: translateY(-200px);
+        
+        transition: .3s;
+        
+        .btn {      
+          border: 3px solid white;
+          padding: 10px 15px;
+          
+          background: none;
+          
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 1.3em;
+          color: white;
+          
+          cursor: pointer;
+          
+          transition: .3s;
+          
+          &:hover {
+            background: #9b84ff;
+            
+            border: 0px solid white;
+            
+            color: white;
+          }
+        }
+      }
+    }
+    
+    .informations-container{      
+      flex: 1 0 auto;
+      height: 280px;
+      padding: 20px;
+      
+      background: #493b85e7;
+      
+      transform: translateY(150px);
+      
+      transition: .3s;
+      
+      .title {
+        position: relative;
+        
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        
+        font-weight: bold;
+        font-size: 1.2em;
+        
+        
+        &::after{
+          content: '';
+          
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          
+          height: 3px;
+          width: 50px;
+          
+          margin: auto;
+          
+          background: white;
+        }
+      }
+     
+      
+      .more-information {
+        margin-top: 18px;
+        opacity: 0;
+        
+        transition: .3s;
+          
+        
+        .disclaimer {
+          
+
+          font-size: 0.8em;
+          color: white;
+          display: -webkit-box;
+          max-width: 200px;
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+    }
+    
+    &:hover {
+      @include cardsOpen();
+    }
+  }
+}
