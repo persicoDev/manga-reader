@@ -14,7 +14,7 @@
             </label>
             <label style="transition: transform 0.4s ease;"
                 class="card left-0 right-0 cursor-pointer absolute rounded-lg w-full h-full" for="item-2" id="news-2">
-                <img src="https://i.ibb.co/dKnLjh7/Sexy-Cosplay-Doll-image.jpg" alt="news" />
+                <img src="https://i.ibb.co/28V5Y7Q/204199.jpg" alt="news" />
             </label>
             <label style="transition: transform 0.4s ease;"
                 class="card left-0 right-0 cursor-pointer absolute rounded-lg w-full h-full" for="item-3" id="news-3">
@@ -54,22 +54,23 @@
         <div id="container" class="manga-container2 flex flex-row flex-nowrap  pb-6 overflow-x-auto">
             <div class="ul mr-[105px] flex flex-wrap p-0" *ngFor="let manga of mangaInfos;let i = index">
                 <li class="booking-card w-full " style="background-image: url('{{ manga.preview }}' )">
-                  <div class="book-container">
-                    <div class="content" routerLink="/manga/{{ manga.id }}">
-                      <button class="btn" >Leggi</button>
+                    <div class="book-container">
+                        <div class="content" routerLink="/manga/{{ manga.id }}">
+                            <button class="btn">Leggi</button>
+                        </div>
                     </div>
-                  </div>
-                  <div class="informations-container">
-                    <h2 class="title text-white font-medium max-h-[50px] line-camp-2 overflow-hidden"> {{ manga.title }} </h2>
-                    <p class="sub-title">{{ manga.chapter_cont }} Cap - {{ manga.status }}</p>
-                    
-                    <div class="more-information">
-                      <b>Trama:</b>
-                      <p class="disclaimer">{{ manga.trama }}</p>
-                      </div>
-                  </div>
+                    <div class="informations-container">
+                        <h2 class="title text-white font-medium max-h-[50px] line-camp-2 overflow-hidden"> {{
+                            manga.title }} </h2>
+                        <p class="sub-title">{{ manga.chapter_cont }} Cap - {{ manga.status }}</p>
+
+                        <div class="more-information">
+                            <b>Trama:</b>
+                            <p class="disclaimer">{{ manga.trama }}</p>
+                        </div>
+                    </div>
                 </li>
-              </div>
+            </div>
         </div>
         <!--End top mangas-->
 
@@ -78,18 +79,72 @@
             <i class="material-icons text-3xl">list</i>
             <span class="text-lg text-white">Ultime aggiunte</span>
         </div>
-        <div style="justify-content: space-evenly;"
+        <div style=" justify-content: center;" class="boxes overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
+            <div *ngFor="let manga of mangaInfos;let i = index">
+                <div class="cont" *ngIf="i < 6">
+                <div class="blog-card">
+                    <div class="meta">
+                        <div class="photo" style="background-image: url('{{ manga.preview }}' )"></div>
+                        <ul class="details">
+                            <li class="author"><a>{{manga.author}}</a></li>
+                            <li class="list">Numero capitoli: {{manga.chapter_cont}}</li>
+                            
+                        </ul>
+                    </div>
+                    <div class="description">
+                        <h1>{{manga.title}}</h1>
+                        <p></p>
+                        <span class="text-white font-bold " style="font-size: large;"> Nuovi capitoli:</span>
+                        <div class="flex content-center items-center mt-[5px]">
+                            <span class="text-white" style="font-size: medium;">Capitolo 3</span>
+                            <img class="new" style="width: 55px;padding-top: 3px;"
+                                src="https://i.ibb.co/Z1GNrvd/download-4.gif">
+                        </div>
+                        <div style="padding-top: 3px;" class="flex content-center items-center">
+                            <span class="text-white" style="font-size: medium;">Capitolo 2</span>
+                            <img class="new2" style="width: 55px;" src="https://i.ibb.co/Z1GNrvd/download-4.gif">
+                        </div>
+                        <p class="read-more">
+                            <a routerLink="/manga/{{ manga.id }}">Leggi</a>
+                        </p>
+                    </div>
+                </div>
+</div>
+            </div>
+        </div>
+        <div id="container2" class="manga-container2 flex flex-row flex-nowrap  pb-6 overflow-x-auto">
+            
+            <div class="ul mr-[105px] flex flex-wrap p-0" *ngFor="let manga of mangaInfos;let i = index">
+                <li class="booking-card w-full " style="background-image: url('{{ manga.preview }}' )">
+                    <div class="book-container">
+                        <div class="content" routerLink="/manga/{{ manga.id }}">
+                            <button class="btn">Leggi</button>
+                        </div>
+                    </div>
+                    <div class="informations-container">
+                        <h2 class="title text-white font-medium max-h-[50px] line-camp-2 overflow-hidden"> {{
+                            manga.title }} </h2>
+                        <p class="sub-title">{{ manga.chapter_cont }} Cap - {{ manga.status }}</p>
+
+                        <div class="more-information">
+                            <b>Trama:</b>
+                            <p class="disclaimer">{{ manga.trama }}</p>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </div>
+        <!--<div 
             class="new-box overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
-            <div class="loop" *ngFor="let manga of mangaInfos;let i = index">
-                <div class="cont">
-                    <div style="width:480px;" class="new-container flex h-48 rounded-lg mb-5"
+            <div class="loop" *ngFor="let manga of mangaInfos;let i = index;">
+                    <div style="width:430px;height: 170px;" class="new-container flex h-48 rounded-lg mb-5"
                         routerLink="/manga/{{ manga.id }}">
-                        <div class="new-manga w-1/2 h-full">
+                        <div class="new-manga w-[40%] h-full">
                             <img class="new-image h-full w-auto" src="{{ manga.preview }}" />
                         </div>
                         <div class="w-full" style="padding: 0 1% 1.5% 3%;">
                             <div class="new-description mt-1 text-white" style="width: 284px;">
-                                <h3 class="whitespace-nowrap overflow-ellipsis overflow-hidden">
+                                <h3 class="whitespace-nowrap overflow-ellipsis overflow-hidden font-bold ">
                                     {{ manga.title }}
                                 </h3>
                                 <div class="flex mt-1">
@@ -116,14 +171,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                   
                 </div>
+
             </div>
-        </div>
+        </div>-->
         <!--End latest updates-->
 
     </div>
     <!--End box-->
- 
+
     <app-footer></app-footer>
 </div>
