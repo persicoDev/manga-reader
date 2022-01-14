@@ -1,6 +1,5 @@
 @import "../../../styles.scss";
 
-
 .noselect {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -40,6 +39,9 @@ input[type=radio]{
 
 @media (max-width: 639px) {
   #mobile {
+    display: none;
+  }
+  .items {
     display: none;
   }
 }

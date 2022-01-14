@@ -10,9 +10,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'bookmarked', component: BookmarkedComponent},
   { path: 'manga-genres', component: MangaGenresComponent},
+  { path: 'read', component: ReadMangaComponent },
   { path: 'read/:id/:item', component: ReadMangaComponent },
+  { path: 'manga', component: InfoMangaComponent},
   { path: 'manga/:id', component: InfoMangaComponent},
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

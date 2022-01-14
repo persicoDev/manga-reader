@@ -34,6 +34,23 @@ body {
     background-color: #428aa6;
   }
 }
+.container {
+  max-width: 550px !important;
+  max-height: 380px !important;
+
+@media (max-width:1090px) {
+  max-width: 470px !important;
+  max-height: 350px !important; 
+
+}
+@media (max-width:740px) {
+  max-width: 410px !important;
+  max-height: 310px !important; 
+}
+@media (max-width:639px) {
+  display: none !important;
+}
+}
 
 input[type="radio"] {
   display: none;
@@ -133,17 +150,9 @@ img {
       height: 20px;
     }
   }
-  .container {
-    width: 45% !important;
-    height: 340px;
-    margin: 0 30% 0 25% !important;
-  }
+
 }
-@media (max-width: 1024px) {
-  .container {
-    height: 320px;
-  }
-}
+
 @media (max-width: 848px) {
   .new-container {
     width: 270px !important;
@@ -160,18 +169,12 @@ img {
       }
     }
   }
-  .container {
-    width: 47% !important;
-    height: 300px;
-  }
+
 }
 @media (max-width: 768px) {
   .gallery-cell {
     width: 55%;
     height: 200px;
-  }
-  .container {
-    width: 55% !important;
   }
   .box {
     margin: 0 5% 0 5% !important;
@@ -182,9 +185,6 @@ img {
   }
 }
 @media (max-width: 639px) {
-  .container {
-    display: none !important;
-  }
   #manga-container {
     height: 95%;
   }
