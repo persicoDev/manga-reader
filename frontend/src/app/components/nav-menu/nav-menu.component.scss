@@ -13,15 +13,25 @@ nav label{transition: all 0.3s ease;}
 
 nav .slider{transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);}
 
+#a1:checked ~ .slider{
+  left: 0.9%;
+}
 #a2:checked ~ .slider{
-  left: 20.5%;
+  left: 21.5%;
 }
 #a3:checked ~ .slider{
-  left: 40.5%;
+  left: 41.2%;
 }
 #a4:checked ~ .slider{
-left: 59.8%;
+left: 60.9%;
 }
+#a1:checked ~ label > .menu-color,
+#a2:checked ~ label > .menu-color2,
+#a3:checked ~ label > .menu-color3,
+#a4:checked ~ label > .menu-color4 {
+  color: white;
+}
+
 
 input[type=radio]{
   display: none;
@@ -57,7 +67,7 @@ input[type=radio]{
       font-size: 17px;
     }
     nav .slider {
-      width: 17%;
+      width: 16%;
       left: 0%;
     }
     

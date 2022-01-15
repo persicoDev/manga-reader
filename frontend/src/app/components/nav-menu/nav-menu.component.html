@@ -11,24 +11,24 @@
             src="https://i.ibb.co/8cdXW2C/corvo2.png"
             alt="Workflow">
         </div>
-          <div class="items flex space-x-4">
-            <nav class="w-[600px] h-[60px] flex text-center relative bg-transparent">
+          <div class="items flex space-x-4 ml-[5px]">
+            <nav class="w-[600px] h-[60px] flex text-center relative bg-transparent pt-[10px]">
               <input type="radio" name="a" id="a1" checked="checked">
               <input type="radio" name="a" id="a2">
               <input type="radio" name="a" id="a3">
               <input type="radio" name="a" id="a4">
               <div class="slider absolute h-[70%] w-[18%] bg-[#8e44ad] left-[5] top-[9] rounded-[5px] z-[1] "></div>
-              <label routerLink="/home" class="a1 w-[18%] h-[70%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a1">
-              <span class="mr-1 text-white">Home</span>
+              <label routerLink="/home" class="a1 w-[18%] h-[84%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a1">
+              <span class="menu-color mr-1 text-[#877daf] ">Home</span>
               </label>
-              <label routerLink="/bookmarked" class="a2 w-[18%] h-[70%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a2">
-                <span class="bookmarked mr-1 text-white">Bookmarked</span>
+              <label routerLink="/bookmarked" class="a2 w-[18%] h-[84%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[12px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a2">
+                <span class="menu-color2 bookmarked mr-1 text-[#877daf] ">Bookmarked</span>
               </label>
-              <label routerLink="/manga-genres" class="a3 w-[18%] h-[70%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a3">
-                <span class="mr-1 text-white">Generi</span>
+              <label routerLink="/manga-genres" class="a3 w-[18%] h-[84%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a3">
+                <span class="menu-color3 mr-1 text-[#877daf]">Generi</span>
               </label>
-              <label class="a4 w-[18%] h-[70%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a4">
-                <span class="mr-1 text-white">Archivio</span>
+              <label class="a4 w-[18%] h-[84%] top-[9] pt-[5.5px] text-lg font-normal rounded-[5px] mr-[5px] ml-[5px] relative z-[1] cursor-pointer hover:bg-[#8e44ad4d]" for="a4">
+                <span class="menu-color4 mr-1 text-[#877daf]">Archivio</span>
               </label>
             </nav>
           </div>
@@ -52,7 +52,7 @@
         </button>
 
         <!-- Profile dropdown -->
-        <div id="mobile" class="ml-3 relative">
+        <div id="mobile" class="ml-[7px] relative">
           <div (click)="toggleProfile()">
             <button type="button"
               class="profile bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 "

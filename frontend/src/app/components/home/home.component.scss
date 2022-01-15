@@ -34,6 +34,9 @@ body {
     background-color: #428aa6;
   }
 }
+.manga-container::-webkit-scrollbar {
+  display: none !important;
+}
 .container {
   max-width: 550px !important;
   max-height: 380px !important;

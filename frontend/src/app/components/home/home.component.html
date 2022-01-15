@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<div class="manga-container noselect w-full h-full overflow-y-scroll font-sans">
+<div class="manga-container noselect w-full h-full  font-sans pt-[25px] mt-[-25px]">
     <!--Carousel-->
     <div class="container h-96 flex pt-3 flex justify-center flex-col items-center justify-items-center"
     style=" transform-style: preserve-3d;">
@@ -28,7 +28,7 @@
     <div style="margin: 0 7% 0 7%" class="box">
 
         <!--Top mangas-->
-        <div class="trends-three mt-1 text-white items-center flex">
+        <div class="trends-three mt-1 text-white items-center flex mr-[5px]">
             <div style="width: 75%;" class="part-left  items-center flex">
                 <i class="material-icons text-3xl">grade</i>
                 <span class="text-xl text-white">Top manga</span>
@@ -40,12 +40,12 @@
         </div>
         <div style="top: 132px;margin-bottom: -10px;background: transparent;height: 1px;"
             class="container-arrows flex z-20 relative">
-            <div style="left:-35;position: relative;width: 50%;">
+            <div style="left:-40px;position: relative;width: 50%;">
                 <button class="button-left"
                     style="border-radius: 100px;width: 50px;height: 50px; outline: none;display: unset;"
                     (click)="scrollLeft()"> <i class="material-icons text-3xl">chevron_left</i></button>
             </div>
-            <div style="position: relative;width: 50%;justify-content: flex-end;display: flex;right: -35;">
+            <div style="position: relative;width: 70%;justify-content: flex-end;display: flex;right: -40px;">
                 <button class="button-right"
                     style="border-radius: 100px;width: 50px;height: 50px;right: 100px; outline: none;display: unset;"
                     (click)="scrollRight()"><i class="material-icons text-3xl">chevron_right</i></button>
