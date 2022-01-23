@@ -37,6 +37,7 @@ module.exports = {
           'media(639px)': {'max': '639px'},
           'media(469px)': {'max': '469px'},
           'media(425px)': {'max': '425px'},
+          'media(700px)': {'min': '700px'},
           
         },
       },

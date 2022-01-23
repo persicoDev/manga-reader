@@ -1,27 +1,27 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<div class="manga-container noselect w-full h-full  font-sans pt-[25px] mt-[-25px]">
+<div class="manga-container noselect w-full h-full  font-sans pt-[25px] mt-[-25px]" style="overflow: hidden;">
     <!--Carousel-->
-    <div class="container h-96 flex pt-3 flex justify-center flex-col items-center justify-items-center"
-    style=" transform-style: preserve-3d;">
-    <input type="radio" name="slider" id="item-1" checked />
-    <input type="radio" name="slider" id="item-2" />
-    <input type="radio" name="slider" id="item-3" />
-    <div class="cards mt-16 relative w-full h-full mb-5">
-        <label style="transition: transform 0.4s ease;"
-            class=" card left-0 right-0 cursor-pointer absolute rounded-lg w-full h-full" for="item-1" id="news-1">
-            <img src="https://i.ibb.co/By80KgF/monster-kaiju-8.jpg" alt="news" />
-        </label>
-        <label style="transition: transform 0.4s ease;"
-            class="card left-0 right-0 cursor-pointer absolute rounded-lg w-full h-full" for="item-2" id="news-2">
-            <img src="https://i.ibb.co/28V5Y7Q/204199.jpg" alt="news" />
-        </label>
-        <label style="transition: transform 0.4s ease;"
-            class="card left-0 right-0 cursor-pointer absolute rounded-lg w-full h-full" for="item-3" id="news-3">
-            <img src="https://i.ibb.co/Sd3LhK3/Blue-Lock-Chapter-96.jpg" alt="news" />
-        </label>
+    <div class="container h-96 flex pt-3 flex justify-center flex-col items-center justify-items-center mt-[15px]"
+        style=" transform-style: preserve-3d;">
+        <input type="radio" name="slider" id="item-1" checked />
+        <input type="radio" name="slider" id="item-2" />
+        <input type="radio" name="slider" id="item-3" />
+        <div class="cards mt-16 relative w-full h-full mb-5">
+            <label style="transition: transform 0.4s ease;"
+                class=" card left-0 right-0 cursor-pointer absolute rounded-lg w-full h-full" for="item-1" id="news-1">
+                <img src="https://i.ibb.co/By80KgF/monster-kaiju-8.jpg" alt="news" />
+            </label>
+            <label style="transition: transform 0.4s ease;"
+                class="card left-0 right-0 cursor-pointer absolute rounded-lg w-full h-full" for="item-2" id="news-2">
+                <img src="https://i.ibb.co/28V5Y7Q/204199.jpg" alt="news" />
+            </label>
+            <label style="transition: transform 0.4s ease;"
+                class="card left-0 right-0 cursor-pointer absolute rounded-lg w-full h-full" for="item-3" id="news-3">
+                <img src="https://i.ibb.co/Sd3LhK3/Blue-Lock-Chapter-96.jpg" alt="news" />
+            </label>
+        </div>
     </div>
-</div>
     <!--End carousel-->
 
     <!--Box-->
@@ -30,8 +30,8 @@
         <!--Top mangas-->
         <div class="trends-three mt-1 text-white items-center flex mr-[5px]">
             <div style="width: 75%;" class="part-left  items-center flex">
-                <i class="material-icons text-3xl">grade</i>
-                <span class="text-xl text-white">Top manga</span>
+                <i class="material-icons text-3xl">whatshot</i>
+                <span class="text-xl text-white">Tendenze </span>
             </div>
             <div style="width: 25%;" class="items-center justify-end flex">
                 <span class="text-base text-white">More</span>
@@ -73,47 +73,98 @@
             </div>
         </div>
         <!--End top mangas-->
-
+    </div>
+    <div class="box-secondary">
         <!--Latest updates-->
-        <div class="trends mt-3 mb-3 text-white items-center flex">
+        <div style="width: 100%;display: flex;">
+        <div style="width: 70%;">
+        <div style="width: 100%;" class="trends  text-white items-center flex">
             <i class="material-icons text-3xl">list</i>
             <span class="text-lg text-white">Ultime aggiunte</span>
         </div>
-        <div style=" justify-content: center;" class="boxes overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
-            <div *ngFor="let manga of mangaInfos;let i = index">
-                <div class="cont" *ngIf="i < 6">
-                <div class="blog-card">
-                    <div class="meta">
-                        <div class="photo" style="background-image: url('{{ manga.preview }}' )"></div>
-                        <ul class="details">
-                            <li class="author"><a>{{manga.author}}</a></li>
-                            <li class="list">Numero capitoli: {{manga.chapter_cont}}</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="description">
-                        <h1>{{manga.title}}</h1>
-                        <p></p>
-                        <span class="text-white font-bold " style="font-size: large;"> Nuovi capitoli:</span>
-                        <div class="flex content-center items-center mt-[5px]">
-                            <span class="text-white" style="font-size: medium;">Capitolo 3</span>
-                            <img class="new" style="width: 55px;padding-top: 3px;"
-                                src="https://i.ibb.co/Z1GNrvd/download-4.gif">
+        
+        <div class="contenitore w-full h-full flex items-center "  >
+            <div style="width: 100%;margin-top: -60px;"
+                class="boxes overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
+                <div *ngFor="let manga of mangaInfos;let i = index">
+                    <div class="cont" *ngIf="i < 8">
+                        <div class="blog-card">
+                            <div class="meta">
+                                <div class="photo h-[210px]" style="background-image: url('{{ manga.preview }}' )">
+                                </div>
+                                <ul class="details">
+                                    <li class="author"><a>{{manga.author}}</a></li>
+                                    <li class="list">Numero capitoli: {{manga.chapter_cont}}</li>
+
+                                </ul>
+                            </div>
+                            <div class="description">
+                                <h1>{{manga.title}}</h1>
+                                <p></p>
+                                <span class="text-white font-bold " style="font-size: large;"> Nuovi capitoli:</span>
+                                <div class="flex content-center items-center mt-[5px]">
+                                    <span class="text-white" style="font-size: medium;">Capitolo 3</span>
+                                    <img class="new" style="width: 55px;padding-top: 3px;"
+                                        src="https://i.ibb.co/Z1GNrvd/download-4.gif">
+                                </div>
+                                <div style="padding-top: 3px;" class="flex content-center items-center">
+                                    <span class="text-white" style="font-size: medium;">Capitolo 2</span>
+                                    <img class="new2" style="width: 55px;"
+                                        src="https://i.ibb.co/Z1GNrvd/download-4.gif">
+                                </div>
+                                <div style="padding-top: 3px;" class="flex content-center items-center">
+                                    <span class="text-white" style="font-size: medium;">Capitolo 1</span>
+                                    <img class="new2" style="width: 55px;"
+                                        src="https://i.ibb.co/Z1GNrvd/download-4.gif">
+                                </div>
+                                <p class="read-more">
+                                    <a routerLink="/manga/{{ manga.id }}">Leggi</a>
+                                </p>
+                            </div>
                         </div>
-                        <div style="padding-top: 3px;" class="flex content-center items-center">
-                            <span class="text-white" style="font-size: medium;">Capitolo 2</span>
-                            <img class="new2" style="width: 55px;" src="https://i.ibb.co/Z1GNrvd/download-4.gif">
-                        </div>
-                        <p class="read-more">
-                            <a routerLink="/manga/{{ manga.id }}">Leggi</a>
-                        </p>
                     </div>
                 </div>
-</div>
             </div>
-        </div>
-        <div id="container2" class="manga-container2 flex flex-row flex-nowrap  pb-6 overflow-x-auto">
             
+        </div>
+
+        </div>
+        <div class="topManga" style="width: 30%;padding: 8px 0px 8px 0px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;    background: linear-gradient(
+                180deg, #8e44ad, #302069 100%, transparent);">
+                <div class="trends  mb-2 text-white items-center flex " style="    height: 50px;
+                padding-left: 10px;">
+                    <i class="material-icons text-[41px]">emoji_events</i>
+                    <span class="text-2xl text-white ml-[5px]">Top manga</span>
+                </div>
+                <div class="flex" *ngFor="let manga of mangaInfos;let i = index" >
+                    <div class="contt flex" *ngIf="i < 6" style="height: 160px;padding-left: 5px;width: 100%;" routerLink="/manga/{{ manga.id }}">
+                        <div class="cardTop flex" style="margin-left: 15px;" >
+                            <div class="photo2">
+                                <img src="{{ manga.preview }}" alt="" style="width: 110px;height: 143px;border-radius: 8px;margin-top: 7px;">
+                            </div>
+                            <div *ngIf="i == 0" style="margin-left: -25px;margin-top: 4px;">
+                                <img src="https://i.ibb.co/ZNgtpTT/gold-medal.png" alt="" style="width: 30px;height: 30px;">
+                            </div>
+                            <div *ngIf="i == 1" style="margin-left: -25px;margin-top: 4px;">
+                                <img src="https://i.ibb.co/LRcwRvd/medal.png" alt="" style="width: 30px;height: 30px;">
+                            </div>
+                            <div *ngIf="i == 2" style="margin-left: -25px;margin-top: 4px;">
+                                <img src="https://i.ibb.co/LQJnwMf/medal-1.png" alt="" style="width: 30px;height: 30px;">
+                            </div>
+                        </div>
+                        <div class="descrizione" style="position: relative;top: 30px;left: 8px;height: 100px;">
+                            <span class="title3 text-white font-bold" style="display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;max-width: 200px;font-size: large;">{{ manga.title }}</span>
+                            <span style="font-size: 14px;color: rgb(190, 190, 190);display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;max-width: 220px;">{{manga.author}}</span> 
+                            <div style="margin-top: 7px;"><i class="material-icons text-white" style="font-size: medium;">thumb_up</i><span class="text-white" style="margin-left:2px;position: relative;top: -2px;" >{{ manga.score }}</span></div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+</div>
+
+        <div id="container2" class="manga-container2 flex flex-row flex-nowrap  pb-6 overflow-x-auto">
+
             <div class="ul mr-[105px] flex flex-wrap p-0" *ngFor="let manga of mangaInfos;let i = index">
                 <li class="booking-card w-full " style="background-image: url('{{ manga.preview }}' )">
                     <div class="book-container">
@@ -134,51 +185,9 @@
                 </li>
             </div>
         </div>
-        <!--<div 
-            class="new-box overflow-hidden  flex flex-row flex-wrap w-full rounded-lg">
-            <div class="loop" *ngFor="let manga of mangaInfos;let i = index;">
-                    <div style="width:430px;height: 170px;" class="new-container flex h-48 rounded-lg mb-5"
-                        routerLink="/manga/{{ manga.id }}">
-                        <div class="new-manga w-[40%] h-full">
-                            <img class="new-image h-full w-auto" src="{{ manga.preview }}" />
-                        </div>
-                        <div class="w-full" style="padding: 0 1% 1.5% 3%;">
-                            <div class="new-description mt-1 text-white" style="width: 284px;">
-                                <h3 class="whitespace-nowrap overflow-ellipsis overflow-hidden font-bold ">
-                                    {{ manga.title }}
-                                </h3>
-                                <div class="flex mt-1">
-                                    <span class="text-gray-400 text-sm">Score</span>
-                                    <div class="chips inline-block cursor-pointer" style="margin-top: 3px;">
-                                        <span> {{ manga.score}} </span>
-                                    </div>
-                                </div>
-                                <div class="chapter mt-1 text-white text-sm" style="height: 60%;">
-                                    <span> Nuovi capitoli:</span>
-                                    <div class="flex content-center items-center">
-                                        <span>Capitolo 3</span>
-                                        <img class="new" style="width: 45px;padding-top: 3px;"
-                                            src="https://i.ibb.co/Z1GNrvd/download-4.gif">
-                                    </div>
-                                    <div style="padding-top: 3px;" class="flex content-center items-center">
-                                        <span>Capitolo 2</span>
-                                        <img class="new2" style="width: 45px;"
-                                            src="https://i.ibb.co/Z1GNrvd/download-4.gif">
-                                    </div>
-                                    <div style="padding-top: 3px;" class=" end flex content-center items-center">
-                                        <span>Capitolo 1</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                   
-                </div>
-
-            </div>
-        </div>-->
-        <!--End latest updates-->
-
+        
     </div>
+
     <!--End box-->
 
     <app-footer></app-footer>
