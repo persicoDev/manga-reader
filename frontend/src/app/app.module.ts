@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
 import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
 import { BookmarkedComponent } from './components/bookmarked/bookmarked.component';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReadMangaComponent } from './components/read-manga/read-manga.component'
 import { BottomBarComponent } from './components/bottom-bar/bottom-bar.component';
@@ -13,6 +14,7 @@ import { InfoMangaComponent } from './components/info-manga/info-manga.component
 import { FooterComponent } from './components/footer/footer.component';
 import { MangaGenresComponent } from './components/manga-genres/manga-genres.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -27,13 +29,15 @@ import { LoginComponent } from './components/login/login.component';
     FooterComponent,
     MangaGenresComponent,
     LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

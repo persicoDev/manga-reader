@@ -1,3 +1,4 @@
+import { LoginComponent } from './components/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BookmarkedComponent } from './components/bookmarked/bookmarked.component';
@@ -5,6 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 import { ReadMangaComponent } from './components/read-manga/read-manga.component';
 import { InfoMangaComponent } from './components/info-manga/info-manga.component';
 import { MangaGenresComponent } from './components/manga-genres/manga-genres.component';
+import { RegisterComponent } from './components/register/register.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +17,8 @@ const routes: Routes = [
   { path: 'read/:id/:item', component: ReadMangaComponent },
   { path: 'manga', component: InfoMangaComponent},
   { path: 'manga/:id', component: InfoMangaComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
