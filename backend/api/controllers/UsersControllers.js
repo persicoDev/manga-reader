@@ -4,8 +4,8 @@ const { authenticate } = require('passport');
 
 const getUserParams = body => {
     return {
-        nickname: body.nickname,
         email: body.email,
+        nickname: body.nickname,
         password: body.password
     };
 };
@@ -13,20 +13,23 @@ const getUserParams = body => {
 module.exports = {
     create: (req, res, next) => {
         if (req.skip) return next();
-
+        let body = req.body;
         let newUser = new User(getUserParams(req.body));
 
-        User.register(newUser, req.body.password, (error, user) => {
-            if (user) {
-                req.flash(`${user.nickname} account creato  zi!`);
-                res.locals.redirect = '/user';
-                next();
-            } else {
-                req.flash(`volevi eh, invece: ${error.message}.`);
-                res.locals.redirect = '/user/new';
-                next();
-            }
-        });
+        newUser.save().then(() => {
+            return newUser.createSession();
+        }).then((refreshToken) => {
+            return newUser.generateAccessAuthToken().then((accessToken) => {
+                return { accessToken, refreshToken }
+            }); 
+        }).then((authToken) => {
+            res
+                    .header('x-refresh-token', authTokens.refreshToken)
+                    .header('x-access-token', authTokens.accessToken)
+                    .send(newUser)
+        }).catch((e) => {
+            res.status(400).send(e);
+        })
     },
     
     redirectView: (_req, res, next) => {
