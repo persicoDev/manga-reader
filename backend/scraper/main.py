@@ -1,5 +1,6 @@
 import os
 import re
+import json
 import pymongo
 import requests
 import traceback
@@ -45,7 +46,7 @@ def get_manga(archive_link, manga_data_list, top_list):
 def get_score(title, author):
     title = title.replace("-", " ")
     title = title.replace(".", " ")
-    search_results = search(f'{title} {author} myanimelist manga')
+    search_results = list(search(f'{title} {author} myanimelist manga'))
     soup = BeautifulSoup(requests.get(search_results[0]).content, 'html.parser')
     score = soup.find("div", {"class": "score-label"})
     if score is None:
