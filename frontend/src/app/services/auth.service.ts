@@ -25,4 +25,11 @@ export class AuthService {
     );
   }
 
+  login(formData: userType) {
+    return this.http.post<userType>(`${this.apiUrl}/login`, formData, httpOption).subscribe(
+      data => console.log(data),
+      err => console.log(err)
+    );
+  }
+
 }
