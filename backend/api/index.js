@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, "dist/frontend")));
 app.use("/", express.static(path.join(__dirname, "dist/frontend")));
 app.use("/api", mangaRoute);
 app.use("/api", userRoute);
-
+app.use(expressValidator());
 // Create port
 const port = process.env.PORT || 4000;
 
