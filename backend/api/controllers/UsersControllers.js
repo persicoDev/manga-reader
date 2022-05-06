@@ -1,6 +1,5 @@
 const User = require('../models/UserAccounts');
-const passport = require('passport');
-const { authenticate } = require('passport');
+
 
 const getUserParams = body => {
     return {
@@ -42,6 +41,7 @@ module.exports = {
     login: (_req, res) => { res.render('/user/login'); },
     
     validate: (req, res, next) => {
+        console.log(req.body.email);
         req.sanitizeBody("email").normalizeEmail({
             all_lowercase: true
         }).trim();
