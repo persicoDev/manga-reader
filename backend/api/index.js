@@ -49,25 +49,6 @@ app.use((req, res, next) => {
    next(createError(404));
 });
 
-// app.post('/api/register', (req, res) => {
-//    let body = req.body;
-//    let newUser = new User(body);
-
-//    newUser.save().then(() => {
-//       return newUser.createSession();
-//    }).then((refreshToken) => {
-//       return newUser.generateAccessAuthToken().then((accessToken) => {
-//          return { accessToken, refreshToken }
-//       }); 
-//    }).then((authToken) => {
-//       res
-//             .header('x-refresh-token', authTokens.refreshToken)
-//             .header('x-access-token', authTokens.accessToken)
-//             .send(newUser)
-//    }).catch((e) => {
-//       res.status(400).send(e);
-//    })
-// })
 // error handler
 app.use(function (err, req, res, next) {
    console.error( 'tenimm nu error',err.message); // Log error message in our server's console
