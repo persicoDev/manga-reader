@@ -1,4 +1,4 @@
-const User = require('../models/UserAccounts');
+const User = require('../models/user.model');
 
 
 const getUserParams = body => {
