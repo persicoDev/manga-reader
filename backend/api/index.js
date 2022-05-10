@@ -8,7 +8,8 @@ const express = require("express"),
    passport = require('passport'),
    expressValidator = require('express-validator'),
    expressSession = require('express-session'),
-   User = require('./models/UserAccounts')
+   routes = require('./routes'),
+   User = require('./models/user.model')
    app = express();
    require("dotenv").config();
 
@@ -32,11 +33,7 @@ app.use(
 );
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, "dist/frontend")));
-app.use("/", express.static(path.join(__dirname, "dist/frontend")));
-app.use("/api", mangaRoute);
-app.use("/api", userRoute);
-app.use(expressValidator());
+app.use(routes);
 // Create port
 const port = process.env.PORT || 4000;
 
