@@ -35,9 +35,9 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-builders/custom-webpack": "^12.1.2",
+    "@angular-builders/custom-webpack": "^13.1.0",
     "@angular-devkit/architect": ">= 0.900 < 0.1300",
-    "@angular-devkit/build-angular": "~12.0.4",
+    "@angular-devkit/build-angular": "^13.3.5",
     "@angular/cli": "~12.0.4",
     "@angular/compiler-cli": "~12.0.4",
     "@tailwindcss/aspect-ratio": "0.2.1",
