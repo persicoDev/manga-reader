@@ -1,5 +1,6 @@
 const User = require('../models/user.model');
-
+const bcrypt = require('bcrypt');
+const userModel = require('../models/user.model');
 
 const getUserParams = body => {
     return {
@@ -10,25 +11,19 @@ const getUserParams = body => {
 };
 
 module.exports = {
-    create: (req, res, next) => {
+    create: async (req, res, next) => {
         if (req.skip) return next();
-        let body = req.body;
-        let newUser = new User(getUserParams(req.body));
-
-        newUser.save().then(() => {
-            return newUser.createSession();
-        }).then((refreshToken) => {
-            return newUser.generateAccessAuthToken().then((accessToken) => {
-                return { accessToken, refreshToken }
-            }); 
-        }).then((authToken) => {
-            res
-                    .header('x-refresh-token', authTokens.refreshToken)
-                    .header('x-access-token', authTokens.accessToken)
-                    .send(newUser)
-        }).catch((e) => {
-            res.status(400).send(e);
-        })
+        let { nickname, email, password } = req.body;
+        try {
+            const encryptedPassword = await bcrypt.hash(password, 10);
+            const user = await userModel.create({
+                nickname,
+                email: email.toLowercase(),
+                password: encryptedPassword
+            })
+        } catch(err){
+            console.log(err);
+        }
     },
     
     redirectView: (_req, res, next) => {

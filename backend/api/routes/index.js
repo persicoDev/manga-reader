@@ -4,4 +4,4 @@ const router = require('express').Router(),
 
 
 router.use('/mangas', mangaRoutes);
-router.use('user', userRoutes);
+router.use('/user', userRoutes);
