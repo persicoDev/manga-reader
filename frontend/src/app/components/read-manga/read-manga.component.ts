@@ -199,7 +199,7 @@ export class ReadMangaComponent implements OnInit, AfterViewInit {
   async ngOnInit(): Promise<void> {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.chapter = String(this.activatedRoute.snapshot.paramMap.get('item'));
-    this.manga = await this.MangaService.getSingleManga(this.id).toPromise();
+    this.manga = await this.MangaService.getById(this.id).toPromise();
     this.mangaLinks = this.getMangaLinks();
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   } 

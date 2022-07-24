@@ -94,7 +94,7 @@ export class InfoMangaComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.manga= (await this.MangaService.getSingleManga(this.id).toPromise());
+    this.manga= (await this.MangaService.getById(this.id).toPromise());
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
   }  
 

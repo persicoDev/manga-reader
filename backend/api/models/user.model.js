@@ -1,7 +1,5 @@
-const mongoose = require('mongoose'), jwt = require('jsonwebtoken'), crypto = require('crypto'), bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
-
-const jwtSecret = '878748697487789416166mfoienfeinforsnhpe84894984'
 
 const UserType = mongoose.Schema ({
     nickname: { type: String, requided: true },
@@ -10,9 +8,12 @@ const UserType = mongoose.Schema ({
         lowercase: true, unique: true
      },
     password: { type: String, requided: true },
+    manga: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "manga"
+    }],
     token: {
-        type: String,
-        required: true
+        type: String
     }
 })
 

@@ -13,7 +13,7 @@ module.exports = {
         }
     },
 
-    getOne: async (req, res) => {
+    getById: async (req, res) => {
         try {
             if (req.params.id === undefined)
                 return res.status(400).json({ message: 'not found'});

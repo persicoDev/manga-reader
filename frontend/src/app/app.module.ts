@@ -30,7 +30,6 @@ import { RegisterComponent } from './components/register/register.component';
     MangaGenresComponent,
     LoginComponent,
     RegisterComponent,
-
   ],
   imports: [
     BrowserModule,

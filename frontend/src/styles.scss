@@ -1,5 +1,5 @@
 @import 'tailwindcss/base';
-@import 'tailwindcss/components';
+ @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
 
@@ -32,3 +32,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 // $body_color: #1d3a55;
 // $nav_color: #3b6185; // 5* palette
+@media (min-width: 576px) {
+
+  .container-sm, .container {
+    max-width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+
+  .container-sm, .container {
+    max-width: 100%;
+  }
+}

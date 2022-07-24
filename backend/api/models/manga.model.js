@@ -14,7 +14,11 @@ const mangaInfos = mongoose.Schema({
     status: { type: String },
     year: { type: String },
     chapter_cont: { type: Number },
-    link: { key: String }
+    link: { key: String },
+    user: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user"
+    }]
 })
 
-module.exports = mongoose.model('manga-infos', mangaInfos);
+module.exports = mongoose.model('manga', mangaInfos);
